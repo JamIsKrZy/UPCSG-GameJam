@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://csbibxl84cpb5"]
+
+[sub_resource type="GDScript" id="GDScript_25jhe"]
+script/source = "extends Control
+
+@export var lock_timer: float = 5.;
+
+@onready var texture_node: TextureRect = $TextureRect
+
+enum SlotState {LOCKED, IDLE, ACTIVE}
+
+signal locked_slot;
+signal interact_slot(is_active: bool); 
+
+var state: SlotState = SlotState.IDLE
+
+func unhide_and_unlock():
+	state = SlotState.IDLE
+	texture_node.visible = true
+	
+	
+func hide_and_lock():
+	state = SlotState.LOCKED
+	texture_node.hide()
+	
+
+func lock_slot():
+	locked_slot.emit()
+	state = SlotState.LOCKED
+
+func _on_mouse_entered() -> void:
+	if state == SlotState.LOCKED: return
+	
+	state = SlotState.ACTIVE if state == SlotState.IDLE else SlotState.IDLE
+	var is_active = state == SlotState.ACTIVE
+	interact_slot.emit(is_active)
+	print(state)
+		
+	
+"
+
+[sub_resource type="ImageTexture" id="ImageTexture_25jhe"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wbwuf"]
+specular_texture = SubResource("ImageTexture_25jhe")
+specular_color = Color(0.6824887, 0.34135818, 0.4386422, 1)
+
+[node name="OneOpenSlot" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.09900001
+offset_bottom = -0.15200806
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_25jhe")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.37500003
+anchor_right = 0.80600005
+anchor_bottom = 1.0
+offset_right = -0.51208496
+texture = SubResource("CanvasTexture_wbwuf")
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_mouse_entered"]

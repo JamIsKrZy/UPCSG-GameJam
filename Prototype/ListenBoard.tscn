@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://7cyeq0hpfw24"]
+
+[ext_resource type="Script" uid="uid://bds7sjw8qkb52" path="res://Script/CameraListenBoard.gd" id="1_ogjpg"]
+
+[node name="ListenBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ogjpg")
+
+[node name="LeftBoard" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.333
+anchor_bottom = 1.0
+offset_right = 0.3840027
+mouse_filter = 1
+
+[node name="RightBoard" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.66700006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.3840332
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[connection signal="mouse_entered" from="LeftBoard" to="." method="left_hovered"]
+[connection signal="mouse_exited" from="LeftBoard" to="." method="hovered_out"]
+[connection signal="mouse_entered" from="RightBoard" to="." method="right_hovered"]
+[connection signal="mouse_exited" from="RightBoard" to="." method="hovered_out"]

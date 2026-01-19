@@ -1,0 +1,365 @@
+[gd_scene load_steps=2 format=3 uid="uid://snqvdh8kv1v2"]
+
+[ext_resource type="Script" uid="uid://bstru3tlv3drq" path="res://Script/Debuger.gd" id="1_db2so"]
+
+[node name="Debugerr" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_db2so")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.028
+anchor_top = 0.123
+anchor_right = 0.41700003
+anchor_bottom = 0.409
+offset_left = -0.25600052
+offset_top = 0.29599762
+offset_right = -0.3840332
+offset_bottom = -0.03201294
+grow_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="RoomLight" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Container/RoomLight"]
+layout_mode = 2
+text = "Room Light: "
+
+[node name="Value" type="Label" parent="Container/RoomLight"]
+layout_mode = 2
+text = "Value"
+
+[node name="Blank2" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Container/Blank2"]
+layout_mode = 2
+
+[node name="Sanity" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Container/Sanity"]
+layout_mode = 2
+text = "Sanity: "
+
+[node name="Value" type="Label" parent="Container/Sanity"]
+layout_mode = 2
+text = "Value"
+
+[node name="InSanity" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Container/InSanity"]
+layout_mode = 2
+text = "In Sanity:"
+
+[node name="Value" type="Label" parent="Container/InSanity"]
+layout_mode = 2
+text = "Value"
+
+[node name="Blank" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Container/Blank"]
+layout_mode = 2
+
+[node name="HeartRate" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Container/HeartRate"]
+layout_mode = 2
+text = "Heart Rate: "
+
+[node name="Value" type="Label" parent="Container/HeartRate"]
+layout_mode = 2
+text = "Value"
+
+[node name="Time" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Container/Time"]
+layout_mode = 2
+text = "Time: "
+
+[node name="Value" type="Label" parent="Container/Time"]
+layout_mode = 2
+text = "Value"
+
+[node name="EntityLoader" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.028
+anchor_top = 0.49400002
+anchor_right = 0.41700003
+anchor_bottom = 0.94600004
+offset_left = -0.25600052
+offset_top = -0.11199951
+offset_right = -0.3840332
+offset_bottom = -0.0079956055
+grow_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="Door" type="Label" parent="EntityLoader"]
+layout_mode = 2
+text = "DOOR"
+
+[node name="DoorEntity" type="HBoxContainer" parent="EntityLoader"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="EntityLoader/DoorEntity"]
+layout_mode = 2
+text = "Entity: "
+
+[node name="Value" type="Label" parent="EntityLoader/DoorEntity"]
+layout_mode = 2
+text = "Value"
+
+[node name="DoorMeter" type="HBoxContainer" parent="EntityLoader"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="EntityLoader/DoorMeter"]
+layout_mode = 2
+text = "Attack Meter: "
+
+[node name="Value" type="Label" parent="EntityLoader/DoorMeter"]
+layout_mode = 2
+text = "Value"
+
+[node name="Blank2" type="HBoxContainer" parent="EntityLoader"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="EntityLoader/Blank2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EntityLoader"]
+layout_mode = 2
+text = "TV "
+
+[node name="TvActive" type="HBoxContainer" parent="EntityLoader"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label2" type="Label" parent="EntityLoader/TvActive"]
+layout_mode = 2
+text = "Active: "
+
+[node name="Value" type="Label" parent="EntityLoader/TvActive"]
+layout_mode = 2
+text = "Value"
+
+[node name="TvAttackMeter" type="HBoxContainer" parent="EntityLoader"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="EntityLoader/TvAttackMeter"]
+layout_mode = 2
+text = "Attack Meter:"
+
+[node name="Value" type="Label" parent="EntityLoader/TvAttackMeter"]
+layout_mode = 2
+text = "Value"
+
+[node name="Blank" type="HBoxContainer" parent="EntityLoader"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="EntityLoader/Blank"]
+layout_mode = 2
+
+[node name="Window" type="Label" parent="EntityLoader"]
+layout_mode = 2
+text = "WINDOW "
+
+[node name="WindowEntity" type="HBoxContainer" parent="EntityLoader"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label2" type="Label" parent="EntityLoader/WindowEntity"]
+layout_mode = 2
+text = "Entity: "
+
+[node name="Value" type="Label" parent="EntityLoader/WindowEntity"]
+layout_mode = 2
+text = "Value"
+
+[node name="WindowAttackMeter" type="HBoxContainer" parent="EntityLoader"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="EntityLoader/WindowAttackMeter"]
+layout_mode = 2
+text = "Attack Meter: "
+
+[node name="Value" type="Label" parent="EntityLoader/WindowAttackMeter"]
+layout_mode = 2
+text = "Value"
+
+[node name="RoomStates" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74300003
+anchor_top = 0.28100002
+anchor_right = 0.96500003
+anchor_bottom = 0.81600004
+offset_left = 0.063964844
+offset_top = -0.088012695
+offset_right = 0.3199463
+offset_bottom = 0.23199463
+grow_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="RoomStates"]
+layout_mode = 2
+text = "LEFT DOOR"
+horizontal_alignment = 2
+
+[node name="Door" type="HBoxContainer" parent="RoomStates"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label2" type="Label" parent="RoomStates/Door"]
+layout_mode = 2
+text = "Open: "
+
+[node name="Value" type="Label" parent="RoomStates/Door"]
+layout_mode = 2
+text = "Value"
+
+[node name="DoorLock" type="HBoxContainer" parent="RoomStates"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="RoomStates/DoorLock"]
+layout_mode = 2
+text = "Locked: "
+
+[node name="Value" type="Label" parent="RoomStates/DoorLock"]
+layout_mode = 2
+text = "Value"
+
+[node name="Blank2" type="HBoxContainer" parent="RoomStates"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="RoomStates/Blank2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="RoomStates"]
+layout_mode = 2
+text = "RIGHT WINDOW"
+horizontal_alignment = 2
+
+[node name="WindowActive" type="HBoxContainer" parent="RoomStates"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="RoomStates/WindowActive"]
+layout_mode = 2
+text = "Active: "
+
+[node name="Value" type="Label" parent="RoomStates/WindowActive"]
+layout_mode = 2
+text = "Value"
+
+[node name="WindowClosed" type="HBoxContainer" parent="RoomStates"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="RoomStates/WindowClosed"]
+layout_mode = 2
+text = "Close: "
+
+[node name="Value" type="Label" parent="RoomStates/WindowClosed"]
+layout_mode = 2
+text = "Value"
+
+[node name="WindowProgress" type="HBoxContainer" parent="RoomStates"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="RoomStates/WindowProgress"]
+layout_mode = 2
+text = "Progress:"
+
+[node name="Value" type="Label" parent="RoomStates/WindowProgress"]
+layout_mode = 2
+text = "Value"
+
+[node name="WindowLocked" type="HBoxContainer" parent="RoomStates"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="RoomStates/WindowLocked"]
+layout_mode = 2
+text = "Locked:"
+
+[node name="Value" type="Label" parent="RoomStates/WindowLocked"]
+layout_mode = 2
+text = "Value"
+
+[node name="Blank" type="HBoxContainer" parent="RoomStates"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="RoomStates/Blank"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="RoomStates"]
+layout_mode = 2
+text = "CENTER TV"
+horizontal_alignment = 2
+
+[node name="TVActive" type="HBoxContainer" parent="RoomStates"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="RoomStates/TVActive"]
+layout_mode = 2
+text = "On: "
+
+[node name="Value" type="Label" parent="RoomStates/TVActive"]
+layout_mode = 2
+text = "Value"
+
+[node name="TVLocked" type="HBoxContainer" parent="RoomStates"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="RoomStates/TVLocked"]
+layout_mode = 2
+text = "Locked: "
+
+[node name="Value" type="Label" parent="RoomStates/TVLocked"]
+layout_mode = 2
+text = "Value"
