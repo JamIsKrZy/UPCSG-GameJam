@@ -1,0 +1,205 @@
+[gd_scene load_steps=15 format=3 uid="uid://wnblk824usty"]
+
+[ext_resource type="Texture2D" uid="uid://bjvfopqmak6qq" path="res://Assets/Laptop/wallpaperflare.com_wallpaper.jpg" id="1_l71r0"]
+[ext_resource type="Texture2D" uid="uid://ceep3n5deg8sa" path="res://Assets/Laptop/message.png" id="2_da0kx"]
+[ext_resource type="Texture2D" uid="uid://n3ck5da8q6v3" path="res://Assets/Laptop/windows-8.png" id="2_mww2q"]
+[ext_resource type="Texture2D" uid="uid://djekg6r2kuapi" path="res://Assets/Laptop/diary.png" id="4_mlxj4"]
+[ext_resource type="Texture2D" uid="uid://b30dbaroj0ymu" path="res://Assets/Laptop/facebook.png" id="5_vc2tr"]
+[ext_resource type="PackedScene" uid="uid://berbdh3suqklt" path="res://MainScene/Laptop/dummy_app.tscn" id="6_m678x"]
+[ext_resource type="PackedScene" uid="uid://dbbxmjykumyi6" path="res://MainScene/Laptop/Massager.tscn" id="7_ugdc3"]
+
+[sub_resource type="Gradient" id="Gradient_2rf61"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.026755853, 1)
+colors = PackedColorArray(0.15487596, 0.154876, 0.15487596, 1, 0.5409905, 0.5409905, 0.5409905, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l71r0"]
+gradient = SubResource("Gradient_2rf61")
+fill_from = Vector2(0.5, 0.63247865)
+fill_to = Vector2(1, 0.78205127)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_da0kx"]
+diffuse_texture = SubResource("GradientTexture2D_l71r0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mww2q"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlxj4"]
+bg_color = Color(1, 1, 1, 0.19607843)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_da0kx"]
+bg_color = Color(1, 1, 1, 0.19607843)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35906902, 0.35906914, 0.35906887, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc2tr"]
+draw_center = false
+
+[node name="MainLaptop" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_da0kx")
+
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = 0.012
+anchor_right = 0.99300003
+anchor_bottom = 0.98800004
+offset_left = -0.06400013
+offset_top = 0.22399998
+offset_right = 0.063964844
+offset_bottom = -0.22399902
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_mww2q")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.007
+anchor_top = -0.013
+anchor_right = 1.0070001
+anchor_bottom = 1.013
+offset_left = -0.04799986
+offset_top = 0.21600056
+offset_right = 0.047851563
+offset_bottom = -0.21600342
+texture = ExtResource("1_l71r0")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.93700004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.184021
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.76862746, 0.9764706, 0.99607843, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.85
+offset_left = 0.04799986
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mlxj4")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/ColorRect/HBoxContainer/PanelContainer"]
+z_index = 4
+layout_mode = 2
+texture = ExtResource("2_mww2q")
+expand_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Panel/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_da0kx")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/ColorRect/HBoxContainer/PanelContainer2"]
+z_index = 4
+layout_mode = 2
+texture = ExtResource("2_da0kx")
+expand_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="Panel/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_da0kx")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/ColorRect/HBoxContainer/PanelContainer3"]
+z_index = 4
+layout_mode = 2
+texture = ExtResource("4_mlxj4")
+expand_mode = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="Panel/ColorRect/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0.995, 2.295)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_da0kx")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/ColorRect/HBoxContainer/PanelContainer4"]
+z_index = 4
+layout_mode = 2
+size_flags_stretch_ratio = 8.37
+texture = ExtResource("5_vc2tr")
+expand_mode = 2
+
+[node name="Border" type="Panel" parent="."]
+z_index = 1
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = 0.012
+anchor_right = 0.99300003
+anchor_bottom = 0.98800004
+offset_left = -0.06400013
+offset_top = 0.22399998
+offset_right = 0.063964844
+offset_bottom = -0.22399902
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_mww2q")
+
+[node name="ApplicationArea" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = 0.012
+anchor_right = 0.99300003
+anchor_bottom = 0.92600006
+offset_left = -0.06400013
+offset_top = 0.22399998
+offset_right = 0.063964844
+offset_bottom = -0.048034668
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_vc2tr")
+
+[node name="Node2D" type="Node2D" parent="ApplicationArea"]
+
+[node name="Area2D" type="StaticBody2D" parent="ApplicationArea/Node2D"]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ApplicationArea/Node2D/Area2D"]
+polygon = PackedVector2Array(3, 4, 3, 590, 1133, 590, 1133, 3, 5, 3, 5, 0, 1136, 0, 1136, 593, 0, 592, 0, 0, 3, 0)
+
+[node name="DummyApp" parent="ApplicationArea/Node2D" instance=ExtResource("6_m678x")]
+position = Vector2(168, 56)
+scale = Vector2(0.79, 0.79)
+
+[node name="DummyApp2" parent="ApplicationArea/Node2D" instance=ExtResource("7_ugdc3")]
+position = Vector2(108, 12)
+scale = Vector2(0.725, 0.725)

@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://berbdh3suqklt"]
+
+[sub_resource type="GDScript" id="GDScript_vc2tr"]
+script/source = "extends CharacterBody2D
+
+var draggingDistance
+var dir
+var dragging
+var newPosition = Vector2()
+
+
+var mouse_in = false 
+
+@export var use_screen_boundaries = true
+@export var boundary_margin = 50  # Pixels from screen edge
+@export var use_collision_check = true  # Check for StaticBody2D collisions
+
+
+func _ready():
+	pass
+	
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed() && mouse_in:
+			draggingDistance = position.distance_to(get_viewport().get_mouse_position())
+			dir = (get_viewport().get_mouse_position() - position).normalized()
+			dragging = true
+			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
+		else:
+			dragging = false
+			#
+	elif event is InputEventMouseMotion:
+		if dragging:
+			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
+
+func _physics_process(delta):
+	if dragging:
+		var target_position = newPosition
+		
+		# Apply screen boundaries if enabled
+		if use_screen_boundaries:
+			target_position = clamp_to_screen(target_position)
+		
+		# Calculate velocity
+		velocity = (target_position - position) * Vector2(30, 30)
+		
+		# Move and check for collisions
+		move_and_slide()
+		
+		# If collision check is enabled, prevent movement into walls
+		if use_collision_check && get_slide_collision_count() > 0:
+			# Get the last valid position before collision
+			for i in get_slide_collision_count():
+				var collision = get_slide_collision(i)
+				# Push back slightly from the collision
+				position -= collision.get_normal() * 2
+	
+func clamp_to_screen(target_pos: Vector2) -> Vector2:
+	var screen_size = get_viewport_rect().size
+	var clamped_pos = target_pos
+	
+	clamped_pos.x = clamp(target_pos.x, boundary_margin, screen_size.x - boundary_margin)
+	clamped_pos.y = clamp(target_pos.y, boundary_margin, screen_size.y - boundary_margin)
+	
+	return clamped_pos
+
+func _mouse_entered() -> void:
+	print(\"In\")
+	mouse_in = true
+
+func _mouse_exited() -> void:
+	print(\"out\")
+	
+	mouse_in = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc2tr"]
+size = Vector2(512, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m678x"]
+size = Vector2(920, 32)
+
+[node name="DummyApp" type="CharacterBody2D"]
+collision_layer = 2
+script = SubResource("GDScript_vc2tr")
+use_screen_boundaries = false
+boundary_margin = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(448, 48)
+shape = SubResource("RectangleShape2D_vc2tr")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 920.0
+offset_bottom = 648.0
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 920.0
+offset_bottom = 32.0
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(460, 16)
+shape = SubResource("RectangleShape2D_m678x")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_mouse_exited"]

@@ -1,0 +1,666 @@
+[gd_scene load_steps=13 format=3 uid="uid://dbbxmjykumyi6"]
+
+[ext_resource type="Texture2D" uid="uid://ceep3n5deg8sa" path="res://Assets/Laptop/message.png" id="1_cvjbv"]
+[ext_resource type="Shader" uid="uid://xu3r0ydttvq8" path="res://Shader/ProfileCircle.gdshader" id="2_huwtf"]
+[ext_resource type="Texture2D" uid="uid://3farb36jp6k1" path="res://Assets/Laptop/latest-2006512497.svg" id="3_s1tbu"]
+[ext_resource type="Texture2D" uid="uid://ddoevswfw57hw" path="res://Assets/Laptop/like.png" id="4_s1tbu"]
+
+[sub_resource type="GDScript" id="GDScript_vc2tr"]
+script/source = "extends CharacterBody2D
+
+var draggingDistance
+var dir
+var dragging
+var newPosition = Vector2()
+
+
+var mouse_in = false 
+
+@export var use_screen_boundaries = true
+@export var boundary_margin = 50  # Pixels from screen edge
+@export var use_collision_check = true  # Check for StaticBody2D collisions
+
+
+func _ready():
+	pass
+	
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed() && mouse_in:
+			draggingDistance = position.distance_to(get_viewport().get_mouse_position())
+			dir = (get_viewport().get_mouse_position() - position).normalized()
+			dragging = true
+			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
+		else:
+			dragging = false
+			#
+	elif event is InputEventMouseMotion:
+		if dragging:
+			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
+
+func _physics_process(delta):
+	if dragging:
+		var target_position = newPosition
+		
+		# Apply screen boundaries if enabled
+		if use_screen_boundaries:
+			target_position = clamp_to_screen(target_position)
+		
+		# Calculate velocity
+		velocity = (target_position - position) * Vector2(30, 30)
+		
+		# Move and check for collisions
+		move_and_slide()
+		
+		# If collision check is enabled, prevent movement into walls
+		if use_collision_check && get_slide_collision_count() > 0:
+			# Get the last valid position before collision
+			for i in get_slide_collision_count():
+				var collision = get_slide_collision(i)
+				# Push back slightly from the collision
+				position -= collision.get_normal() * 2
+	
+func clamp_to_screen(target_pos: Vector2) -> Vector2:
+	var screen_size = get_viewport_rect().size
+	var clamped_pos = target_pos
+	
+	clamped_pos.x = clamp(target_pos.x, boundary_margin, screen_size.x - boundary_margin)
+	clamped_pos.y = clamp(target_pos.y, boundary_margin, screen_size.y - boundary_margin)
+	
+	return clamped_pos
+
+func _mouse_entered() -> void:
+	print(\"In\")
+	mouse_in = true
+
+func _mouse_exited() -> void:
+	print(\"out\")
+	
+	mouse_in = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc2tr"]
+size = Vector2(608, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m678x"]
+size = Vector2(920, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_huwtf"]
+bg_color = Color(0, 0.06666667, 0.09803922, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_huwtf"]
+font_size = 18
+outline_size = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_s1tbu"]
+font_size = 14
+font_color = Color(0.76240367, 0.76240367, 0.76240367, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8tjup"]
+shader = ExtResource("2_huwtf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1tbu"]
+bg_color = Color(0.099985994, 0.09998601, 0.099985965, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Messager" type="CharacterBody2D"]
+collision_layer = 2
+script = SubResource("GDScript_vc2tr")
+use_screen_boundaries = false
+boundary_margin = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(464, 48)
+shape = SubResource("RectangleShape2D_vc2tr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(460, 16)
+shape = SubResource("RectangleShape2D_m678x")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 920.0
+offset_bottom = 648.0
+mouse_filter = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.062000003
+offset_bottom = -0.1760025
+mouse_filter = 1
+color = Color(0.08964228, 0.13953215, 0.11071608, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.012
+anchor_right = 0.043
+anchor_bottom = 0.049000002
+offset_left = 0.35999775
+offset_top = 0.2239995
+offset_right = 456.44
+offset_bottom = 456.24792
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_cvjbv")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.012
+anchor_right = 0.209
+anchor_bottom = 0.049000002
+offset_left = 0.15999985
+offset_top = 0.22399998
+offset_right = -70.28
+offset_bottom = -0.7520008
+text = "Messager"
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.074
+anchor_right = 0.409
+anchor_bottom = 0.975
+offset_left = 0.3599987
+offset_top = 0.048000336
+offset_right = -32.28
+offset_bottom = 0.2000122
+
+[node name="VScrollBar" type="ScrollContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.027
+anchor_right = 0.9760001
+anchor_bottom = 0.98600006
+offset_left = -0.41600037
+offset_top = -7.7680006
+offset_right = -0.12802124
+offset_bottom = 0.17596436
+scroll_vertical_custom_step = 5.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/VScrollBar"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Control/Panel/VScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huwtf")
+
+[node name="Label" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.21300001
+anchor_right = 0.96000004
+anchor_bottom = 0.56
+offset_left = 0.099998474
+offset_top = 0.024998665
+text = "James Bond"
+label_settings = SubResource("LabelSettings_huwtf")
+
+[node name="Label2" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.53300005
+anchor_right = 0.96000004
+anchor_bottom = 0.84800005
+offset_left = 0.099998474
+offset_top = 0.024993896
+offset_bottom = 0.029994965
+text = "asa naka get in the fucking cvar"
+label_settings = SubResource("LabelSettings_s1tbu")
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/VScrollBar/VBoxContainer/Panel"]
+material = SubResource("ShaderMaterial_8tjup")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053000003
+anchor_top = 0.11000001
+anchor_right = 0.24000001
+anchor_bottom = 0.87700003
+offset_left = 0.09999943
+offset_top = -0.25000095
+offset_bottom = -0.24100494
+texture = ExtResource("3_s1tbu")
+expand_mode = 1
+
+[node name="Panel2" type="Panel" parent="Control/Panel/VScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huwtf")
+
+[node name="Label" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.21300001
+anchor_right = 0.96000004
+anchor_bottom = 0.56
+offset_left = 0.099998474
+offset_top = 0.024998665
+text = "James Bond"
+label_settings = SubResource("LabelSettings_huwtf")
+
+[node name="Label2" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.53300005
+anchor_right = 0.96000004
+anchor_bottom = 0.84800005
+offset_left = 0.099998474
+offset_top = 0.024993896
+offset_bottom = 0.029994965
+text = "asa naka get in the fucking cvar"
+label_settings = SubResource("LabelSettings_s1tbu")
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/VScrollBar/VBoxContainer/Panel2"]
+material = SubResource("ShaderMaterial_8tjup")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053000003
+anchor_top = 0.11000001
+anchor_right = 0.24000001
+anchor_bottom = 0.87700003
+offset_left = 0.09999943
+offset_top = -0.25000095
+offset_bottom = -0.24100494
+texture = ExtResource("3_s1tbu")
+expand_mode = 1
+
+[node name="Panel3" type="Panel" parent="Control/Panel/VScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huwtf")
+
+[node name="Label" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.21300001
+anchor_right = 0.96000004
+anchor_bottom = 0.56
+offset_left = 0.099998474
+offset_top = 0.024998665
+text = "James Bond"
+label_settings = SubResource("LabelSettings_huwtf")
+
+[node name="Label2" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.53300005
+anchor_right = 0.96000004
+anchor_bottom = 0.84800005
+offset_left = 0.099998474
+offset_top = 0.024993896
+offset_bottom = 0.029994965
+text = "asa naka get in the fucking cvar"
+label_settings = SubResource("LabelSettings_s1tbu")
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/VScrollBar/VBoxContainer/Panel3"]
+material = SubResource("ShaderMaterial_8tjup")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053000003
+anchor_top = 0.11000001
+anchor_right = 0.24000001
+anchor_bottom = 0.87700003
+offset_left = 0.09999943
+offset_top = -0.25000095
+offset_bottom = -0.24100494
+texture = ExtResource("3_s1tbu")
+expand_mode = 1
+
+[node name="Panel4" type="Panel" parent="Control/Panel/VScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huwtf")
+
+[node name="Label" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.21300001
+anchor_right = 0.96000004
+anchor_bottom = 0.56
+offset_left = 0.099998474
+offset_top = 0.024998665
+text = "James Bond"
+label_settings = SubResource("LabelSettings_huwtf")
+
+[node name="Label2" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.53300005
+anchor_right = 0.96000004
+anchor_bottom = 0.84800005
+offset_left = 0.099998474
+offset_top = 0.024993896
+offset_bottom = 0.029994965
+text = "asa naka get in the fucking cvar"
+label_settings = SubResource("LabelSettings_s1tbu")
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/VScrollBar/VBoxContainer/Panel4"]
+material = SubResource("ShaderMaterial_8tjup")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053000003
+anchor_top = 0.11000001
+anchor_right = 0.24000001
+anchor_bottom = 0.87700003
+offset_left = 0.09999943
+offset_top = -0.25000095
+offset_bottom = -0.24100494
+texture = ExtResource("3_s1tbu")
+expand_mode = 1
+
+[node name="Panel5" type="Panel" parent="Control/Panel/VScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huwtf")
+
+[node name="Label" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.21300001
+anchor_right = 0.96000004
+anchor_bottom = 0.56
+offset_left = 0.099998474
+offset_top = 0.024998665
+text = "James Bond"
+label_settings = SubResource("LabelSettings_huwtf")
+
+[node name="Label2" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.53300005
+anchor_right = 0.96000004
+anchor_bottom = 0.84800005
+offset_left = 0.099998474
+offset_top = 0.024993896
+offset_bottom = 0.029994965
+text = "asa naka get in the fucking cvar"
+label_settings = SubResource("LabelSettings_s1tbu")
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/VScrollBar/VBoxContainer/Panel5"]
+material = SubResource("ShaderMaterial_8tjup")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053000003
+anchor_top = 0.11000001
+anchor_right = 0.24000001
+anchor_bottom = 0.87700003
+offset_left = 0.09999943
+offset_top = -0.25000095
+offset_bottom = -0.24100494
+texture = ExtResource("3_s1tbu")
+expand_mode = 1
+
+[node name="Panel6" type="Panel" parent="Control/Panel/VScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huwtf")
+
+[node name="Label" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.21300001
+anchor_right = 0.96000004
+anchor_bottom = 0.56
+offset_left = 0.099998474
+offset_top = 0.024998665
+text = "James Bond"
+label_settings = SubResource("LabelSettings_huwtf")
+
+[node name="Label2" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.53300005
+anchor_right = 0.96000004
+anchor_bottom = 0.84800005
+offset_left = 0.099998474
+offset_top = 0.024993896
+offset_bottom = 0.029994965
+text = "asa naka get in the fucking cvar"
+label_settings = SubResource("LabelSettings_s1tbu")
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/VScrollBar/VBoxContainer/Panel6"]
+material = SubResource("ShaderMaterial_8tjup")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053000003
+anchor_top = 0.11000001
+anchor_right = 0.24000001
+anchor_bottom = 0.87700003
+offset_left = 0.09999943
+offset_top = -0.25000095
+offset_bottom = -0.24100494
+texture = ExtResource("3_s1tbu")
+expand_mode = 1
+
+[node name="Panel7" type="Panel" parent="Control/Panel/VScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huwtf")
+
+[node name="Label" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.21300001
+anchor_right = 0.96000004
+anchor_bottom = 0.56
+offset_left = 0.099998474
+offset_top = 0.024998665
+text = "James Bond"
+label_settings = SubResource("LabelSettings_huwtf")
+
+[node name="Label2" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.53300005
+anchor_right = 0.96000004
+anchor_bottom = 0.84800005
+offset_left = 0.099998474
+offset_top = 0.024993896
+offset_bottom = 0.029994965
+text = "asa naka get in the fucking cvar"
+label_settings = SubResource("LabelSettings_s1tbu")
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/VScrollBar/VBoxContainer/Panel7"]
+material = SubResource("ShaderMaterial_8tjup")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053000003
+anchor_top = 0.11000001
+anchor_right = 0.24000001
+anchor_bottom = 0.87700003
+offset_left = 0.09999943
+offset_top = -0.25000095
+offset_bottom = -0.24100494
+texture = ExtResource("3_s1tbu")
+expand_mode = 1
+
+[node name="Panel8" type="Panel" parent="Control/Panel/VScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huwtf")
+
+[node name="Label" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.21300001
+anchor_right = 0.96000004
+anchor_bottom = 0.56
+offset_left = 0.099998474
+offset_top = 0.024998665
+text = "James Bond"
+label_settings = SubResource("LabelSettings_huwtf")
+
+[node name="Label2" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.53300005
+anchor_right = 0.96000004
+anchor_bottom = 0.84800005
+offset_left = 0.099998474
+offset_top = 0.024993896
+offset_bottom = 0.029994965
+text = "asa naka get in the fucking cvar"
+label_settings = SubResource("LabelSettings_s1tbu")
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/VScrollBar/VBoxContainer/Panel8"]
+material = SubResource("ShaderMaterial_8tjup")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053000003
+anchor_top = 0.11000001
+anchor_right = 0.24000001
+anchor_bottom = 0.87700003
+offset_left = 0.09999943
+offset_top = -0.25000095
+offset_bottom = -0.24100494
+texture = ExtResource("3_s1tbu")
+expand_mode = 1
+
+[node name="Panel9" type="Panel" parent="Control/Panel/VScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huwtf")
+
+[node name="Label" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.21300001
+anchor_right = 0.96000004
+anchor_bottom = 0.56
+offset_left = 0.099998474
+offset_top = 0.024998665
+text = "James Bond"
+label_settings = SubResource("LabelSettings_huwtf")
+
+[node name="Label2" type="Label" parent="Control/Panel/VScrollBar/VBoxContainer/Panel9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.53300005
+anchor_right = 0.96000004
+anchor_bottom = 0.84800005
+offset_left = 0.099998474
+offset_top = 0.024993896
+offset_bottom = 0.029994965
+text = "asa naka get in the fucking cvar"
+label_settings = SubResource("LabelSettings_s1tbu")
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/VScrollBar/VBoxContainer/Panel9"]
+material = SubResource("ShaderMaterial_8tjup")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053000003
+anchor_top = 0.11000001
+anchor_right = 0.24000001
+anchor_bottom = 0.87700003
+offset_left = 0.09999943
+offset_top = -0.25000095
+offset_bottom = -0.24100494
+texture = ExtResource("3_s1tbu")
+expand_mode = 1
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38300002
+anchor_top = 0.074
+anchor_right = 0.98300004
+anchor_bottom = 0.975
+offset_left = -0.36001587
+offset_top = 0.048000336
+offset_right = -0.3600464
+offset_bottom = 0.2000122
+
+[node name="Panel" type="Panel" parent="Control/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15900001
+anchor_top = 0.93200004
+anchor_right = 0.89900005
+anchor_bottom = 0.98600006
+offset_left = 0.23199463
+offset_top = -0.2880249
+offset_right = -0.24801636
+offset_bottom = 0.17596436
+theme_override_styles/panel = SubResource("StyleBoxFlat_s1tbu")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.014
+anchor_right = 0.98600006
+anchor_bottom = 0.93200004
+offset_left = 0.27199984
+offset_top = -0.1760006
+offset_right = -0.2720337
+offset_bottom = -0.2880249
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.91300005
+anchor_top = 0.93200004
+anchor_right = 0.9710001
+anchor_bottom = 0.98600006
+offset_left = 0.023986816
+offset_top = -0.2880249
+offset_right = 0.00793457
+offset_bottom = 0.17596436
+texture = ExtResource("4_s1tbu")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_mouse_exited"]

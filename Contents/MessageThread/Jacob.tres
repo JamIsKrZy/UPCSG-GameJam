@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="MessageThreadContent" load_steps=7 format=3 uid="uid://blvegwy7407hi"]
+
+[ext_resource type="Script" uid="uid://dy73hp4ke0fm5" path="res://Script/Resource/Content/MessageThreadContent.gd" id="1_4acux"]
+[ext_resource type="Script" uid="uid://ctwekymrdpxqw" path="res://Script/Resource/Content/MessageChat.gd" id="2_cq4vv"]
+
+[sub_resource type="Resource" id="Resource_ovvth"]
+script = ExtResource("2_cq4vv")
+text = "my laptop is down	"
+metadata/_custom_type_script = "uid://ctwekymrdpxqw"
+
+[sub_resource type="Resource" id="Resource_3252k"]
+script = ExtResource("2_cq4vv")
+who = 0
+text = "Aight ill do it on my own"
+metadata/_custom_type_script = "uid://ctwekymrdpxqw"
+
+[sub_resource type="Resource" id="Resource_dbc0j"]
+script = ExtResource("2_cq4vv")
+is_image = true
+metadata/_custom_type_script = "uid://ctwekymrdpxqw"
+
+[sub_resource type="Resource" id="Resource_pyms7"]
+script = ExtResource("2_cq4vv")
+text = "Undefined Text, Please Define"
+metadata/_custom_type_script = "uid://ctwekymrdpxqw"
+
+[resource]
+script = ExtResource("1_4acux")
+thread = Array[ExtResource("2_cq4vv")]([SubResource("Resource_ovvth"), SubResource("Resource_3252k"), SubResource("Resource_dbc0j"), SubResource("Resource_pyms7")])
+metadata/_custom_type_script = "uid://dy73hp4ke0fm5"
