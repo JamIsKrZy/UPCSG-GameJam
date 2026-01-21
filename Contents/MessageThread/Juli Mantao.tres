@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="MessageThreadContent" load_steps=6 format=3 uid="uid://c1t0dphviwyhr"]
+
+[ext_resource type="Script" uid="uid://ctwekymrdpxqw" path="res://Script/Resource/Content/MessageChat.gd" id="1_mkjnk"]
+[ext_resource type="Script" uid="uid://dy73hp4ke0fm5" path="res://Script/Resource/Content/MessageThreadContent.gd" id="2_k4y2d"]
+
+[sub_resource type="Resource" id="Resource_mkjnk"]
+script = ExtResource("1_mkjnk")
+who = 0
+text = "Hello Friend,
+Are you interested for a product?"
+metadata/_custom_type_script = "uid://ctwekymrdpxqw"
+
+[sub_resource type="Resource" id="Resource_k4y2d"]
+script = ExtResource("1_mkjnk")
+who = 0
+text = "Answer!!!!"
+metadata/_custom_type_script = "uid://ctwekymrdpxqw"
+
+[sub_resource type="Resource" id="Resource_rxfx0"]
+script = ExtResource("1_mkjnk")
+text = "No Thanks"
+metadata/_custom_type_script = "uid://ctwekymrdpxqw"
+
+[resource]
+script = ExtResource("2_k4y2d")
+person = "Juli Mantao"
+messages = Array[ExtResource("1_mkjnk")]([SubResource("Resource_mkjnk"), SubResource("Resource_k4y2d"), SubResource("Resource_rxfx0")])
+metadata/_custom_type_script = "uid://dy73hp4ke0fm5"

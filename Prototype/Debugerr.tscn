@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bstru3tlv3drq" path="res://Script/Debuger.gd" id="1_db2so"]
 
 [node name="Debugerr" type="Control"]
+z_index = 50
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

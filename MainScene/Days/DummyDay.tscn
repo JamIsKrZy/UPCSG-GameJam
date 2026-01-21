@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b1b1jbm27ukdx"]
+[gd_scene load_steps=33 format=3 uid="uid://b1b1jbm27ukdx"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qx8wa"]
 [ext_resource type="Script" uid="uid://bqj6ilxtw1wqg" path="res://Script/MouseToggle3D.gd" id="1_un1av"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://cpw1rcpnwcxk2" path="res://Script/Mechanics/RoomStats.gd" id="9_4tci8"]
 [ext_resource type="Script" uid="uid://cc0bgrwy122ai" path="res://Script/Mechanics/PlayerStats.gd" id="10_k0fsr"]
 [ext_resource type="Script" uid="uid://d7mbaterk8d5" path="res://Script/Mechanics/TimeElapsed.gd" id="11_vfrrt"]
+[ext_resource type="PackedScene" uid="uid://ckk4s6gjgqv5j" path="res://MainScene/SubScene/PostProcessor.tscn" id="14_6my3x"]
 [ext_resource type="PackedScene" uid="uid://snqvdh8kv1v2" path="res://Prototype/Debugerr.tscn" id="15_ao232"]
 [ext_resource type="Script" uid="uid://n1bp3uja5r2" path="res://Script/Mechanics/EnitityManager.gd" id="17_nm3el"]
 
@@ -167,7 +168,6 @@ offset_bottom = 0.07998657
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5700433, 1.7777451)
-top_level = true
 fov = 80.0
 
 [node name="PhantomCameraHost" type="Node" parent="Lights&Cams/Camera3D"]
@@ -189,6 +189,9 @@ environment = SubResource("Environment_cnpjd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights&Cams"]
 transform = Transform3D(1, 0, 0, 0, 0.9928472, 0.11939175, 0, -0.11939175, 0.9928472, 0, 0, 0)
+
+[node name="VignetteScreen" parent="Lights&Cams" instance=ExtResource("14_6my3x")]
+z_index = 10
 
 [node name="System" type="Node" parent="."]
 

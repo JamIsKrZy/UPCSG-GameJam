@@ -1,30 +1,27 @@
-[gd_resource type="Resource" script_class="MessageThreadContent" load_steps=7 format=3 uid="uid://blvegwy7407hi"]
+[gd_resource type="Resource" script_class="MessageThreadContent" load_steps=6 format=3 uid="uid://blvegwy7407hi"]
 
 [ext_resource type="Script" uid="uid://dy73hp4ke0fm5" path="res://Script/Resource/Content/MessageThreadContent.gd" id="1_4acux"]
 [ext_resource type="Script" uid="uid://ctwekymrdpxqw" path="res://Script/Resource/Content/MessageChat.gd" id="2_cq4vv"]
 
-[sub_resource type="Resource" id="Resource_ovvth"]
-script = ExtResource("2_cq4vv")
-text = "my laptop is down	"
-metadata/_custom_type_script = "uid://ctwekymrdpxqw"
-
-[sub_resource type="Resource" id="Resource_3252k"]
+[sub_resource type="Resource" id="Resource_4acux"]
 script = ExtResource("2_cq4vv")
 who = 0
-text = "Aight ill do it on my own"
+text = "Where u at?"
 metadata/_custom_type_script = "uid://ctwekymrdpxqw"
 
-[sub_resource type="Resource" id="Resource_dbc0j"]
+[sub_resource type="Resource" id="Resource_cq4vv"]
 script = ExtResource("2_cq4vv")
-is_image = true
+text = "Comin"
 metadata/_custom_type_script = "uid://ctwekymrdpxqw"
 
-[sub_resource type="Resource" id="Resource_pyms7"]
+[sub_resource type="Resource" id="Resource_vjqg3"]
 script = ExtResource("2_cq4vv")
-text = "Undefined Text, Please Define"
+who = 0
+text = "Be QUick!!"
 metadata/_custom_type_script = "uid://ctwekymrdpxqw"
 
 [resource]
 script = ExtResource("1_4acux")
-thread = Array[ExtResource("2_cq4vv")]([SubResource("Resource_ovvth"), SubResource("Resource_3252k"), SubResource("Resource_dbc0j"), SubResource("Resource_pyms7")])
+person = "Jey Reyes"
+messages = Array[ExtResource("2_cq4vv")]([SubResource("Resource_4acux"), SubResource("Resource_cq4vv"), SubResource("Resource_vjqg3")])
 metadata/_custom_type_script = "uid://dy73hp4ke0fm5"

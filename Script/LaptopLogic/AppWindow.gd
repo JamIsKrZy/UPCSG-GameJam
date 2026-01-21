@@ -62,10 +62,7 @@ func clamp_to_screen(target_pos: Vector2) -> Vector2:
 	return clamped_pos
 
 func _mouse_entered() -> void:
-	print("In")
 	mouse_in = true
 
 func _mouse_exited() -> void:
-	print("out")
-
 	mouse_in = false

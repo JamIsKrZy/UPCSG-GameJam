@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://beqno1bsaiaf0"]
+
+[sub_resource type="GDScript" id="GDScript_5r4x3"]
+script/source = "extends HBoxContainer
+
+@export var maximum_size: float = 200
+@onready var container: PanelContainer = $PanelContainer
+@onready var label: Label = $PanelContainer/MarginContainer/Label
+
+func set_style_as_you():
+	container.size_flags_horizontal = Control.SIZE_EXPAND | Control.SIZE_SHRINK_END
+
+
+func set_text(text: String):
+	assert(not text.is_empty())
+	var chat_size = min(text.length() * 10, maximum_size)
+	label.custom_minimum_size.x = chat_size
+	label.text = text
+	
+	
+"
+
+[node name="HBoxContainer3" type="HBoxContainer"]
+script = SubResource("GDScript_5r4x3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Im at the rooftop"
+autowrap_mode = 2
