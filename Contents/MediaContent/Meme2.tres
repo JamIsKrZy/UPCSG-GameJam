@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://v5y0hpenjorg"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_2fcub"]
+[ext_resource type="Texture2D" uid="uid://b5r3ulwp1f0k2" path="res://Assets/Laptop/MediaImages/avatar.jpg" id="1_k41q8"]
+
+[resource]
+script = ExtResource("1_2fcub")
+description = ""
+likes = 5
+a_friend_liked = true
+friend_liked = "Nigger"
+images = Array[Texture2D]([ExtResource("1_k41q8")])
+commented = true
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

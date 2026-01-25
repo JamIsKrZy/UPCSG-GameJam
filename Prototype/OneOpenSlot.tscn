@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://csbibxl84cpb5"]
 
 [sub_resource type="GDScript" id="GDScript_25jhe"]
-script/source = "extends Control
+script/source = "class_name LaptopSlotBox extends Control
 
 @export var lock_timer: float = 5.;
 
@@ -23,6 +23,8 @@ func hide_and_lock():
 	state = SlotState.LOCKED
 	texture_node.hide()
 	
+func is_active() -> bool:
+	return state == SlotState.ACTIVE
 
 func lock_slot():
 	locked_slot.emit()
@@ -34,7 +36,6 @@ func _on_mouse_entered() -> void:
 	state = SlotState.ACTIVE if state == SlotState.IDLE else SlotState.IDLE
 	var is_active = state == SlotState.ACTIVE
 	interact_slot.emit(is_active)
-	print(state)
 		
 	
 "

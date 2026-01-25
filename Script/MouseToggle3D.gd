@@ -5,6 +5,7 @@ class_name MouseToggle extends Area3D
 @export var call_objects: Array[BaseBehavior] = []
 
 var on_hold: bool = false
+var lock = false
 
 # any indiicator for clickable
 # set mouse poiinter
@@ -16,6 +17,8 @@ func _on_mouse_exit() -> void:
 	if on_hold:
 		on_hold = false
 		disable_objects()
+
+
 
 
 func call_object_triggers():
@@ -31,7 +34,7 @@ func disable_objects():
 		obj.disable_trigger()
 
 func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and not lock:
 
 
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -53,3 +56,10 @@ func _ready() -> void:
 	self.input_event.connect(_on_input_event)
 	self.mouse_entered.connect(_on_mouse_entered)
 	self.mouse_exited.connect(_on_mouse_exit)
+
+
+func _unlock_input_listen():
+	lock = false
+
+func _laptop_slot_interacted(is_active: bool) -> void:
+	lock = is_active

@@ -9,6 +9,11 @@ class_name TimeElapsed extends Node
 @export var delta_time_ms: float = 5.
 @export_range(0.0,1.0,0.01) var bonus_speed_up: float = 0.75
 
+@export_group("On time Chat")
+@export var messages: Array[MessageChat] = []
+
+
+
 var time_interval: SceneTreeTimer = null
 var hour: int = start_hour
 var minute: int = start_minute

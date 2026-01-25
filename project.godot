@@ -19,6 +19,9 @@ config/icon="uid://p8bfjnbm71hm"
 [autoload]
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+RegAccounts="*res://MainScene/RegisteredAccounts.tscn"
+SceneChangeHandler="*res://Script/Global/SceneChanger.tscn"
+AudioSystem="*res://Script/Global/AudioSystem.gd"
 
 [display]
 
@@ -27,8 +30,3 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

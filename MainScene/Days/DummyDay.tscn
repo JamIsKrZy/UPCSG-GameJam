@@ -1,0 +1,336 @@
+[gd_scene load_steps=39 format=3 uid="uid://b1b1jbm27ukdx"]
+
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qx8wa"]
+[ext_resource type="Script" uid="uid://bqj6ilxtw1wqg" path="res://Script/MouseToggle3D.gd" id="1_un1av"]
+[ext_resource type="Script" uid="uid://cb2nyxoek5i5k" path="res://Script/BehaviourScript/DoorBehaviour.gd" id="2_3qx2e"]
+[ext_resource type="Script" uid="uid://knn4iw25lrv4" path="res://Script/Entity/DoorEntityHandler.gd" id="2_arxn4"]
+[ext_resource type="PackedScene" uid="uid://csbibxl84cpb5" path="res://Prototype/OneOpenSlot.tscn" id="2_t3t22"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_un1av"]
+[ext_resource type="Script" uid="uid://d3siljx3ofq0" path="res://Script/BehaviourScript/WindowBehavior.gd" id="3_ao232"]
+[ext_resource type="PackedScene" uid="uid://7cyeq0hpfw24" path="res://Prototype/ListenBoard.tscn" id="3_cnpjd"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_t3t22"]
+[ext_resource type="Script" uid="uid://c02tfkeu002hj" path="res://Script/BehaviourScript/TvBehavior.gd" id="4_38qtl"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_cnpjd"]
+[ext_resource type="Script" uid="uid://c52ajb4ffgkoo" path="res://Script/Entity/WindowEntityHandler.gd" id="5_bin58"]
+[ext_resource type="Script" uid="uid://bsv8kiofglvdk" path="res://Script/Entity/TVEntityHandler.gd" id="7_6my3x"]
+[ext_resource type="Script" uid="uid://b0yjh4t0goaoa" path="res://Script/MainCameraBehaviour.gd" id="8_8mw6g"]
+[ext_resource type="PackedScene" uid="uid://wnblk824usty" path="res://MainScene/Laptop/MainLaptop.tscn" id="8_84mbk"]
+[ext_resource type="Script" uid="uid://cpw1rcpnwcxk2" path="res://Script/Mechanics/RoomStats.gd" id="9_4tci8"]
+[ext_resource type="Script" uid="uid://cw4k61k0eu6do" path="res://Script/LaptopSlot.gd" id="9_qomca"]
+[ext_resource type="Script" uid="uid://cc0bgrwy122ai" path="res://Script/Mechanics/PlayerStats.gd" id="10_k0fsr"]
+[ext_resource type="Script" uid="uid://d7mbaterk8d5" path="res://Script/Mechanics/TimeElapsed.gd" id="11_vfrrt"]
+[ext_resource type="PackedScene" uid="uid://ckk4s6gjgqv5j" path="res://MainScene/SubScene/PostProcessor.tscn" id="14_6my3x"]
+[ext_resource type="PackedScene" uid="uid://snqvdh8kv1v2" path="res://Prototype/Debugerr.tscn" id="15_ao232"]
+[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="16_aaaiw"]
+[ext_resource type="Script" uid="uid://n1bp3uja5r2" path="res://Script/Mechanics/EnitityManager.gd" id="17_nm3el"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ih12l"]
+size = Vector2(9.725, 7.49)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s6imy"]
+size = Vector3(0.16552734, 1.2433777, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8mw6g"]
+size = Vector2(1, 1.435)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ueye7"]
+size = Vector3(0.6141205, 0.9561615, 1.9740753)
+
+[sub_resource type="QuadMesh" id="QuadMesh_qx8wa"]
+size = Vector2(2.26, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t3t22"]
+size = Vector3(0.99972534, 0.9561615, 0.4547119)
+
+[sub_resource type="QuadMesh" id="QuadMesh_cnpjd"]
+
+[sub_resource type="GDScript" id="GDScript_84mbk"]
+script/source = "extends Node
+
+@onready var laptop_container = $LaptopContainer
+
+func _ready() -> void:
+	assert(laptop_container)
+	
+	_hide_laptop()
+
+func _hide_laptop():
+	remove_child(laptop_container)
+	
+func _show_laptop():
+	if not laptop_container.is_inside_tree():
+		add_child(laptop_container)
+
+
+func _laptop_slot_interacted(is_active: bool) -> void:
+	if is_active:
+		_show_laptop();
+	else:
+		_hide_laptop();
+	pass # Replace with function body.
+"
+
+[sub_resource type="Resource" id="Resource_mfvvt"]
+script = ExtResource("3_t3t22")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_4tci8"]
+script = ExtResource("4_cnpjd")
+fov = 80.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="Resource" id="Resource_h44r7"]
+script = ExtResource("16_aaaiw")
+amplitude = 5.0
+frequency = 0.1
+randomize_noise_seed = 1
+rotational_multiplier_y = 0.0
+rotational_multiplier_z = 0.0
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_un1av"]
+
+[sub_resource type="Sky" id="Sky_t3t22"]
+sky_material = SubResource("ProceduralSkyMaterial_un1av")
+
+[sub_resource type="Environment" id="Environment_cnpjd"]
+background_mode = 2
+sky = SubResource("Sky_t3t22")
+
+[sub_resource type="Curve" id="Curve_aaaiw"]
+_limits = [-0.7, 0.71, 0.0, 1.0]
+_data = [Vector2(0, -0.6615455), 0.0, 0.0, 0, 0, Vector2(0.25684932, -0.071038604), 2.0843046, 2.0843046, 0, 0, Vector2(0.46757674, 0.39088446), 1.1858647, 1.1858647, 0, 0, Vector2(0.8361774, 0.6078831), 0.0, 0.0, 0, 0, Vector2(1, 0.71), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[node name="DummyDay" type="Node3D"]
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
+mesh = SubResource("PlaneMesh_ih12l")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 1.7460968, 0)
+mesh = SubResource("PlaneMesh_ih12l")
+
+[node name="Interactables" type="Node" parent="."]
+
+[node name="Door" type="Area3D" parent="Interactables" node_paths=PackedStringArray("call_objects")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7296712, 0, 0.58637893)
+collision_layer = 15
+script = ExtResource("1_un1av")
+call_objects = [NodePath("Controller")]
+
+[node name="EntityHandler" type="Node" parent="Interactables/Door" node_paths=PackedStringArray("_door_state", "entity_manager")]
+script = ExtResource("2_arxn4")
+disable = true
+__entity_01 = 0.2
+__entity_02 = 0.09
+__none = 0.79
+_door_state = NodePath("../Controller")
+entity_manager = NodePath("../../../System/EntityManager")
+
+[node name="Controller" type="Node" parent="Interactables/Door" node_paths=PackedStringArray("model")]
+script = ExtResource("2_3qx2e")
+model = NodePath("../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
+shape = SubResource("BoxShape3D_s6imy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/Door"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.6044543, 0)
+mesh = SubResource("QuadMesh_8mw6g")
+
+[node name="Window" type="Area3D" parent="Interactables" node_paths=PackedStringArray("call_objects")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3974288, 0, 1.0571984)
+script = ExtResource("1_un1av")
+hold_and_release = true
+call_objects = [NodePath("Controller")]
+
+[node name="EntityHandler" type="Node" parent="Interactables/Window" node_paths=PackedStringArray("_window_state", "entity_manager")]
+script = ExtResource("5_bin58")
+disable = true
+__entity_01 = 0.2
+__entity_02 = 0.21
+__none = 0.75
+_window_state = NodePath("../Controller")
+entity_manager = NodePath("../../../System/EntityManager")
+
+[node name="Controller" type="Node" parent="Interactables/Window" node_paths=PackedStringArray("model")]
+script = ExtResource("3_ao232")
+model = NodePath("../MeshInstance3D")
+weight = 0.81
+z_target = -1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/Window"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19280243, 0.84, -0.4235611)
+shape = SubResource("BoxShape3D_ueye7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/Window"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.83054936, 0.7132511)
+mesh = SubResource("QuadMesh_qx8wa")
+
+[node name="TV" type="Area3D" parent="Interactables" node_paths=PackedStringArray("call_objects")]
+transform = Transform3D(1, 0, 0, 0, 0.9788781, -0.20444481, 0, 0.20444481, 0.9788781, 0, 1.1152905, -2.5971837)
+collision_layer = 2
+script = ExtResource("1_un1av")
+call_objects = [NodePath("Controller")]
+
+[node name="EntityHandler" type="Node" parent="Interactables/TV" node_paths=PackedStringArray("_tv_state", "entity_manager")]
+script = ExtResource("7_6my3x")
+disable = true
+__entity_404 = 0.4
+_tv_state = NodePath("../Controller")
+entity_manager = NodePath("../../../System/EntityManager")
+
+[node name="Controller" type="Node" parent="Interactables/TV" node_paths=PackedStringArray("model")]
+script = ExtResource("4_38qtl")
+model = NodePath("../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/TV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015365601, 0, 0)
+shape = SubResource("BoxShape3D_t3t22")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/TV"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = SubResource("QuadMesh_cnpjd")
+
+[node name="MouseListener" type="Node" parent="."]
+script = SubResource("GDScript_84mbk")
+
+[node name="OneOpenSlot" parent="MouseListener" instance=ExtResource("2_t3t22")]
+anchor_top = 0.901
+anchor_bottom = 1.0
+offset_top = 0.15197754
+offset_bottom = 0.0
+script = ExtResource("9_qomca")
+
+[node name="ListenBoard" parent="MouseListener" instance=ExtResource("3_cnpjd")]
+anchors_preset = -1
+anchor_bottom = 0.79
+offset_bottom = 0.07998657
+
+[node name="LaptopContainer" type="Control" parent="MouseListener"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.88900006
+offset_bottom = -0.072021484
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MainLaptop" parent="MouseListener/LaptopContainer" instance=ExtResource("8_84mbk")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083000004
+anchor_top = 0.069000006
+anchor_right = 0.91700006
+offset_left = 0.38399506
+offset_top = 0.2559929
+offset_right = 191.61597
+offset_bottom = 112.0
+scale = Vector2(0.83, 0.83)
+mouse_filter = 2
+
+[node name="Lights&Cams" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.800395e-05, 0, 8.800395e-05, 1, 0, 0.5700433, 1.7777451)
+top_level = true
+fov = 80.0
+
+[node name="PhantomCameraHost" type="Node" parent="Lights&Cams/Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_qx8wa")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="Lights&Cams"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5700433, 1.7777451)
+script = ExtResource("2_un1av")
+tween_resource = SubResource("Resource_mfvvt")
+tween_on_load = false
+camera_3d_resource = SubResource("Resource_4tci8")
+noise = SubResource("Resource_h44r7")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lights&Cams"]
+environment = SubResource("Environment_cnpjd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights&Cams"]
+transform = Transform3D(1, 0, 0, 0, 0.9928472, 0.11939175, 0, -0.11939175, 0.9928472, 0, 0, 0)
+
+[node name="VignetteScreen" parent="Lights&Cams" instance=ExtResource("14_6my3x")]
+z_index = 10
+_falloff = 0.05
+_samples = 15
+_inner_radius = 0.735
+_vignette_strength = 6.23
+
+[node name="System" type="Node" parent="."]
+
+[node name="CameraController" type="Node" parent="System" node_paths=PackedStringArray("camera_ref", "slot_node_ref")]
+script = ExtResource("8_8mw6g")
+camera_ref = NodePath("../../Lights&Cams/PhantomCamera3D")
+camera_state = 2
+max_left_angle = 40.0
+max_right_angle = -40.0
+transition_speed = 50.0
+slot_node_ref = NodePath("../../MouseListener/OneOpenSlot")
+left_angle_bounds = -15.0
+right_angle_bounds = 15.0
+
+[node name="RoomSystem" type="Node" parent="System" node_paths=PackedStringArray("player_stat_node", "door", "tv", "window")]
+script = ExtResource("9_4tci8")
+player_stat_node = NodePath("../PlayerManager")
+door = NodePath("../../Interactables/Door/Controller")
+tv = NodePath("../../Interactables/TV/Controller")
+window = NodePath("../../Interactables/Window/Controller")
+
+[node name="PlayerManager" type="Node" parent="System" node_paths=PackedStringArray("camera", "screen_fx")]
+script = ExtResource("10_k0fsr")
+base_heart_rate = 90.0
+hr_up_of_change = 2.2
+vignette_curve = SubResource("Curve_aaaiw")
+tick_down_ms = 0.8
+sanity_up_rate_of_change = 0.8
+hr_tick_per_ms = 0.7
+camera = NodePath("../../Lights&Cams/PhantomCamera3D")
+screen_fx = NodePath("../../Lights&Cams/VignetteScreen")
+
+[node name="TimeSystem" type="Node" parent="System"]
+script = ExtResource("11_vfrrt")
+start_hour = 5
+start_minute = 30
+end_hour = 10
+end_minute = 30
+delta_time_ms = 1.0
+
+[node name="Debugerr" parent="System" node_paths=PackedStringArray("door", "window", "tv", "door_entity", "tv_entity", "window_entity", "player_state", "room_state", "time_state") instance=ExtResource("15_ao232")]
+door = NodePath("../../Interactables/Door/Controller")
+window = NodePath("../../Interactables/Window/Controller")
+tv = NodePath("../../Interactables/TV/Controller")
+door_entity = NodePath("../../Interactables/Door/EntityHandler")
+tv_entity = NodePath("../../Interactables/TV/EntityHandler")
+window_entity = NodePath("../../Interactables/Window/EntityHandler")
+player_state = NodePath("../PlayerManager")
+room_state = NodePath("../RoomSystem")
+time_state = NodePath("../TimeSystem")
+
+[node name="EntityManager" type="Node" parent="System" node_paths=PackedStringArray("player_system")]
+script = ExtResource("17_nm3el")
+player_system = NodePath("../PlayerManager")
+_01_charge_interval = Vector2(10, 15)
+
+[connection signal="interact_slot" from="MouseListener/OneOpenSlot" to="Interactables/Door" method="_laptop_slot_interacted"]
+[connection signal="interact_slot" from="MouseListener/OneOpenSlot" to="Interactables/Window" method="_laptop_slot_interacted"]
+[connection signal="interact_slot" from="MouseListener/OneOpenSlot" to="Interactables/TV" method="_laptop_slot_interacted"]
+[connection signal="interact_slot" from="MouseListener/OneOpenSlot" to="MouseListener" method="_laptop_slot_interacted"]
+[connection signal="locked_slot" from="MouseListener/OneOpenSlot" to="Interactables/Door" method="_unlock_input_listen"]
+[connection signal="locked_slot" from="MouseListener/OneOpenSlot" to="Interactables/Window" method="_unlock_input_listen"]
+[connection signal="locked_slot" from="MouseListener/OneOpenSlot" to="Interactables/TV" method="_unlock_input_listen"]
+[connection signal="locked_slot" from="MouseListener/OneOpenSlot" to="MouseListener" method="_hide_laptop"]
+[connection signal="left_screen_hovered" from="MouseListener/ListenBoard" to="System/CameraController" method="left_screen_is_hovered"]
+[connection signal="right_screen_hovered" from="MouseListener/ListenBoard" to="System/CameraController" method="right_screen_is_hovered"]
+[connection signal="screen_hovered_out" from="MouseListener/ListenBoard" to="System/CameraController" method="idle_screen"]

@@ -1,0 +1,612 @@
+[gd_scene load_steps=33 format=3 uid="uid://bkxf238exoqs1"]
+
+[ext_resource type="Script" uid="uid://dh0fokax25gmt" path="res://Script/LaptopLogic/SociaMedya.gd" id="1_sti4l"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="2_0kq8k"]
+[ext_resource type="Texture2D" uid="uid://8lte8o5xapvn" path="res://Assets/Laptop/AccountIcons/Speed.png" id="2_2ljg8"]
+[ext_resource type="Texture2D" uid="uid://d4ljtnnt3nqmk" path="res://Assets/Laptop/like_post.png" id="3_0ln7t"]
+[ext_resource type="Resource" uid="uid://d0wudi848j7ay" path="res://Contents/MediaContent/NonSense.tres" id="3_bm52x"]
+[ext_resource type="Resource" uid="uid://j3hiab7si2ln" path="res://Contents/MediaContent/Meme1.tres" id="4_bm52x"]
+[ext_resource type="Texture2D" uid="uid://cwcnym52l1bi4" path="res://Assets/Laptop/chat-box.png" id="4_q4qpn"]
+[ext_resource type="Texture2D" uid="uid://diortvtbdgvu" path="res://Assets/Laptop/share.png" id="5_0ln7t"]
+[ext_resource type="Resource" uid="uid://v5y0hpenjorg" path="res://Contents/MediaContent/Meme2.tres" id="5_pvx5g"]
+[ext_resource type="Resource" uid="uid://rd2aam1eg2i0" path="res://Contents/MediaContent/Reid.tres" id="6_4hnh7"]
+[ext_resource type="PackedScene" uid="uid://bftvopfwkaqmg" path="res://MainScene/Laptop/SocMedPost.tscn" id="6_hh2x1"]
+[ext_resource type="Texture2D" uid="uid://bmd0iiym78bp5" path="res://Assets/Laptop/social-media.png" id="6_q4qpn"]
+[ext_resource type="Script" uid="uid://q60v46ku88ct" path="res://Script/LaptopLogic/SocMedPost.gd" id="6_sti4l"]
+[ext_resource type="Texture2D" uid="uid://bimbm5u5cn6ks" path="res://Assets/Laptop/itpark.jpg" id="7_fcmk2"]
+[ext_resource type="Texture2D" uid="uid://r7iger5b0eqx" path="res://Assets/Laptop/taoist.jpg" id="8_0kq8k"]
+[ext_resource type="Texture2D" uid="uid://3farb36jp6k1" path="res://Assets/Laptop/latest-2006512497.svg" id="8_hh2x1"]
+[ext_resource type="Texture2D" uid="uid://djekg6r2kuapi" path="res://Assets/Laptop/diary.png" id="9_dlfxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc2tr"]
+size = Vector2(512, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m678x"]
+size = Vector2(920, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev202"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7079665, 0.70796657, 0.7079662, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ngjht"]
+font_size = 14
+font_color = Color(0.31224525, 0.43117398, 0.6881061, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tmjap"]
+font_size = 14
+font_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s7ywy"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q4qpn"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hh2x1"]
+font_color = Color(0.011087579, 0.011087578, 0.01108758, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm52x"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7079665, 0.70796657, 0.7079662, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3u3wy"]
+font_size = 14
+font_color = Color(0.31224525, 0.43117398, 0.6881061, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvx5g"]
+font_size = 14
+font_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hnh7"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v7cvi"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5ik7"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ehtvk"]
+font_color = Color(0.011087579, 0.011087578, 0.01108758, 1)
+
+[node name="SociaMedya" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_sti4l")
+test_post = Array[ExtResource("2_0kq8k")]([ExtResource("3_bm52x"), ExtResource("4_bm52x"), ExtResource("5_pvx5g"), ExtResource("6_4hnh7")])
+use_screen_boundaries = false
+boundary_margin = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(448, 48)
+shape = SubResource("RectangleShape2D_vc2tr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(460, 16)
+shape = SubResource("RectangleShape2D_m678x")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 920.0
+offset_bottom = 648.0
+mouse_filter = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 920.0
+offset_bottom = 648.0
+mouse_filter = 1
+color = Color(0.851769, 0.8517689, 0.85176885, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.062000003
+offset_bottom = -0.1760025
+mouse_filter = 1
+color = Color(0.23981124, 0.3079182, 0.46423304, 1)
+
+[node name="Profile" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.09900001
+anchor_right = 0.23500001
+anchor_bottom = 0.96300006
+offset_left = 0.07999992
+offset_top = -0.15200806
+offset_right = -0.2000122
+offset_bottom = -0.024047852
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.261
+anchor_top = 0.09900001
+anchor_right = 0.98300004
+anchor_bottom = 0.975
+offset_left = -0.120010376
+offset_top = -0.15200806
+offset_right = -0.3600464
+offset_bottom = 0.2000122
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+custom_minimum_size = Vector2(440, 568)
+layout_mode = 2
+
+[node name="Post" type="Panel" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ev202")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post"]
+layout_mode = 0
+offset_right = 440.0
+offset_bottom = 200.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ContentContainer" type="VBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer"]
+layout_mode = 2
+
+[node name="Relation" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer"]
+layout_mode = 2
+
+[node name="Person" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/Relation"]
+layout_mode = 2
+text = "Jeremey"
+label_settings = SubResource("LabelSettings_ngjht")
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/Relation"]
+layout_mode = 2
+text = "commented on this"
+label_settings = SubResource("LabelSettings_tmjap")
+
+[node name="BorderLine" type="Panel" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("2_2ljg8")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Jey Reyes"
+label_settings = SubResource("LabelSettings_s7ywy")
+
+[node name="Description" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(410, 0)
+layout_mode = 2
+text = "I Hate this Mahnnn!!!!!"
+label_settings = SubResource("LabelSettings_q4qpn")
+autowrap_mode = 2
+
+[node name="BorderLine2" type="Panel" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 20)
+layout_mode = 2
+texture = ExtResource("3_0ln7t")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Like"
+label_settings = SubResource("LabelSettings_hh2x1")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_q4qpn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Like"
+label_settings = SubResource("LabelSettings_hh2x1")
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("5_0ln7t")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post/MarginContainer/ContentContainer/HBoxContainer2/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+text = "Share"
+label_settings = SubResource("LabelSettings_hh2x1")
+
+[node name="Post2" type="Panel" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 380)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bm52x")
+script = ExtResource("6_sti4l")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post2"]
+layout_mode = 0
+offset_right = 440.0
+offset_bottom = 200.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ContentContainer" type="VBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer"]
+layout_mode = 2
+
+[node name="Relation" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer"]
+layout_mode = 2
+
+[node name="Person" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/Relation"]
+layout_mode = 2
+text = "Jeremey"
+label_settings = SubResource("LabelSettings_3u3wy")
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/Relation"]
+layout_mode = 2
+text = "commented on this"
+label_settings = SubResource("LabelSettings_pvx5g")
+
+[node name="BorderLine" type="Panel" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("2_2ljg8")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Jey Reyes"
+label_settings = SubResource("LabelSettings_4hnh7")
+
+[node name="Description" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(410, 0)
+layout_mode = 2
+text = "Asa Naman koooo!!!!!"
+label_settings = SubResource("LabelSettings_v7cvi")
+autowrap_mode = 2
+
+[node name="AttachedImages" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/AttachedImages"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+texture = ExtResource("7_fcmk2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/AttachedImages"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+texture = ExtResource("8_0kq8k")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/MarginContainer"]
+layout_mode = 2
+text = "24 people liked this post"
+label_settings = SubResource("LabelSettings_k5ik7")
+
+[node name="BorderLine2" type="Panel" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 20)
+layout_mode = 2
+texture = ExtResource("3_0ln7t")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Like"
+label_settings = SubResource("LabelSettings_ehtvk")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_q4qpn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Like"
+label_settings = SubResource("LabelSettings_ehtvk")
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("5_0ln7t")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Post2/MarginContainer/ContentContainer/HBoxContainer3/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+text = "Share"
+label_settings = SubResource("LabelSettings_ehtvk")
+
+[node name="Post3" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("6_hh2x1")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009000001
+anchor_top = 0.012
+anchor_right = 0.035
+anchor_bottom = 0.049000002
+offset_left = -0.2800007
+offset_top = 0.22399998
+offset_right = -0.20000076
+offset_bottom = 0.24799919
+texture = ExtResource("6_q4qpn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.012
+anchor_right = 0.148
+anchor_bottom = 0.048
+offset_left = 0.15999985
+offset_top = 0.22399998
+offset_right = -48.160004
+offset_bottom = -0.10400009
+text = "Socia Medya"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.11100001
+anchor_right = 0.24300002
+anchor_bottom = 0.147
+offset_left = -0.40000153
+offset_top = 0.07199097
+offset_right = -62.560013
+offset_bottom = -0.2559967
+text = "Jen Heredy Osmas"
+label_settings = SubResource("LabelSettings_q4qpn")
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.09900001
+anchor_right = 0.061000004
+anchor_bottom = 0.16000001
+offset_left = 0.3599987
+offset_top = -0.15200806
+offset_right = -0.12000275
+offset_bottom = 0.31999207
+texture = ExtResource("8_hh2x1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.185
+anchor_right = 0.252
+anchor_bottom = 0.91400003
+offset_left = 0.3599987
+offset_top = 0.11999512
+offset_right = 0.16000366
+offset_bottom = -0.2720337
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Favorites"
+label_settings = SubResource("LabelSettings_q4qpn")
+
+[node name="Line1" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Line1"]
+custom_minimum_size = Vector2(23, 20)
+layout_mode = 2
+texture = ExtResource("9_dlfxj")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Line1"]
+layout_mode = 2
+text = "News Feed"
+label_settings = SubResource("LabelSettings_q4qpn")
+
+[node name="Line2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Line2"]
+custom_minimum_size = Vector2(23, 20)
+layout_mode = 2
+texture = ExtResource("4_q4qpn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Line2"]
+layout_mode = 2
+text = "Messages"
+label_settings = SubResource("LabelSettings_q4qpn")
+
+[node name="Line3" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Line3"]
+custom_minimum_size = Vector2(23, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Line3"]
+layout_mode = 2
+text = "Events"
+label_settings = SubResource("LabelSettings_q4qpn")
+
+[node name="Line4" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Line4"]
+custom_minimum_size = Vector2(23, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Line4"]
+layout_mode = 2
+text = "Saved"
+label_settings = SubResource("LabelSettings_q4qpn")
+
+[node name="Line5" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Line5"]
+custom_minimum_size = Vector2(23, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Line5"]
+layout_mode = 2
+text = "Marketplace"
+label_settings = SubResource("LabelSettings_q4qpn")
+
+[node name="Line6" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Line6"]
+custom_minimum_size = Vector2(23, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Line6"]
+layout_mode = 2
+text = "Games"
+label_settings = SubResource("LabelSettings_q4qpn")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_mouse_exited"]

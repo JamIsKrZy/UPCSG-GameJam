@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DiaryContent" load_steps=2 format=3 uid="uid://kcrl423popxo"]
+
+[ext_resource type="Script" uid="uid://8xn623se2apo" path="res://Script/Resource/Content/DiaryContent.gd" id="1_we674"]
+
+[resource]
+script = ExtResource("1_we674")
+content = "This iis my people to mwhere i belong"
+metadata/_custom_type_script = "uid://8xn623se2apo"
