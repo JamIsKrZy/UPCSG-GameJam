@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://diluc2hkdaj4e"]
+
+[ext_resource type="Script" uid="uid://nrwrd7b1c42e" path="res://Script/EmptyScene.gd" id="1_0ywia"]
+[ext_resource type="Resource" uid="uid://4dp7mwvqkk01" path="res://SceneDialogues/BeforeDay1.tres" id="2_v0yu7"]
+[ext_resource type="Shader" uid="uid://bp6adovjeqhbm" path="res://Shader/Pulse.gdshader" id="3_k0n75"]
+[ext_resource type="AudioStream" uid="uid://bixnq01bjhtb8" path="res://SoundTracks/Ambient-2025-03-27_-_Anhedonia_-_www.FesliyanStudios.com.mp3" id="4_nclau"]
+[ext_resource type="Script" uid="uid://cto0x1ukxytrt" path="res://Script/DialogueLabel.tres.gd" id="5_ys6v6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1y7q3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qe8n"]
+shader = ExtResource("3_k0n75")
+shader_parameter/time_scale = 0.7
+shader_parameter/primary_color = Color(0.0028022618, 9.165524e-10, 4.2302417e-10, 1)
+shader_parameter/secondary_color = Color(0.8363608, 0.91529024, 0.9036548, 1)
+shader_parameter/turbulence = 0.4
+shader_parameter/distortion = 0.5
+shader_parameter/ring_count_influence = 5.0
+shader_parameter/go_backwards = true
+shader_parameter/alpha_blend = 0.4690000697775001
+shader_parameter/color_mix = Color(0.113788895, 0.18737674, 0.19858116, 1)
+shader_parameter/distortion_speed = 3.0
+shader_parameter/ring_speed = 1.0
+shader_parameter/final_alpha_multi = 0.99999998137332
+shader_parameter/opacity_smoothstep_1 = -0.4800002127910403
+shader_parameter/opacity_smoothstep_2 = 1.0299997534574405
+
+[sub_resource type="LabelSettings" id="LabelSettings_bskuk"]
+font_size = 24
+
+[node name="BlackScreenTemplate" type="Control" node_paths=PackedStringArray("label_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ywia")
+line_time_limit = 5.0
+dialogue_resource = ExtResource("2_v0yu7")
+label_node = NodePath("Dialogue")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1y7q3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_6qe8n")
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.272
+anchor_right = 1.0
+anchor_bottom = 1.284
+offset_top = 0.25601196
+offset_bottom = -0.032043457
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nclau")
+pitch_scale = 0.85
+autoplay = true
+mix_target = 1
+bus = &"BGM"
+
+[node name="Dialogue" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22200002
+anchor_top = 0.296
+anchor_right = 0.77800006
+anchor_bottom = 0.69100004
+offset_left = 64.25598
+offset_top = 0.19200134
+offset_right = -64.25604
+offset_bottom = 0.23196411
+grow_horizontal = 2
+grow_vertical = 2
+text = "as"
+label_settings = SubResource("LabelSettings_bskuk")
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_characters_behavior = 3
+visible_ratio = 0.0
+script = ExtResource("5_ys6v6")

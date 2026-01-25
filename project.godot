@@ -20,6 +20,8 @@ config/icon="uid://p8bfjnbm71hm"
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 RegAccounts="*res://MainScene/RegisteredAccounts.tscn"
+SceneChangeHandler="*res://Script/Global/SceneChanger.tscn"
+AudioSystem="*res://Script/Global/AudioSystem.gd"
 
 [display]
 

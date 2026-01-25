@@ -1,3 +1,334 @@
-[gd_scene load_steps=0 format=3 uid="uid://b8eadwhvcoq70"]
+[gd_scene load_steps=29 format=3 uid="uid://b8eadwhvcoq70"]
 
-[node name="Menu" type="Node2D"]
+[ext_resource type="Script" uid="uid://d1h2lbcy523a8" path="res://Script/AudioLoader.gd" id="1_ppq50"]
+[ext_resource type="Script" uid="uid://dhqk6iylygcbc" path="res://Script/Resource/AudioResource.gd" id="2_v3ug8"]
+[ext_resource type="Texture2D" uid="uid://dywws6qqdud4r" path="res://Textures/grey_cartago_03_1k/textures/grey_cartago_03_diff_1k.jpg" id="4_g1o3a"]
+[ext_resource type="Texture2D" uid="uid://ddab5u3bv6h30" path="res://Textures/grey_cartago_03_1k/textures/grey_cartago_03_nor_gl_1k.jpg" id="5_rr8j0"]
+[ext_resource type="Texture2D" uid="uid://ce810qo5h7brk" path="res://Textures/grey_cartago_03_1k/textures/grey_cartago_03_ao_1k.jpg" id="5_uqv8v"]
+[ext_resource type="Texture2D" uid="uid://cngb5pnheqpse" path="res://Textures/grey_cartago_03_1k/textures/grey_cartago_03_disp_1k.jpg" id="6_3upfq"]
+[ext_resource type="Texture2D" uid="uid://chblsw43rd3lr" path="res://Textures/grey_cartago_03_1k/textures/grey_cartago_03_arm_1k.jpg" id="6_rp0vr"]
+[ext_resource type="Texture2D" uid="uid://bkjq42v5j0vww" path="res://Textures/grey_cartago_03_1k/textures/grey_cartago_03_rough_1k.jpg" id="6_uqv8v"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_afspf"]
+[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="10_lhks3"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="11_lhks3"]
+[ext_resource type="Shader" uid="uid://b1s2yi503dwb5" path="res://Shader/MainGameShader.gdshader" id="11_nnkd3"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_nnkd3"]
+[ext_resource type="AudioStream" uid="uid://dacxkdkxjsesq" path="res://SoundTracks/archetype-all-ambient-main-version-45208-03-48.mp3" id="13_afspf"]
+[ext_resource type="FontFile" uid="uid://cevtvvgrgsayl" path="res://Assets/Font/Helvetica Punk.ttf" id="13_edm23"]
+[ext_resource type="Texture2D" uid="uid://kuj8uvplrxjb" path="res://Textures/bayer16tile2.png" id="14_usidh"]
+
+[sub_resource type="GDScript" id="GDScript_akf26"]
+script/source = "extends Node3D
+
+
+func _ready() -> void:
+	AudioSystem.play_stream_fade_in(\"BGM\", \"Menu\", 3.)
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rp0vr"]
+albedo_texture = ExtResource("4_g1o3a")
+metallic_specular = 0.0
+metallic_texture = ExtResource("6_rp0vr")
+roughness_texture = ExtResource("6_uqv8v")
+roughness_texture_channel = 3
+normal_enabled = true
+normal_texture = ExtResource("5_rr8j0")
+ao_enabled = true
+ao_texture = ExtResource("5_uqv8v")
+ao_on_uv2 = true
+heightmap_enabled = true
+heightmap_scale = -16.0
+heightmap_texture = ExtResource("6_3upfq")
+uv1_scale = Vector3(3.5, 3.5, 3.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1n4va"]
+material = SubResource("StandardMaterial3D_rp0vr")
+size = Vector2(5, 5)
+
+[sub_resource type="Shader" id="Shader_5omye"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.5.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_a, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+
+uniform sampler2D texture_ambient_occlusion : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 ao_texture_channel;
+uniform float ao_light_affect : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_heightmap : hint_default_black, filter_linear_mipmap, repeat_enable;
+uniform float heightmap_scale : hint_range(-16.0, 16.0, 0.001);
+uniform int heightmap_min_layers : hint_range(1, 64);
+uniform int heightmap_max_layers : hint_range(1, 64);
+uniform vec2 heightmap_flip;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec2 base_uv2 = UV2;
+
+	{
+		// Height: Enabled
+		vec3 view_dir = normalize(normalize(-VERTEX + EYE_OFFSET) * mat3(TANGENT * heightmap_flip.x, -BINORMAL * heightmap_flip.y, NORMAL));
+		float depth = 1.0 - texture(texture_heightmap, base_uv).r;
+		vec2 ofs = base_uv - view_dir.xy * depth * heightmap_scale * 0.01;
+		base_uv = ofs;
+	}
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(0.0, 0.0, 0.0, 1.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = texture(texture_normal, base_uv).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+
+	// Ambient Occlusion: Enabled
+	AO = dot(texture(texture_ambient_occlusion, base_uv2), ao_texture_channel);
+	AO_LIGHT_AFFECT = ao_light_affect;
+}
+
+uniform sampler2D dither_texture: filter_nearest;
+uniform float dither_scale;
+uniform float dither_strength;
+uniform float dither_levels;
+
+void light() {
+    float light = (dot(NORMAL, LIGHT) + 1.0) * 0.5;
+    vec2 ts = vec2(textureSize(dither_texture, 0)) * dither_scale;
+    vec2 uv = mod(FRAGCOORD.xy, ts) / ts;
+    light += (texture(dither_texture, uv).r) * dither_strength;
+    light = floor(light * dither_levels) / dither_levels;
+
+    DIFFUSE_LIGHT += (light * LIGHT_COLOR) * ATTENUATION;
+
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p3svs"]
+render_priority = 0
+shader = SubResource("Shader_5omye")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("4_g1o3a")
+shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/texture_metallic = ExtResource("6_rp0vr")
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("6_uqv8v")
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("5_rr8j0")
+shader_parameter/normal_scale = 1.0
+shader_parameter/texture_ambient_occlusion = ExtResource("5_uqv8v")
+shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/ao_light_affect = 0.0
+shader_parameter/texture_heightmap = ExtResource("6_3upfq")
+shader_parameter/heightmap_scale = -16.0
+shader_parameter/heightmap_min_layers = 8
+shader_parameter/heightmap_max_layers = 32
+shader_parameter/heightmap_flip = Vector2(1, 1)
+shader_parameter/uv1_scale = Vector3(3.5, 3.5, 3.5)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/dither_texture = ExtResource("14_usidh")
+shader_parameter/dither_scale = 0.37
+shader_parameter/dither_strength = 0.43
+shader_parameter/dither_levels = 1.045
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_usidh"]
+material = SubResource("ShaderMaterial_p3svs")
+size = Vector2(5, 5)
+
+[sub_resource type="Environment" id="Environment_s87ev"]
+
+[sub_resource type="Resource" id="Resource_edm23"]
+script = ExtResource("12_nnkd3")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_nnkd3"]
+script = ExtResource("10_lhks3")
+amplitude = 3.0
+frequency = 0.1
+randomize_noise_seed = 1
+rotational_multiplier_z = 0.0
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_edm23"]
+shader = ExtResource("11_nnkd3")
+shader_parameter/color_levels = 31.182001386145
+shader_parameter/chromatic_aberration = 0.0010000000475
+shader_parameter/blur_amount = 0.3830000181925
+shader_parameter/brightness = 0.95600002166
+shader_parameter/saturation = 1.05200000247
+shader_parameter/color_offset_multiplier = 0.00800000038
+shader_parameter/black_offset_multiplier = 0.0400000019
+shader_parameter/color_offset = -0.004999996977620005
+
+[sub_resource type="LabelSettings" id="LabelSettings_rru2i"]
+font = ExtResource("13_edm23")
+font_size = 94
+font_color = Color(0.7697336, 0.79830074, 0.71203744, 1)
+outline_size = 11
+outline_color = Color(0.4782136, 0.3352876, 0.13043562, 1)
+
+[sub_resource type="Resource" id="Resource_3upfq"]
+script = ExtResource("2_v3ug8")
+name = &"Menu"
+stream = ExtResource("13_afspf")
+pitch_scale = 0.95
+loop = true
+_bus = &"BGM"
+metadata/_custom_type_script = "uid://dhqk6iylygcbc"
+
+[node name="Menu" type="Node3D"]
+script = SubResource("GDScript_akf26")
+
+[node name="BackGround" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BackGround"]
+mesh = SubResource("PlaneMesh_1n4va")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="BackGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013789654, 0.0043456554, 0.07458794)
+mesh = SubResource("PlaneMesh_usidh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="BackGround"]
+environment = SubResource("Environment_s87ev")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="BackGround"]
+transform = Transform3D(0.3487357, -0.6267221, 0.6968521, 0, 0.7435301, 0.6687025, -0.9372211, -0.23320043, 0.2592955, 1.911073, 1.1398112, 0.7212077)
+spot_range = 33.705
+spot_attenuation = 0.38
+spot_angle = 53.47
+spot_angle_attenuation = 3.2490087
+
+[node name="Camera3D" type="Camera3D" parent="BackGround"]
+transform = Transform3D(0.82877904, -0.21524206, 0.5165232, -0.004746883, 0.92032415, 0.3911278, -0.55955577, -0.32661042, 0.76172364, 1.2730303, 0.71503735, 1.9183459)
+top_level = true
+current = true
+
+[node name="PhantomCameraHost" type="Node" parent="BackGround/Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("10_afspf")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="BackGround"]
+transform = Transform3D(0.834848, -0.21950366, 0.5048239, 0, 0.91705996, 0.39874908, -0.5504808, -0.3328948, 0.7656056, 1.2730303, 0.71503735, 1.9183459)
+script = ExtResource("11_lhks3")
+tween_resource = SubResource("Resource_edm23")
+noise = SubResource("Resource_nnkd3")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="PostProcess" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PostProcess"]
+material = SubResource("ShaderMaterial_edm23")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.46500003
+anchor_top = 0.16000001
+anchor_right = 0.94400007
+anchor_bottom = 0.31300002
+offset_left = 0.3199463
+offset_top = 0.31999207
+offset_right = 0.5119629
+offset_bottom = 0.17597961
+text = "Little Homesick"
+label_settings = SubResource("LabelSettings_rru2i")
+
+[node name="AudioLoader" type="Node" parent="Control"]
+script = ExtResource("1_ppq50")
+prep_load = Array[ExtResource("2_v3ug8")]([SubResource("Resource_3upfq")])
+metadata/_custom_type_script = "uid://d1h2lbcy523a8"
+
+[node name="PlayButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.124000005
+anchor_top = 0.321
+anchor_right = 0.40300003
+anchor_bottom = 0.44400004
+offset_left = 0.52127075
+offset_top = -0.008010864
+offset_right = -0.25604248
+offset_bottom = 0.28796387
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="CreditButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.124000005
+anchor_top = 0.492
+anchor_right = 0.402
+anchor_bottom = 0.61600006
+offset_left = 0.52127075
+offset_top = 0.16799927
+offset_right = 0.8959961
+offset_bottom = 0.8319702
+theme_override_font_sizes/font_size = 32
+text = "Credit"
+
+[node name="CreditButton2" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.124000005
+anchor_top = 0.666
+anchor_right = 0.402
+anchor_bottom = 0.78900003
+offset_left = 0.52127075
+offset_top = -0.23599243
+offset_right = 0.8959961
+offset_bottom = 0.7279663
+theme_override_font_sizes/font_size = 32
+text = "Exit"

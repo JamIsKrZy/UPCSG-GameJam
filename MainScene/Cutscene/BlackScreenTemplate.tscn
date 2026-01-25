@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg3tgrrc4kq6e"]
+[gd_scene load_steps=7 format=3 uid="uid://bg3tgrrc4kq6e"]
 
 [ext_resource type="Script" uid="uid://nrwrd7b1c42e" path="res://Script/EmptyScene.gd" id="1_6g0ux"]
 [ext_resource type="AudioStream" uid="uid://bixnq01bjhtb8" path="res://SoundTracks/Ambient-2025-03-27_-_Anhedonia_-_www.FesliyanStudios.com.mp3" id="1_bskuk"]
 [ext_resource type="Resource" uid="uid://4dp7mwvqkk01" path="res://SceneDialogues/BeforeDay1.tres" id="2_dkg4t"]
 [ext_resource type="Script" uid="uid://cto0x1ukxytrt" path="res://Script/DialogueLabel.tres.gd" id="4_0xtoj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1y7q3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bskuk"]
 font_size = 24
@@ -21,6 +23,7 @@ dialogue_resource = ExtResource("2_dkg4t")
 label_node = NodePath("Dialogue")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1y7q3")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

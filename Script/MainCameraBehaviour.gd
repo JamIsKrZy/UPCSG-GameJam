@@ -53,8 +53,6 @@ func _physics_process(delta: float) -> void:
 			target
 		)
 
-	# print(camera_ref.rotation.y)
-	# print(deg_to_rad(left_angle_bounds), " - ", deg_to_rad(right_angle_bounds))
 
 	if camera_ref.rotation.y < deg_to_rad(left_angle_bounds) || camera_ref.rotation.y > deg_to_rad(right_angle_bounds):
 		slot_node_ref.hide_and_lock();
