@@ -1,0 +1,203 @@
+[gd_scene load_steps=14 format=3 uid="uid://bftvopfwkaqmg"]
+
+[ext_resource type="Script" uid="uid://q60v46ku88ct" path="res://Script/LaptopLogic/SocMedPost.gd" id="1_k5ik7"]
+[ext_resource type="Texture2D" uid="uid://8lte8o5xapvn" path="res://Assets/Laptop/AccountIcons/Speed.png" id="1_watbx"]
+[ext_resource type="Texture2D" uid="uid://bimbm5u5cn6ks" path="res://Assets/Laptop/itpark.jpg" id="2_k5ik7"]
+[ext_resource type="Texture2D" uid="uid://r7iger5b0eqx" path="res://Assets/Laptop/taoist.jpg" id="3_ktwqt"]
+[ext_resource type="Texture2D" uid="uid://d4ljtnnt3nqmk" path="res://Assets/Laptop/like_post.png" id="4_dipoq"]
+[ext_resource type="Texture2D" uid="uid://cwcnym52l1bi4" path="res://Assets/Laptop/chat-box.png" id="5_t0icw"]
+[ext_resource type="Texture2D" uid="uid://diortvtbdgvu" path="res://Assets/Laptop/share.png" id="6_vtqht"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev202"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7079665, 0.70796657, 0.7079662, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ngjht"]
+font_size = 14
+font_color = Color(0.31224525, 0.43117398, 0.6881061, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tmjap"]
+font_size = 14
+font_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q4qpn"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5ik7"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hh2x1"]
+font_color = Color(0.011087579, 0.011087578, 0.01108758, 1)
+
+[node name="Post2" type="Panel"]
+custom_minimum_size = Vector2(0, 400)
+offset_bottom = 390.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ev202")
+script = ExtResource("1_k5ik7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 440.0
+offset_bottom = 200.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ContentContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Relation" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
+layout_mode = 2
+
+[node name="Person" type="Label" parent="MarginContainer/ContentContainer/Relation"]
+layout_mode = 2
+text = "Jeremey"
+label_settings = SubResource("LabelSettings_ngjht")
+
+[node name="Label" type="Label" parent="MarginContainer/ContentContainer/Relation"]
+layout_mode = 2
+text = "commented on this"
+label_settings = SubResource("LabelSettings_tmjap")
+
+[node name="BorderLine" type="Panel" parent="MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ContentContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("1_watbx")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ContentContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer/ContentContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Jey Reyes"
+label_settings = SubResource("LabelSettings_ngjht")
+
+[node name="Description" type="Label" parent="MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(410, 0)
+layout_mode = 2
+text = "Asa Naman koooo!!!!! 
+tabang"
+label_settings = SubResource("LabelSettings_q4qpn")
+autowrap_mode = 2
+
+[node name="AttachedImages" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ContentContainer/AttachedImages"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_k5ik7")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ContentContainer/AttachedImages"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ktwqt")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ContentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="MarginContainer/ContentContainer/MarginContainer"]
+layout_mode = 2
+text = "24 people liked this post"
+label_settings = SubResource("LabelSettings_k5ik7")
+
+[node name="BorderLine2" type="Panel" parent="MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ContentContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ContentContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ContentContainer/HBoxContainer3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 20)
+layout_mode = 2
+texture = ExtResource("4_dipoq")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ContentContainer/HBoxContainer3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Like"
+label_settings = SubResource("LabelSettings_hh2x1")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/ContentContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ContentContainer/HBoxContainer3/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ContentContainer/HBoxContainer3/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("5_t0icw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ContentContainer/HBoxContainer3/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Like"
+label_settings = SubResource("LabelSettings_hh2x1")
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/ContentContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ContentContainer/HBoxContainer3/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ContentContainer/HBoxContainer3/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("6_vtqht")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ContentContainer/HBoxContainer3/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+text = "Share"
+label_settings = SubResource("LabelSettings_hh2x1")

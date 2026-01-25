@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b30dbaroj0ymu"
-path="res://.godot/imported/facebook.png-33ad46debdbbaf6047eaeb4da003e3bf.ctex"
+uid="uid://b22nr53yfk2on"
+path="res://.godot/imported/cinema.jpg-ecd4c63f08b3d7fd659e8571cd4491ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Laptop/facebook.png"
-dest_files=["res://.godot/imported/facebook.png-33ad46debdbbaf6047eaeb4da003e3bf.ctex"]
+source_file="res://Assets/Laptop/MediaImages/cinema.jpg"
+dest_files=["res://.godot/imported/cinema.jpg-ecd4c63f08b3d7fd659e8571cd4491ce.ctex"]
 
 [params]
 

@@ -33,6 +33,7 @@ func right_screen_is_hovered() -> void:
 
 func _physics_process(delta: float) -> void:
 
+	if slot_node_ref.is_active(): return
 	if camera_state == CAMERA_STATE.IDLE: return
 
 	var speed := deg_to_rad(transition_speed) * delta * 2
@@ -54,8 +55,8 @@ func _physics_process(delta: float) -> void:
 
 	# print(camera_ref.rotation.y)
 	# print(deg_to_rad(left_angle_bounds), " - ", deg_to_rad(right_angle_bounds))
-	if slot_node_ref:
-		if camera_ref.rotation.y < deg_to_rad(left_angle_bounds) || camera_ref.rotation.y > deg_to_rad(right_angle_bounds):
-			slot_node_ref.hide_and_lock();
-		else:
-			slot_node_ref.unhide_and_unlock();
+
+	if camera_ref.rotation.y < deg_to_rad(left_angle_bounds) || camera_ref.rotation.y > deg_to_rad(right_angle_bounds):
+		slot_node_ref.hide_and_lock();
+	else:
+		slot_node_ref.unhide_and_unlock();

@@ -1,4 +1,67 @@
-extends CharacterBody2D
+class_name SociaMedya extends CharacterBody2D
+
+
+@onready var post_container: VBoxContainer = $Control/ScrollContainer/VBoxContainer
+
+var PostTemplate := preload("res://MainScene/Laptop/SocMedPost.tscn")
+var _media_contents: Array[MediaContent] = []
+var _posts: Array[SocMedPost] = []
+var _display_amount: int = -1
+
+func _append_post(media: MediaContent):
+	var post: SocMedPost = PostTemplate.instantiate()
+	post_container.add_child(post)
+	post.setup(media)
+
+
+func _remove_all_post():
+	for post in _posts:
+		post.queue_free()
+
+	for post in post_container.get_children():
+		post.queue_free()
+
+	_posts = []
+
+func ready_contents(contents: Array[MediaContent]):
+	_media_contents = contents
+
+
+func set_content_limit(amount: int):
+	_display_amount = amount
+
+
+func refresh_page():
+
+	_remove_all_post()
+
+	if _display_amount == -1:
+		for content in _media_contents:	_append_post(content)
+		return
+
+	var selected = 0
+	var mem: Dictionary[int, bool] = {}
+	var length = _media_contents.size() - 1
+	while selected != _display_amount:
+		var ran_select: int = randi_range(0, length);
+
+		if mem.has(ran_select):
+			continue
+
+		mem[ran_select] = true
+		_append_post(_media_contents[ran_select])
+		selected += 1
+
+
+
+
+
+
+
+
+
+
+
 
 var draggingDistance
 var dir
@@ -14,7 +77,8 @@ var mouse_in = false
 
 
 func _ready():
-	pass
+	_remove_all_post()
+
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -62,10 +126,7 @@ func clamp_to_screen(target_pos: Vector2) -> Vector2:
 	return clamped_pos
 
 func _mouse_entered() -> void:
-	print("asd")
 	mouse_in = true
 
 func _mouse_exited() -> void:
-	print("asd")
-
 	mouse_in = false

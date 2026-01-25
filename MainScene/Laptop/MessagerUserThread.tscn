@@ -20,6 +20,7 @@ shader = ExtResource("1_2dahf")
 
 [node name="Panel" type="Panel" node_paths=PackedStringArray("name_label", "recent_label", "img_texture")]
 custom_minimum_size = Vector2(300, 75)
+mouse_force_pass_scroll_events = false
 theme_override_styles/panel = SubResource("StyleBoxFlat_huwtf")
 script = ExtResource("1_nkivq")
 name_label = NodePath("NameTitle")

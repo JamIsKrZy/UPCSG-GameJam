@@ -1,19 +1,27 @@
-[gd_scene load_steps=30 format=3 uid="uid://wnblk824usty"]
+[gd_scene load_steps=38 format=3 uid="uid://wnblk824usty"]
 
+[ext_resource type="Script" uid="uid://b5132m434yncw" path="res://Script/LaptopLogic/MainLaptop.gd" id="1_64fhu"]
 [ext_resource type="Texture2D" uid="uid://bjvfopqmak6qq" path="res://Assets/Laptop/wallpaperflare.com_wallpaper.jpg" id="1_l71r0"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="2_23h8t"]
+[ext_resource type="PackedScene" uid="uid://bkxf238exoqs1" path="res://MainScene/Laptop/SocMed.tscn" id="2_64fhu"]
 [ext_resource type="Texture2D" uid="uid://ceep3n5deg8sa" path="res://Assets/Laptop/message.png" id="2_da0kx"]
 [ext_resource type="Script" uid="uid://cxn12y03namn4" path="res://Script/LaptopLogic/Messager.gd" id="2_iyuat"]
 [ext_resource type="Texture2D" uid="uid://n3ck5da8q6v3" path="res://Assets/Laptop/windows-8.png" id="2_mww2q"]
+[ext_resource type="Resource" uid="uid://kcrl423popxo" path="res://Contents/Diary/Sample.tres" id="2_nmxhc"]
+[ext_resource type="PackedScene" uid="uid://cutswfke3my86" path="res://MainScene/Laptop/Diaary.tscn" id="2_w4rca"]
+[ext_resource type="Resource" uid="uid://j3hiab7si2ln" path="res://Contents/MediaContent/Meme1.tres" id="3_vyvxs"]
 [ext_resource type="Script" uid="uid://dy73hp4ke0fm5" path="res://Script/Resource/Content/MessageThreadContent.gd" id="3_wj4gt"]
 [ext_resource type="Texture2D" uid="uid://djekg6r2kuapi" path="res://Assets/Laptop/diary.png" id="4_mlxj4"]
 [ext_resource type="Resource" uid="uid://blvegwy7407hi" path="res://Contents/MessageThread/Jacob.tres" id="4_w4rca"]
-[ext_resource type="Texture2D" uid="uid://b30dbaroj0ymu" path="res://Assets/Laptop/facebook.png" id="5_vc2tr"]
+[ext_resource type="Resource" uid="uid://v5y0hpenjorg" path="res://Contents/MediaContent/Meme2.tres" id="4_xcqaf"]
+[ext_resource type="Resource" uid="uid://d0wudi848j7ay" path="res://Contents/MediaContent/NonSense.tres" id="5_kd3b6"]
 [ext_resource type="Shader" uid="uid://xu3r0ydttvq8" path="res://Shader/ProfileCircle.gdshader" id="6_64fhu"]
-[ext_resource type="PackedScene" uid="uid://berbdh3suqklt" path="res://MainScene/Laptop/dummy_app.tscn" id="6_m678x"]
+[ext_resource type="Resource" uid="uid://rd2aam1eg2i0" path="res://Contents/MediaContent/Reid.tres" id="6_vqnaf"]
 [ext_resource type="Resource" uid="uid://c1t0dphviwyhr" path="res://Contents/MessageThread/Juli Mantao.tres" id="6_wj4gt"]
 [ext_resource type="Texture2D" uid="uid://3farb36jp6k1" path="res://Assets/Laptop/latest-2006512497.svg" id="7_nmxhc"]
 [ext_resource type="PackedScene" uid="uid://beqno1bsaiaf0" path="res://MainScene/Laptop/MessageChatBubble.tscn" id="8_i6p15"]
 [ext_resource type="Texture2D" uid="uid://ddoevswfw57hw" path="res://Assets/Laptop/like.png" id="9_oxp7o"]
+[ext_resource type="Texture2D" uid="uid://bmd0iiym78bp5" path="res://Assets/Laptop/social-media.png" id="15_w4rca"]
 
 [sub_resource type="Gradient" id="Gradient_2rf61"]
 interpolation_mode = 2
@@ -51,14 +59,14 @@ script/source = "extends Node2D
 
 @onready var z_order_handler: Node2D = $AppTop
 @onready var messager: CharacterBody2D = $AppTop/Messager
-@onready var some: CharacterBody2D = $AppTop/DummyApp
+@onready var diary: CharacterBody2D = $AppTop/Diaary
+@onready var some: CharacterBody2D = $AppTop/SociaMedya
 
 
 func on_top(app_id: int):
-	print(app_id)
 	match app_id:
 		0: z_order_handler.move_child(messager, 2)
-		1: z_order_handler.move_child(some, 2)
+		1: z_order_handler.move_child(diary, 2)
 		2: z_order_handler.move_child(some, 2)
 			
 		
@@ -117,13 +125,19 @@ func _gui_input(event):
 		root.on_top(app)
 "
 
-[node name="MainLaptop" type="TextureRect"]
+[node name="MainLaptop" type="TextureRect" node_paths=PackedStringArray("messager", "diaary", "sociamedya")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_da0kx")
+script = ExtResource("1_64fhu")
+media_contents = Array[ExtResource("2_23h8t")]([ExtResource("3_vyvxs"), ExtResource("4_xcqaf"), ExtResource("5_kd3b6"), ExtResource("6_vqnaf")])
+diary_content = ExtResource("2_nmxhc")
+messager = NodePath("ApplicationArea/Node2D/AppTop/Messager")
+diaary = NodePath("ApplicationArea/Node2D/AppTop/Diaary")
+sociamedya = NodePath("ApplicationArea/Node2D/AppTop/SociaMedya")
 
 [node name="Panel" type="Panel" parent="."]
 clip_contents = true
@@ -191,16 +205,16 @@ script = SubResource("GDScript_ugdc3")
 
 [node name="AppTop" type="Node2D" parent="ApplicationArea/Node2D"]
 
-[node name="DummyApp" parent="ApplicationArea/Node2D/AppTop" instance=ExtResource("6_m678x")]
-position = Vector2(176, 64)
-scale = Vector2(0.79, 0.79)
-use_screen_boundaries = true
+[node name="SociaMedya" parent="ApplicationArea/Node2D/AppTop" instance=ExtResource("2_64fhu")]
+position = Vector2(191.99998, 16.999998)
+scale = Vector2(0.875, 0.875)
 
 [node name="Messager" type="CharacterBody2D" parent="ApplicationArea/Node2D/AppTop" node_paths=PackedStringArray("chat_box_texture", "chat_box_label")]
 position = Vector2(53, 39)
 scale = Vector2(0.75, 0.75)
 collision_layer = 2
 script = ExtResource("2_iyuat")
+use_screen_boundaries = false
 ready_threads = Array[ExtResource("3_wj4gt")]([ExtResource("4_w4rca"), ExtResource("6_wj4gt")])
 chat_box_texture = NodePath("Control/ChatBox/TextureRect2")
 chat_box_label = NodePath("Control/ChatBox/Label")
@@ -446,6 +460,11 @@ offset_bottom = 0.17596436
 texture = ExtResource("9_oxp7o")
 expand_mode = 1
 
+[node name="Diaary" parent="ApplicationArea/Node2D/AppTop" instance=ExtResource("2_w4rca")]
+position = Vector2(366, 225)
+scale = Vector2(0.82, 0.82)
+type_per_ms = 0.02
+
 [node name="ColorRect" type="ColorRect" parent="ApplicationArea/Node2D"]
 z_index = 1
 anchors_preset = -1
@@ -453,9 +472,9 @@ anchor_top = 0.93700004
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 3.095
-offset_top = 590.42
+offset_top = 590.86
 offset_right = 1133.0
-offset_bottom = 629.0
+offset_bottom = 629.44
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -521,7 +540,7 @@ app = 2
 z_index = 4
 layout_mode = 2
 size_flags_stretch_ratio = 8.37
-texture = ExtResource("5_vc2tr")
+texture = ExtResource("15_w4rca")
 expand_mode = 2
 
 [node name="Area2D" type="StaticBody2D" parent="ApplicationArea/Node2D"]

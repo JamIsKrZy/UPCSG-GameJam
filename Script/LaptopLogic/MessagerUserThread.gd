@@ -2,7 +2,7 @@ class_name MassagerUserThread extends Panel
 
 var id: int = -1
 var handler: Messager = null
-
+var in_thread_gui = false
 
 @export var name_label: Label = null
 @export var recent_label: Label = null
@@ -34,13 +34,13 @@ func get_texture() -> Texture2D:
 func update_recent_msg(msg: String):
 	recent_label.text = msg
 
-func _gui_input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+func _input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and in_thread_gui:
 		handler.__open_thread(self.id)
 
 func _on_mouse_entered() -> void:
-	pass # Replace with function body.
+	in_thread_gui = true
 
 
 func _on_mouse_exited() -> void:
-	pass # Replace with function body.
+	in_thread_gui = false

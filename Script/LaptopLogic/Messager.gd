@@ -13,6 +13,7 @@ var mouse_in = false
 @export var boundary_margin = 3  # Pixels from screen edge
 @export var use_collision_check = true  # Check for StaticBody2D collisions
 
+# texting purposes
 @export var ready_threads: Array[MessageThreadContent] = []
 
 @export_group("Link Nodes")
@@ -37,7 +38,11 @@ func _ready():
 	assert(chat_box)
 
 	_empty_chat_box()
-	_init_message_threads()
+
+	if OS.is_debug_build():
+		_init_message_threads()
+	else:
+		ready_threads = []
 
 
 
@@ -49,6 +54,9 @@ func _init_message_threads():
 
 		if _check_person_is_registered(thread):
 			# Some appending stufff to do
+			printerr("Work In Progress: Please Fix This Dev!!!")
+			assert(false, "Existing Message Thread: Dev havent handled the logic")
+
 			continue
 
 		var slot: MassagerUserThread = MessengerScene.instantiate();
@@ -71,6 +79,11 @@ func _register_thread(id: int, thread: MessageThreadContent, node: MassagerUserT
 	person_id[thread.person] = id
 	var thread_ref = RegisteredThread.new(thread, node)
 	registered_threads[id] = thread_ref
+
+# This function is recommended to use when starting of the game
+func ready_messages(threads: Array[MessageThreadContent]):
+	ready_threads = threads
+	_init_message_threads()
 
 
 
@@ -194,15 +207,29 @@ func _mouse_exited() -> void:
 
 
 class RegisteredThread:
+
 	var thread: MessageThreadContent
 	var node_thread: MassagerUserThread = null
 	var waiting_user: bool = false
-	var waiting_thread: MessageThreadContent = null
+	var queue_message: MessageThreadContent = null
 
 
 	func _init(thread: MessageThreadContent, node: MassagerUserThread):
 		self.thread = thread
 		self.node_thread = node
+
+		queue_message = thread.pop_waiting_messages()
+
+	# This overwrites any queued messages
+	# Changing to new topic
+	# this need to process
+	func new_message():
+		waiting_user = false
+		pass
+
+	func reply():
+		# process the queue
+		pass
 
 	# this function must be used for runtime purpose
 	# to emitate real chating

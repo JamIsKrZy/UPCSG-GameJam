@@ -6,6 +6,7 @@
 [sub_resource type="Resource" id="Resource_mkjnk"]
 script = ExtResource("1_mkjnk")
 who = 0
+is_image = false
 text = "Hello Friend,
 Are you interested for a product?"
 metadata/_custom_type_script = "uid://ctwekymrdpxqw"
@@ -13,11 +14,14 @@ metadata/_custom_type_script = "uid://ctwekymrdpxqw"
 [sub_resource type="Resource" id="Resource_k4y2d"]
 script = ExtResource("1_mkjnk")
 who = 0
+is_image = false
 text = "Answer!!!!"
 metadata/_custom_type_script = "uid://ctwekymrdpxqw"
 
 [sub_resource type="Resource" id="Resource_rxfx0"]
 script = ExtResource("1_mkjnk")
+required_manual_reply = false
+is_image = false
 text = "No Thanks"
 metadata/_custom_type_script = "uid://ctwekymrdpxqw"
 

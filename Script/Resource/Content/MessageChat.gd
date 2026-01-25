@@ -3,7 +3,8 @@ class_name MessageChat extends Resource
 enum ChatWho{ Person, You }
 
 @export var who: ChatWho = ChatWho.You
-@export var is_image: bool = false:
+var required_manual_reply: bool = false
+var is_image: bool = false:
 	set(val):
 		is_image = val
 		notify_property_list_changed()
@@ -16,6 +17,19 @@ func is_you() -> bool:
 
 func _get_property_list() -> Array[Dictionary]:
 	var list: Array[Dictionary] = []
+
+	if who == ChatWho.You:
+		list.append({
+			"name": "required_manual_reply",
+			"type": TYPE_BOOL,
+			"usage": PROPERTY_USAGE_DEFAULT
+		})
+
+	list.append({
+		"name": "is_image",
+		"type": TYPE_BOOL,
+		"usage": PROPERTY_USAGE_DEFAULT
+	})
 
 	if is_image:
 		list.append({

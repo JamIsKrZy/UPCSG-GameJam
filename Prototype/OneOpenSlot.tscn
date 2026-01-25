@@ -23,6 +23,8 @@ func hide_and_lock():
 	state = SlotState.LOCKED
 	texture_node.hide()
 	
+func is_active() -> bool:
+	return state == SlotState.ACTIVE
 
 func lock_slot():
 	locked_slot.emit()
