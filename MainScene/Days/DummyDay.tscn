@@ -1,13 +1,16 @@
-[gd_scene load_steps=39 format=3 uid="uid://b1b1jbm27ukdx"]
+[gd_scene load_steps=72 format=3 uid="uid://b1b1jbm27ukdx"]
 
+[ext_resource type="Script" uid="uid://vkayihs3ix6k" path="res://Script/BehaviourScript/Door-Entity01.gd" id="1_24671"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qx8wa"]
 [ext_resource type="Script" uid="uid://bqj6ilxtw1wqg" path="res://Script/MouseToggle3D.gd" id="1_un1av"]
 [ext_resource type="Script" uid="uid://cb2nyxoek5i5k" path="res://Script/BehaviourScript/DoorBehaviour.gd" id="2_3qx2e"]
 [ext_resource type="Script" uid="uid://knn4iw25lrv4" path="res://Script/Entity/DoorEntityHandler.gd" id="2_arxn4"]
+[ext_resource type="Texture2D" uid="uid://bwkgpvr6ce8h4" path="res://Assets/eye.png" id="2_kppom"]
 [ext_resource type="PackedScene" uid="uid://csbibxl84cpb5" path="res://Prototype/OneOpenSlot.tscn" id="2_t3t22"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_un1av"]
 [ext_resource type="Script" uid="uid://d3siljx3ofq0" path="res://Script/BehaviourScript/WindowBehavior.gd" id="3_ao232"]
 [ext_resource type="PackedScene" uid="uid://7cyeq0hpfw24" path="res://Prototype/ListenBoard.tscn" id="3_cnpjd"]
+[ext_resource type="AudioStream" uid="uid://cxdr82h60s3jb" path="res://SoundTracks/Sfx/eerie-ominous-alarm-192225.mp3" id="3_kppom"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_t3t22"]
 [ext_resource type="Script" uid="uid://c02tfkeu002hj" path="res://Script/BehaviourScript/TvBehavior.gd" id="4_38qtl"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_cnpjd"]
@@ -23,6 +26,211 @@
 [ext_resource type="PackedScene" uid="uid://snqvdh8kv1v2" path="res://Prototype/Debugerr.tscn" id="15_ao232"]
 [ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="16_aaaiw"]
 [ext_resource type="Script" uid="uid://n1bp3uja5r2" path="res://Script/Mechanics/EnitityManager.gd" id="17_nm3el"]
+[ext_resource type="PackedScene" uid="uid://etw6arbwyd0r" path="res://Assets/3DAsset/Room.blend" id="27_l5meu"]
+
+[sub_resource type="Curve3D" id="Curve3D_aaaiw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.2137723, 0, -7.3168907, -0.17218208, 0, -1.7648704, 0.17218208, 0, 1.7648704, -3.8909297, 0, -1.9577109, 0, 0, 0, 0, 0, 0, -2.9224033, 0, 0.56045705),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5meu"]
+atlas = ExtResource("2_kppom")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5tng"]
+atlas = ExtResource("2_kppom")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qhqt"]
+atlas = ExtResource("2_kppom")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw5mf"]
+atlas = ExtResource("2_kppom")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqmni"]
+atlas = ExtResource("2_kppom")
+region = Rect2(256, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwdt4"]
+atlas = ExtResource("2_kppom")
+region = Rect2(320, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc7p8"]
+atlas = ExtResource("2_kppom")
+region = Rect2(384, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnivo"]
+atlas = ExtResource("2_kppom")
+region = Rect2(448, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0dk7"]
+atlas = ExtResource("2_kppom")
+region = Rect2(512, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qkt8"]
+atlas = ExtResource("2_kppom")
+region = Rect2(576, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1v7q"]
+atlas = ExtResource("2_kppom")
+region = Rect2(640, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb0mt"]
+atlas = ExtResource("2_kppom")
+region = Rect2(704, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_774l7"]
+atlas = ExtResource("2_kppom")
+region = Rect2(768, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n77d"]
+atlas = ExtResource("2_kppom")
+region = Rect2(832, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l476n"]
+atlas = ExtResource("2_kppom")
+region = Rect2(896, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yap8k"]
+atlas = ExtResource("2_kppom")
+region = Rect2(960, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbknu"]
+atlas = ExtResource("2_kppom")
+region = Rect2(1024, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41g2q"]
+atlas = ExtResource("2_kppom")
+region = Rect2(1088, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0crx"]
+atlas = ExtResource("2_kppom")
+region = Rect2(1152, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0av5"]
+atlas = ExtResource("2_kppom")
+region = Rect2(1216, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks27g"]
+atlas = ExtResource("2_kppom")
+region = Rect2(1280, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wohb"]
+atlas = ExtResource("2_kppom")
+region = Rect2(1344, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcvkl"]
+atlas = ExtResource("2_kppom")
+region = Rect2(1408, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ekbx"]
+atlas = ExtResource("2_kppom")
+region = Rect2(1472, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tlt85"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5meu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5tng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qhqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw5mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqmni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwdt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc7p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnivo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0dk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qkt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1v7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb0mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_774l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n77d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l476n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yap8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbknu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41g2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0crx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0av5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks27g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wohb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcvkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ekbx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve3D" id="Curve3D_l5meu"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -10.705186, 0, 1.2908733, 0, 0, 0, 0, 0, 0, -0.5213884, 0, 1.2908738),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_kppom"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.320593, 0, 1.2908733, 0, 0, 0, 0, 0, 0, 0.47463143, 0, 1.2908738),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_h44r7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.724819, 0, -8.232769, 1.9585762, 0, -1.6572564, -1.9585762, 0, 1.6572564, 7.5725384, 0, -1.8751067, 0, 0, 0, 0, 0, 0, 2.9236128, 0, -0.11494616),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ih12l"]
 size = Vector2(9.725, 7.49)
@@ -95,6 +303,7 @@ sky_material = SubResource("ProceduralSkyMaterial_un1av")
 
 [sub_resource type="Environment" id="Environment_cnpjd"]
 background_mode = 2
+background_energy_multiplier = 0.2
 sky = SubResource("Sky_t3t22")
 
 [sub_resource type="Curve" id="Curve_aaaiw"]
@@ -104,14 +313,77 @@ point_count = 5
 
 [node name="DummyDay" type="Node3D"]
 
+[node name="MovingObjects" type="Node" parent="."]
+
+[node name="Door-Entity01" type="Path3D" parent="MovingObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+curve = SubResource("Curve3D_aaaiw")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Door-Entity01"]
+transform = Transform3D(-0.9991029, 0, -0.041878887, 0, 1, 0, 0.041878887, 0, -0.9991029, -4.2137723, 0, -7.3168907)
+script = ExtResource("1_24671")
+speed = 1.5
+fade_speed = 0.345
+max_energy = 7.0
+
+[node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D"]
+transform = Transform3D(1.000009, 0, 0, 0, 1, 0, 0, 0, 1.000009, 0, 0, 0)
+light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
+light_energy = 0.0
+light_specular = 1.085
+
+[node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09887059, 0)
+billboard = 1
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_tlt85")
+frame_progress = 0.19919416
+
+[node name="Door-Entity02" type="Path3D" parent="MovingObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+curve = SubResource("Curve3D_l5meu")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Door-Entity02"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.5213884, 0, 1.2908739)
+progress = 10.183796
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MovingObjects/Door-Entity02/PathFollow3D"]
+stream = ExtResource("3_kppom")
+volume_db = -10.0
+max_distance = 10.0
+panning_strength = 0.0
+bus = &"SFX"
+
+[node name="Window-Entity02" type="Path3D" parent="MovingObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+curve = SubResource("Curve3D_kppom")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Window-Entity02"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.47463137, 0, 1.2908739)
+progress = 9.84596
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MovingObjects/Window-Entity02/PathFollow3D"]
+stream = ExtResource("3_kppom")
+volume_db = -10.0
+max_distance = 10.0
+panning_strength = 0.0
+bus = &"SFX"
+
+[node name="Window-Entity01" type="Path3D" parent="MovingObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945, 0)
+curve = SubResource("Curve3D_h44r7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Window-Entity01"]
+transform = Transform3D(-0.9991325, 0, 0.041174516, 0, 0.99999976, 0, -0.041174516, 0, -0.9991325, 9.724819, 0, -8.232769)
+
 [node name="Environment" type="Node" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7009616, 0)
 mesh = SubResource("PlaneMesh_ih12l")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 1.7460968, 0)
-mesh = SubResource("PlaneMesh_ih12l")
+[node name="Room" parent="Environment" instance=ExtResource("27_l5meu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27465343, 0, 0.13791037)
 
 [node name="Interactables" type="Node" parent="."]
 
@@ -168,7 +440,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19280243, 0.84, -0.4235611)
 shape = SubResource("BoxShape3D_ueye7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/Window"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.83054936, 0.7132511)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.08693218, 0.83054936, 0.7132511)
 mesh = SubResource("QuadMesh_qx8wa")
 
 [node name="TV" type="Area3D" parent="Interactables" node_paths=PackedStringArray("call_objects")]
@@ -236,7 +508,7 @@ mouse_filter = 2
 [node name="Lights&Cams" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 1, -8.800395e-05, 0, 8.800395e-05, 1, 0, 0.5700433, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.9999423, -0.010741664, 0, 0.010741664, 0.9999423, 0, 0.5700433, 1.7777451)
 top_level = true
 fov = 80.0
 
@@ -259,7 +531,8 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 environment = SubResource("Environment_cnpjd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.9928472, 0.11939175, 0, -0.11939175, 0.9928472, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.060107797, -0.9981919, 0, 0.9981919, -0.060107797, 0, -2.168065, 0)
+shadow_enabled = true
 
 [node name="VignetteScreen" parent="Lights&Cams" instance=ExtResource("14_6my3x")]
 z_index = 10
@@ -267,6 +540,10 @@ _falloff = 0.05
 _samples = 15
 _inner_radius = 0.735
 _vignette_strength = 6.23
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights&Cams"]
+transform = Transform3D(0.32715806, -0.56282514, 0.75907546, 0.08434912, 0.8174668, 0.56976604, -0.9411976, -0.122376196, 0.31491464, 4.743916, 2.5496306, 1.4717119)
+shadow_enabled = true
 
 [node name="System" type="Node" parent="."]
 

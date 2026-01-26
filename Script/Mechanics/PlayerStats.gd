@@ -121,7 +121,7 @@ func _process_blur():
 
 # Relation to heart rate
 func _process_camera_shake():
-	var meter := inverse_lerp(hr_danger - 20, death_heart_rate, _virtual_heart_rate)
+	var meter := inverse_lerp(hr_danger - 40, death_heart_rate, _virtual_heart_rate)
 	meter = clamp(meter, 0.0, 1.0)
 
 	camera.noise.frequency = lerp(0.1, 0.5, meter)
