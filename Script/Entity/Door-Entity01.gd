@@ -15,12 +15,7 @@ var start_y := 0.0
 func _ready():
 	start_y = sprite_node.position.y
 
-func _process(delta: float) -> void:
-	time_passed += delta
-	var res := sin(time_passed * speed)
-	sprite_node.position.y = start_y + res * y_range
-
-	# Fade in/out (0 → 1 → 0)
+func _process_light():
 	var fade := (sin(time_passed * fade_speed * TAU) + 1.0) * 0.5
 
 	# Path influence (0 → 1)
@@ -28,3 +23,13 @@ func _process(delta: float) -> void:
 
 		# Final light energy
 	light.light_energy = max_energy * fade * path_strength
+
+func _process_sprite():
+	var res := sin(time_passed * speed)
+	sprite_node.position.y = start_y + res * y_range
+
+func _process(delta: float) -> void:
+	time_passed += delta
+
+	_process_sprite();
+	_process_light();

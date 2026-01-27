@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="UPCSG-GameJam"
-run/main_scene="uid://cx3sx2pnfntli"
+run/main_scene="uid://b8eadwhvcoq70"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://p8bfjnbm71hm"
 config/icon="uid://p8bfjnbm71hm"

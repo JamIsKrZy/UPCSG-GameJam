@@ -1,6 +1,6 @@
 [gd_scene load_steps=72 format=3 uid="uid://b1b1jbm27ukdx"]
 
-[ext_resource type="Script" uid="uid://vkayihs3ix6k" path="res://Script/BehaviourScript/Door-Entity01.gd" id="1_24671"]
+[ext_resource type="Script" path="res://Script/BehaviourScript/Door-Entity01.gd" id="1_24671"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qx8wa"]
 [ext_resource type="Script" uid="uid://bqj6ilxtw1wqg" path="res://Script/MouseToggle3D.gd" id="1_un1av"]
 [ext_resource type="Script" uid="uid://cb2nyxoek5i5k" path="res://Script/BehaviourScript/DoorBehaviour.gd" id="2_3qx2e"]
@@ -320,7 +320,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 curve = SubResource("Curve3D_aaaiw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Door-Entity01"]
-transform = Transform3D(-0.9991029, 0, -0.041878887, 0, 1, 0, 0.041878887, 0, -0.9991029, -4.2137723, 0, -7.3168907)
+transform = Transform3D(-0.99910146, 0, -0.041878823, 0, 1, 0, 0.041878823, 0, -0.99910146, -4.2137723, 0, -7.3168907)
 script = ExtResource("1_24671")
 speed = 1.5
 fade_speed = 0.345
@@ -333,11 +333,11 @@ light_energy = 0.0
 light_specular = 1.085
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09887059, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10759075, 0)
 billboard = 1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.19919416
+frame_progress = 0.46002063
 
 [node name="Door-Entity02" type="Path3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
@@ -508,7 +508,7 @@ mouse_filter = 2
 [node name="Lights&Cams" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.9999423, -0.010741664, 0, 0.010741664, 0.9999423, 0, 0.5700433, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.99999964, -0.0008603358, 0, 0.0008603358, 0.99999964, 0, 0.5700433, 1.7777451)
 top_level = true
 fov = 80.0
 

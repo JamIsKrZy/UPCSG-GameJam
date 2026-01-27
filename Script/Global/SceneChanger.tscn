@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxlgcr0duyuxu"]
+[gd_scene load_steps=6 format=3 uid="uid://bxlgcr0duyuxu"]
 
 [ext_resource type="Script" uid="uid://dwjt75ux6sprs" path="res://Script/Global/SceneChangerScript.gd" id="1_fi3m4"]
+[ext_resource type="PackedScene" uid="uid://b8eadwhvcoq70" path="res://MainScene/Menu.tscn" id="2_ua3gc"]
+[ext_resource type="PackedScene" uid="uid://diluc2hkdaj4e" path="res://MainScene/Cutscene/PreGame.tscn" id="3_or4ti"]
+[ext_resource type="PackedScene" uid="uid://b1b1jbm27ukdx" path="res://MainScene/Days/DummyDay.tscn" id="3_w4lyv"]
+[ext_resource type="Resource" uid="uid://4dp7mwvqkk01" path="res://SceneDialogues/BeforeDay1.tres" id="4_or4ti"]
 
 [node name="SceneChanger" type="Node"]
 script = ExtResource("1_fi3m4")
+menu = ExtResource("2_ua3gc")
+day_1 = ExtResource("3_w4lyv")
+day_2 = ExtResource("3_w4lyv")
+day_3 = ExtResource("3_w4lyv")
+intro_scene = ExtResource("3_or4ti")
+_pre_dialogue_ = ExtResource("4_or4ti")
 
 [node name="BlackTransition" type="ColorRect" parent="."]
 visible = false

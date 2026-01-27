@@ -241,6 +241,7 @@ func _clean_streams():
 		var tasks: Array[Callable] = stream.clean()
 
 		for task in tasks:
+			print("Tasked Clean")
 			self._append_task_queue(task)
 
 func _force_clean_streams():
@@ -303,6 +304,7 @@ static func make_fade_volume_to(
 
 		stream.volume_linear = lerp(start_vol, target_volume, progress)
 
+		print("Process progression: ", progress)
 		if progress >= 1.0:
 			if not after.is_null(): after.call(stream)
 			return true
@@ -328,9 +330,10 @@ static func make_fade_out_then_drop(
 		progress = clampf( progress, 0.0, 1.0)
 
 		stream.volume_linear = lerp(start_vol, 0.0, progress)
-
+		print(stream.volume_linear)
 		if progress >= 1.0:
 			stream
+			print("Done")
 			stream.queue_free()
 			return true
 		else:

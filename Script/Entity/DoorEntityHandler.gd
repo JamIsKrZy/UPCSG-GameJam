@@ -27,6 +27,8 @@ var occupied: bool = false
 
 var entity_ref: BaseEntity = null
 
+
+
 func _ready() -> void:
 	assert(interval.x < interval.y, "x value has to be lesser than y")
 
@@ -147,15 +149,16 @@ func _enemy_just_left():
 func _render_entity_01():
 	pass
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
+	# update 3d model position
 
+	if !entity_ref: return
+	var t = entity_ref.type
+	if t == EntityManager.Entity.ENTITY_01:
+		pass
+	elif t == EntityManager.Entity.ENTITY_02:
+		pass
+
+func _physics_process(delta: float) -> void:
 	if entity_ref:
 		entity_ref.process(delta)
-
-		# update 3d model position
-		if !entity_ref: return
-		var t = entity_ref.type
-		if t == EntityManager.Entity.ENTITY_01:
-			pass
-		elif t == EntityManager.Entity.ENTITY_02:
-			pass
