@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://diluc2hkdaj4e"]
+[gd_scene load_steps=11 format=3 uid="uid://diluc2hkdaj4e"]
 
 [ext_resource type="Script" uid="uid://nrwrd7b1c42e" path="res://Script/EmptyScene.gd" id="1_0ywia"]
-[ext_resource type="Resource" uid="uid://4dp7mwvqkk01" path="res://SceneDialogues/BeforeDay1.tres" id="2_v0yu7"]
 [ext_resource type="Shader" uid="uid://bp6adovjeqhbm" path="res://Shader/Pulse.gdshader" id="3_k0n75"]
 [ext_resource type="AudioStream" uid="uid://bixnq01bjhtb8" path="res://SoundTracks/Ambient-2025-03-27_-_Anhedonia_-_www.FesliyanStudios.com.mp3" id="4_nclau"]
+[ext_resource type="Script" uid="uid://d1h2lbcy523a8" path="res://Script/AudioLoader.gd" id="5_v0yu7"]
 [ext_resource type="Script" uid="uid://cto0x1ukxytrt" path="res://Script/DialogueLabel.tres.gd" id="5_ys6v6"]
+[ext_resource type="Script" uid="uid://dhqk6iylygcbc" path="res://Script/Resource/AudioResource.gd" id="6_k0n75"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1y7q3"]
 
@@ -23,10 +24,17 @@ shader_parameter/distortion_speed = 3.0
 shader_parameter/ring_speed = 1.0
 shader_parameter/final_alpha_multi = 0.99999998137332
 shader_parameter/opacity_smoothstep_1 = -0.4800002127910403
-shader_parameter/opacity_smoothstep_2 = 1.0299997534574405
+shader_parameter/opacity_smoothstep_2 = 1.0299997534574403
 
 [sub_resource type="LabelSettings" id="LabelSettings_bskuk"]
 font_size = 24
+
+[sub_resource type="Resource" id="Resource_nclau"]
+script = ExtResource("6_k0n75")
+name = &"PreGameMusic"
+stream = ExtResource("4_nclau")
+_bus = &"BGM"
+metadata/_custom_type_script = "uid://dhqk6iylygcbc"
 
 [node name="BlackScreenTemplate" type="Control" node_paths=PackedStringArray("label_node")]
 layout_mode = 3
@@ -36,8 +44,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0ywia")
-line_time_limit = 5.0
-dialogue_resource = ExtResource("2_v0yu7")
+line_time_limit = 3.0
 label_node = NodePath("Dialogue")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -63,7 +70,6 @@ offset_bottom = -0.032043457
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_nclau")
 pitch_scale = 0.85
-autoplay = true
 mix_target = 1
 bus = &"BGM"
 
@@ -88,3 +94,8 @@ visible_characters = 0
 visible_characters_behavior = 3
 visible_ratio = 0.0
 script = ExtResource("5_ys6v6")
+
+[node name="AudioLoader" type="Node" parent="."]
+script = ExtResource("5_v0yu7")
+prep_load = Array[ExtResource("6_k0n75")]([SubResource("Resource_nclau")])
+metadata/_custom_type_script = "uid://d1h2lbcy523a8"

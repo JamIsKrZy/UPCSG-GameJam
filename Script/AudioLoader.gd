@@ -1,4 +1,4 @@
-@icon("res://common/assets/node_icons/disc.svg")
+# @icon("res://common/assets/node_icons/disc.svg")
 
 class_name AudioLoader extends Node
 

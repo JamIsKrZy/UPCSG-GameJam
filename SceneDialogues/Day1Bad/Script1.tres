@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ScriptResource" load_steps=4 format=3 uid="uid://cur0g53dyufun"]
+
+[ext_resource type="Script" uid="uid://huxqpaeq4ys5" path="res://Script/Resource/LineResource.gd" id="1_4f52d"]
+[ext_resource type="Script" uid="uid://dhpv8jclo7bcp" path="res://Script/Resource/ScriptResource.gd" id="1_qvb2i"]
+
+[sub_resource type="Resource" id="Resource_ik1br"]
+script = ExtResource("1_4f52d")
+use_prev_color = true
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[resource]
+script = ExtResource("1_qvb2i")
+lines = Array[ExtResource("1_4f52d")]([SubResource("Resource_ik1br")])
+metadata/_custom_type_script = "uid://dhpv8jclo7bcp"

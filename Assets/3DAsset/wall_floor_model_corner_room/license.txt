@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wall Floor Model Corner Room
+* source:	https://sketchfab.com/3d-models/wall-floor-model-corner-room-29a550112e7e41528d7d01697231c11b
+* author:	Aerial_Knight (https://sketchfab.com/NeilJones)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wall Floor Model Corner Room" (https://sketchfab.com/3d-models/wall-floor-model-corner-room-29a550112e7e41528d7d01697231c11b) by Aerial_Knight (https://sketchfab.com/NeilJones) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

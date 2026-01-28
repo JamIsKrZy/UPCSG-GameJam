@@ -238,10 +238,14 @@ func _clean_streams():
 	# clean all the temporary references of BusStreams
 	print("[DEBUG][AudioSystem] CLEANING...")
 	for stream: BusHandler in bus_handlers.values():
-		var tasks: Array[Callable] = stream.clean()
+		var streams: Array[AudioStreamPlayer] = stream.flush_temporary_streams()
+		for audio in streams:
+			var tween = get_tree().create_tween()
+			tween.set_trans(Tween.TRANS_SINE)
+			tween.set_ease(Tween.EASE_IN_OUT)
 
-		for task in tasks:
-			self._append_task_queue(task)
+			tween.tween_property(audio,"volume_linear", 0., 1.5)
+			tween.finished.connect(func(): audio.queue_free())
 
 func _force_clean_streams():
 	# clean all the temporary and Persistent references of BusStreams
@@ -303,6 +307,7 @@ static func make_fade_volume_to(
 
 		stream.volume_linear = lerp(start_vol, target_volume, progress)
 
+		# print("Process progression: ", progress)
 		if progress >= 1.0:
 			if not after.is_null(): after.call(stream)
 			return true
@@ -328,9 +333,9 @@ static func make_fade_out_then_drop(
 		progress = clampf( progress, 0.0, 1.0)
 
 		stream.volume_linear = lerp(start_vol, 0.0, progress)
-
 		if progress >= 1.0:
 			stream
+			print("Done")
 			stream.queue_free()
 			return true
 		else:
@@ -388,7 +393,10 @@ class BusHandler:
 
 		return stream_player
 
-
+	func flush_temporary_streams() -> Array[AudioStreamPlayer]:
+		var streams = temporary_streams.values()
+		temporary_streams.clear()
+		return streams
 
 	func streams() -> Array[AudioStreamPlayer]:
 		var stream_1 = temporary_streams.values()
@@ -423,7 +431,11 @@ class BusHandler:
 			print(key)
 
 	# returns callables to process for fade out
+	# deprecated
 	func clean() -> Array[Callable]:
+
+		print(temporary_streams.keys())
+
 		var process_fade_out: Array[Callable]
 		for player in temporary_streams.values():
 			if player and is_instance_valid(player):

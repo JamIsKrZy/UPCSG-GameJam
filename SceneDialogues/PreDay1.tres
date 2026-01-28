@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="ScriptResource" load_steps=21 format=3 uid="uid://diw2oycqdfted"]
+
+[ext_resource type="Script" uid="uid://dhpv8jclo7bcp" path="res://Script/Resource/ScriptResource.gd" id="1_42iup"]
+[ext_resource type="Script" uid="uid://huxqpaeq4ys5" path="res://Script/Resource/LineResource.gd" id="1_ke2rw"]
+
+[sub_resource type="Resource" id="Resource_umcte"]
+script = ExtResource("1_ke2rw")
+line = "Things happended so fast..."
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_ke2rw"]
+script = ExtResource("1_ke2rw")
+line = "What was I doing?..."
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_i8j3p"]
+script = ExtResource("1_ke2rw")
+line = "..."
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_kexaa"]
+script = ExtResource("1_ke2rw")
+line = "..."
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_xofx5"]
+script = ExtResource("1_ke2rw")
+line = "I feel i bit heavy "
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_r5aqa"]
+script = ExtResource("1_ke2rw")
+line = "ah"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_7m1tg"]
+script = ExtResource("1_ke2rw")
+line = "I was attending my class"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_dk0lq"]
+script = ExtResource("1_ke2rw")
+line = "I was doodling in my textbook"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_8or4t"]
+script = ExtResource("1_ke2rw")
+line = "or was i taking down notes?"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_pthk8"]
+script = ExtResource("1_ke2rw")
+line = "Cant remember what"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_ya5fa"]
+script = ExtResource("1_ke2rw")
+line = "But my bag is        a bit light...               and empty??"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_3dt12"]
+script = ExtResource("1_ke2rw")
+line = "then..      uh....      huh....."
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_j2kre"]
+script = ExtResource("1_ke2rw")
+line = "was that it?"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_oqh7b"]
+script = ExtResource("1_ke2rw")
+line = "Im in my room"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_xjgp6"]
+script = ExtResource("1_ke2rw")
+line = "There seems to be nothing bad going on."
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_batf8"]
+script = ExtResource("1_ke2rw")
+line = "...          normal day i guess"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_iruyn"]
+script = ExtResource("1_ke2rw")
+line = "huh"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_m8neo"]
+script = ExtResource("1_ke2rw")
+line = "Was that really the last time i remembered doing something?"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[resource]
+script = ExtResource("1_42iup")
+lines = Array[ExtResource("1_ke2rw")]([SubResource("Resource_umcte"), SubResource("Resource_ke2rw"), SubResource("Resource_i8j3p"), SubResource("Resource_kexaa"), SubResource("Resource_xofx5"), SubResource("Resource_r5aqa"), SubResource("Resource_7m1tg"), SubResource("Resource_dk0lq"), SubResource("Resource_8or4t"), SubResource("Resource_pthk8"), SubResource("Resource_ya5fa"), SubResource("Resource_3dt12"), SubResource("Resource_j2kre"), SubResource("Resource_oqh7b"), SubResource("Resource_xjgp6"), SubResource("Resource_batf8"), SubResource("Resource_iruyn"), SubResource("Resource_m8neo")])
+metadata/_custom_type_script = "uid://dhpv8jclo7bcp"

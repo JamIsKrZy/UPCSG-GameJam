@@ -17,6 +17,8 @@ class_name DoorEntityHandler extends Node
 
 @export_group("Dependent")
 @export var _door_state: DoorBehavior = null
+@export var entity_01: DoorEntity01 = null
+@export var entity_02: Entity02Path = null
 
 @export_group("System")
 @export var entity_manager: EntityManager = null
@@ -27,15 +29,20 @@ var occupied: bool = false
 
 var entity_ref: BaseEntity = null
 
+
+
 func _ready() -> void:
 	assert(interval.x < interval.y, "x value has to be lesser than y")
 
 	assert(entity_manager)
 	assert(_door_state)
+	assert(entity_01)
+	assert(entity_02)
 
 	self.set_physics_process(false)
 
-
+	entity_01.progress_ratio = 0.
+	entity_02.progress_ratio = 0.
 	var entities = _get_weighted_entities()
 	for e in entities:
 		total_weight += e.weight
@@ -133,6 +140,14 @@ func _renew_interval_state():
 
 func _enemy_just_left():
 	print("[ DoorEntityHandler ] Entity has left")
+
+	var t = entity_ref.type
+	if t == EntityManager.Entity.ENTITY_01:
+		entity_01.progress_ratio = 0.
+	elif t == EntityManager.Entity.ENTITY_02:
+		entity_02.fade_out()
+
+
 	entity_ref = null
 
 	self.set_physics_process(false)
@@ -147,15 +162,19 @@ func _enemy_just_left():
 func _render_entity_01():
 	pass
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
+	# update 3d model position
+	if !entity_ref: return
+	var t = entity_ref.type
+	if t == EntityManager.Entity.ENTITY_01:
+		entity_01.progress_ratio = entity_ref.attack_meter
+	elif t == EntityManager.Entity.ENTITY_02:
+		entity_02.play_audio()
+		entity_02.progress_ratio = entity_ref.attack_meter
+	else:
+		entity_01.progress_ratio = 0.
+		entity_02.progress_ratio = 0.
 
+func _physics_process(delta: float) -> void:
 	if entity_ref:
 		entity_ref.process(delta)
-
-		# update 3d model position
-		if !entity_ref: return
-		var t = entity_ref.type
-		if t == EntityManager.Entity.ENTITY_01:
-			pass
-		elif t == EntityManager.Entity.ENTITY_02:
-			pass
