@@ -10,7 +10,7 @@ var controller_ref: Object = null
 @onready var hor_line_1: Panel = $MarginContainer/ContentContainer/BorderLine
 
 @onready var profile_rect: TextureRect = $MarginContainer/ContentContainer/HBoxContainer/TextureRect
-@onready var name_label: Label = $MarginContainer/ContentContainer/MarginContainer/Label
+@onready var name_label: Label = $MarginContainer/ContentContainer/HBoxContainer/MarginContainer/Label
 @onready var description_label: Label = $MarginContainer/ContentContainer/Description
 
 @onready var image_container: HBoxContainer = $MarginContainer/ContentContainer/AttachedImages
@@ -34,6 +34,7 @@ func setup(content: MediaContent):
 		hor_line_1.queue_free()
 
 	profile_rect.texture = RegAccounts.get_account_texture(content.account)
+
 	name_label.text = content.account
 	if not content.description.is_empty():
 		description_label.text = content.description

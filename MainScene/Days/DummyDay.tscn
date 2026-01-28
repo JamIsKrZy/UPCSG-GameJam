@@ -332,13 +332,13 @@ max_energy = 1.0
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D"]
 transform = Transform3D(1.000009, 0, 0, 0, 1, 0, 0, 0, 1.000009, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.9215718
+light_energy = 0.39350575
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 2.862
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19887318, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1964312, 0)
 billboard = 1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tlt85")
@@ -394,13 +394,13 @@ max_energy = 3.0
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Window-Entity01/PathFollow3D"]
 transform = Transform3D(1.000009, 0, 0, 0, 1, 0, 0, 0, 1.000009, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 2.0836382
+light_energy = 0.24208272
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 3.0
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Window-Entity01/PathFollow3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16569692, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15924963, 0)
 billboard = 1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tlt85")
@@ -414,7 +414,6 @@ mesh = SubResource("PlaneMesh_ih12l")
 
 [node name="Room" parent="Environment" instance=ExtResource("27_l5meu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27465343, 0, 0.13791037)
-visible = false
 
 [node name="Interactables" type="Node" parent="."]
 
@@ -540,7 +539,7 @@ mouse_filter = 2
 [node name="Lights&Cams" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.99965173, -0.026390376, 0, 0.026390376, 0.99965173, 0, 0.5700433, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.99996513, 0.008348746, 0, -0.008348746, 0.99996513, 0, 0.5700433, 1.7777451)
 top_level = true
 fov = 80.0
 
@@ -577,6 +576,12 @@ _vignette_strength = 6.23
 transform = Transform3D(0.32715806, -0.56282514, 0.75907546, 0.08434912, 0.8174668, 0.56976604, -0.9411976, -0.122376196, 0.31491464, 4.743916, 2.5496306, 1.4717119)
 shadow_enabled = true
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights&Cams"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3411666, 0.98530126, -3.332871)
+light_energy = 0.147
+omni_range = 7.985
+omni_attenuation = 3.77
+
 [node name="System" type="Node" parent="."]
 
 [node name="CameraController" type="Node" parent="System" node_paths=PackedStringArray("camera_ref", "slot_node_ref")]
@@ -612,7 +617,7 @@ screen_fx = NodePath("../../Lights&Cams/VignetteScreen")
 script = ExtResource("11_vfrrt")
 start_hour = 5
 start_minute = 30
-end_hour = 5
+end_hour = 7
 end_minute = 40
 delta_time_ms = 1.0
 laptop = NodePath("../../MouseListener/LaptopContainer/MainLaptop")

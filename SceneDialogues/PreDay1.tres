@@ -6,6 +6,7 @@
 [sub_resource type="Resource" id="Resource_umcte"]
 script = ExtResource("1_ke2rw")
 line = "Things happended so fast..."
+set_color = false
 metadata/_custom_type_script = "uid://huxqpaeq4ys5"
 
 [sub_resource type="Resource" id="Resource_ke2rw"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://b8eadwhvcoq70"]
+[gd_scene load_steps=109 format=3 uid="uid://b8eadwhvcoq70"]
 
 [ext_resource type="Script" uid="uid://d1h2lbcy523a8" path="res://Script/AudioLoader.gd" id="1_ppq50"]
 [ext_resource type="Script" uid="uid://dhqk6iylygcbc" path="res://Script/Resource/AudioResource.gd" id="2_v3ug8"]
@@ -16,10 +16,12 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_nnkd3"]
 [ext_resource type="AudioStream" uid="uid://dacxkdkxjsesq" path="res://SoundTracks/archetype-all-ambient-main-version-45208-03-48.mp3" id="13_afspf"]
 [ext_resource type="FontFile" uid="uid://cevtvvgrgsayl" path="res://Assets/Font/Helvetica Punk.ttf" id="13_edm23"]
+[ext_resource type="PackedScene" uid="uid://b55fn35oen0w8" path="res://Assets/3DAsset/psx_laptop/scene.gltf" id="14_fl2l8"]
 [ext_resource type="Texture2D" uid="uid://kuj8uvplrxjb" path="res://Textures/bayer16tile2.png" id="14_usidh"]
 [ext_resource type="Texture2D" uid="uid://dtf1em1j76aj3" path="res://Assets/Pencil.png" id="17_p3svs"]
 [ext_resource type="Texture2D" uid="uid://dsn4i53lmikon" path="res://Assets/leaf-fall.png" id="18_usidh"]
 [ext_resource type="Texture2D" uid="uid://bwkgpvr6ce8h4" path="res://Assets/eye.png" id="19_usidh"]
+[ext_resource type="PackedScene" uid="uid://wnblk824usty" path="res://MainScene/Laptop/MainLaptop.tscn" id="22_omhko"]
 
 [sub_resource type="GDScript" id="GDScript_akf26"]
 script/source = "extends Node3D
@@ -233,6 +235,15 @@ frequency = 0.1
 randomize_noise_seed = 1
 rotational_multiplier_z = 0.0
 metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[sub_resource type="QuadMesh" id="QuadMesh_fl2l8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_omhko"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdibf"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_omhko")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_edm23"]
 shader = ExtResource("11_nnkd3")
@@ -799,7 +810,7 @@ spot_angle = 31.679697
 spot_angle_attenuation = 9.513644
 
 [node name="Camera3D" type="Camera3D" parent="BackGround"]
-transform = Transform3D(0.9294023, -0.08154464, 0.35994706, -0.0027554638, 0.97372544, 0.22770858, -0.369058, -0.21262468, 0.904758, 1.0874733, 0.5913033, 2.0035517)
+transform = Transform3D(0.9332407, -0.052868463, 0.3553404, -0.00014151963, 0.98905814, 0.1475263, -0.3592518, -0.13772783, 0.92302185, 1.0874733, 0.5913033, 2.0035517)
 top_level = true
 current = true
 fov = 47.6
@@ -811,12 +822,20 @@ script = ExtResource("10_afspf")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="BackGround"]
-transform = Transform3D(0.9335804, -0.083659336, 0.34846622, 0, 0.9723698, 0.23344538, -0.35836795, -0.21794, 0.9077855, 1.0874733, 0.5913033, 2.0035517)
+transform = Transform3D(0.93358034, -0.052970145, 0.35443157, 0, 0.98901576, 0.14780939, -0.35836792, -0.13799195, 0.9233258, 1.0874733, 0.5913033, 2.0035517)
 script = ExtResource("11_lhks3")
 tween_resource = SubResource("Resource_edm23")
 camera_3d_resource = SubResource("Resource_fl2l8")
 noise = SubResource("Resource_nnkd3")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Sketchfab_Scene" parent="BackGround" instance=ExtResource("14_fl2l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.89138514, 0, 0.4785908)
+
+[node name="LaptopScreen" type="MeshInstance3D" parent="BackGround"]
+transform = Transform3D(0.47852248, 0, 0, 0, 0.27993295, 0.07574664, 0, -0.07574664, 0.27993295, 0.8931138, 0.21535975, 0.26291972)
+mesh = SubResource("QuadMesh_fl2l8")
+surface_material_override/0 = SubResource("StandardMaterial3D_bdibf")
 
 [node name="PostProcess" type="Control" parent="."]
 layout_mode = 3
@@ -1033,6 +1052,23 @@ text = "Back"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_afspf")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1145, 645)
+
+[node name="Control" type="Control" parent="SubViewport"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainLaptop" parent="SubViewport/Control" instance=ExtResource("22_omhko")]
+custom_minimum_size = Vector2(1145, 645)
+layout_mode = 0
+anchors_preset = 0
 
 [connection signal="pressed" from="Main/PlayButton" to="." method="open_play_menu"]
 [connection signal="pressed" from="Main/ExitButton" to="." method="close_game"]

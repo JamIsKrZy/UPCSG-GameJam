@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_2fcub")
+account = "Jey Reyes"
 description = ""
 likes = 5
 a_friend_liked = true
