@@ -6,14 +6,16 @@ class_name DoorEntity01 extends PathFollow3D
 @export var fade_speed: float = 1.
 @export var max_energy: float = 5.
 
+
 @onready var sprite_node: AnimatedSprite3D = $Sprite
 @onready var light: OmniLight3D = $Light
 
 var time_passed := 0.0
 var start_y := 0.0
+var follow_path: bool = true
 
 func _ready():
-	start_y = sprite_node.position.y
+	start_y = 0.
 
 func _process_light():
 	var fade := (sin(time_passed * fade_speed * TAU) + 1.0) * 0.5
@@ -27,6 +29,10 @@ func _process_light():
 func _process_sprite():
 	var res := sin(time_passed * speed)
 	sprite_node.position.y = start_y + res * y_range
+
+func _process_postion():
+	if not follow_path: return
+
 
 func _process(delta: float) -> void:
 	time_passed += delta

@@ -13,6 +13,9 @@ class_name TimeElapsed extends Node
 @export var messages: Array[MessageChat] = []
 
 
+@export_group("Dependent")
+@export var laptop: MainLaptop = null
+
 
 var time_interval: SceneTreeTimer = null
 var hour: int = start_hour
@@ -24,22 +27,26 @@ var minute: int = start_minute
 var owe_time: int;
 
 func _ready():
+	assert(laptop)
+
 	hour = start_hour
 	minute = start_minute
 	_new_time_interval();
 
 func _new_time_interval():
-
 	var timer = get_tree().create_timer(delta_time_ms, true, true)
 	timer.timeout.connect(_tick_time)
 	time_interval = timer
 
 func _tick_time():
-
 	minute += 1;
 	if minute >= 60:
 		hour += 1;
 		minute = 0
+
+	if hour == end_hour && minute >= end_minute:
+		SceneChangeHandler.done_day(laptop.progression_list.is_empty())
+		return;
 
 	_new_time_interval()
 

@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="ScriptResource" load_steps=2 format=3 uid="uid://4dp7mwvqkk01"]
-
-[ext_resource type="Script" uid="uid://dhpv8jclo7bcp" path="res://Script/Resource/ScriptResource.gd" id="1_x33sm"]
-
-[resource]
-script = ExtResource("1_x33sm")
-lines = Array[String](["DARK house, by which once more I stand", "Here in the long unlovely street,", "Doors, where my heart was used to beat"])
-metadata/_custom_type_script = "uid://dhpv8jclo7bcp"

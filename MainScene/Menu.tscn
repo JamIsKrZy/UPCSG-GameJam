@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="10_lhks3"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="11_lhks3"]
 [ext_resource type="Shader" uid="uid://b1s2yi503dwb5" path="res://Shader/MainGameShader.gdshader" id="11_nnkd3"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="11_vcddd"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_nnkd3"]
 [ext_resource type="AudioStream" uid="uid://dacxkdkxjsesq" path="res://SoundTracks/archetype-all-ambient-main-version-45208-03-48.mp3" id="13_afspf"]
 [ext_resource type="FontFile" uid="uid://cevtvvgrgsayl" path="res://Assets/Font/Helvetica Punk.ttf" id="13_edm23"]
@@ -27,13 +28,34 @@ enum MenuState{ Play, Credit, Main}
 
 @onready var main_control_node: Control = $Main
 @onready var play_control_node: Control = $Play
+@onready var post_process: ColorRect = $PostProcess/ColorRect
 
 var current_state: MenuState = MenuState.Main
 var current_node: Control = null
 
+var time_glitchy_fx
+
+func _set_saturation_fx_high():
+	var mat = post_process.material as ShaderMaterial
+	mat.set_shader_parameter(\"saturation\", 5.0)
+	
+	var ran_wait = randf_range(.1,.3)
+	time_glitchy_fx = get_tree().create_timer(ran_wait);
+	time_glitchy_fx.timeout.connect(_set_saturation_fx_normal)
+	
+func _set_saturation_fx_normal():
+	var mat = post_process.material as ShaderMaterial
+	mat.set_shader_parameter(\"saturation\", 1.0)
+	
+	var ran_wait = randf_range(1.,5.)
+	time_glitchy_fx = get_tree().create_timer(ran_wait);
+	time_glitchy_fx.timeout.connect(_set_saturation_fx_high)
+
 
 func _ready() -> void:
-	AudioSystem.play_stream_fade_in(\"BGM\", \"Menu\", 3.)
+	
+	_set_saturation_fx_normal()
+	AudioSystem.play_stream_fade_in(\"BGM\", \"menu\", 3.)
 	current_node = main_control_node
 	current_node.visible = true
 	remove_child(play_control_node)
@@ -65,26 +87,6 @@ func close_game():
 	get_tree().quit()
 	
 "
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rp0vr"]
-albedo_texture = ExtResource("4_g1o3a")
-metallic_specular = 0.0
-metallic_texture = ExtResource("6_rp0vr")
-roughness_texture = ExtResource("6_uqv8v")
-roughness_texture_channel = 3
-normal_enabled = true
-normal_texture = ExtResource("5_rr8j0")
-ao_enabled = true
-ao_texture = ExtResource("5_uqv8v")
-ao_on_uv2 = true
-heightmap_enabled = true
-heightmap_scale = -16.0
-heightmap_texture = ExtResource("6_3upfq")
-uv1_scale = Vector3(3.5, 3.5, 3.5)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_1n4va"]
-material = SubResource("StandardMaterial3D_rp0vr")
-size = Vector2(5, 5)
 
 [sub_resource type="Shader" id="Shader_5omye"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.5.1.stable's StandardMaterial3D.
@@ -212,10 +214,17 @@ material = SubResource("ShaderMaterial_p3svs")
 size = Vector2(5, 5)
 
 [sub_resource type="Environment" id="Environment_s87ev"]
+background_mode = 2
+ambient_light_source = 2
 
 [sub_resource type="Resource" id="Resource_edm23"]
 script = ExtResource("12_nnkd3")
 duration = 0.0
+
+[sub_resource type="Resource" id="Resource_fl2l8"]
+script = ExtResource("11_vcddd")
+fov = 47.6
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="Resource" id="Resource_nnkd3"]
 script = ExtResource("10_lhks3")
@@ -227,14 +236,14 @@ metadata/_custom_type_script = "uid://cuffvge5ad4aa"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_edm23"]
 shader = ExtResource("11_nnkd3")
-shader_parameter/color_levels = 31.182001386145
-shader_parameter/chromatic_aberration = 0.0010000000475
-shader_parameter/blur_amount = 0.3830000181925
-shader_parameter/brightness = 0.95600002166
-shader_parameter/saturation = 1.05200000247
-shader_parameter/color_offset_multiplier = 0.00800000038
-shader_parameter/black_offset_multiplier = 0.0400000019
-shader_parameter/color_offset = -0.00499999697762
+shader_parameter/color_levels = 17.1170007180575
+shader_parameter/chromatic_aberration = 0.002000000095
+shader_parameter/blur_amount = 0.0
+shader_parameter/brightness = 0.9790000227525
+shader_parameter/saturation = 1.0
+shader_parameter/color_offset_multiplier = 0.02400000114
+shader_parameter/black_offset_multiplier = 0.05200000247
+shader_parameter/color_offset = 0.009000003687379993
 
 [sub_resource type="LabelSettings" id="LabelSettings_rru2i"]
 font = ExtResource("13_edm23")
@@ -245,7 +254,7 @@ outline_color = Color(0.4782136, 0.3352876, 0.13043562, 1)
 
 [sub_resource type="Resource" id="Resource_3upfq"]
 script = ExtResource("2_v3ug8")
-name = &"Menu"
+name = &"menu"
 stream = ExtResource("13_afspf")
 volume_db = 0.49
 pitch_scale = 0.95
@@ -768,9 +777,6 @@ script = SubResource("GDScript_akf26")
 
 [node name="BackGround" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BackGround"]
-mesh = SubResource("PlaneMesh_1n4va")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="BackGround"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013789654, 0.0043456554, 0.07458794)
 mesh = SubResource("PlaneMesh_usidh")
@@ -779,16 +785,24 @@ mesh = SubResource("PlaneMesh_usidh")
 environment = SubResource("Environment_s87ev")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="BackGround"]
-transform = Transform3D(0.3487357, -0.6267221, 0.6968521, 0, 0.7435301, 0.6687025, -0.9372211, -0.23320043, 0.2592955, 1.911073, 1.1398112, 0.7212077)
+transform = Transform3D(0.3487357, -0.6267221, 0.6968521, 0, 0.7435301, 0.6687025, -0.9372211, -0.23320043, 0.2592955, 2.2531214, 1.5445405, 0.7212077)
 spot_range = 33.705
-spot_attenuation = 0.38
-spot_angle = 53.47
-spot_angle_attenuation = 3.2490087
+spot_attenuation = 1.68
+spot_angle = 45.220776
+spot_angle_attenuation = 9.513644
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="BackGround"]
+transform = Transform3D(0.3487357, -0.6267221, 0.6968521, 0, 0.7435301, 0.6687025, -0.9372211, -0.23320043, 0.2592955, 2.2531214, 1.5445405, 0.7212077)
+spot_range = 33.705
+spot_attenuation = 0.12
+spot_angle = 31.679697
+spot_angle_attenuation = 9.513644
 
 [node name="Camera3D" type="Camera3D" parent="BackGround"]
-transform = Transform3D(0.8385178, -0.22558954, 0.49598107, 0.0029164592, 0.91211236, 0.40992993, -0.5448663, -0.34228706, 0.7654804, 1.2730303, 0.71503735, 1.9183459)
+transform = Transform3D(0.9294023, -0.08154464, 0.35994706, -0.0027554638, 0.97372544, 0.22770858, -0.369058, -0.21262468, 0.904758, 1.0874733, 0.5913033, 2.0035517)
 top_level = true
 current = true
+fov = 47.6
 
 [node name="PhantomCameraHost" type="Node" parent="BackGround/Camera3D"]
 process_priority = 300
@@ -797,9 +811,10 @@ script = ExtResource("10_afspf")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="BackGround"]
-transform = Transform3D(0.834848, -0.21950366, 0.5048239, 0, 0.91705996, 0.39874908, -0.5504808, -0.3328948, 0.7656056, 1.2730303, 0.71503735, 1.9183459)
+transform = Transform3D(0.9335804, -0.083659336, 0.34846622, 0, 0.9723698, 0.23344538, -0.35836795, -0.21794, 0.9077855, 1.0874733, 0.5913033, 2.0035517)
 script = ExtResource("11_lhks3")
 tween_resource = SubResource("Resource_edm23")
+camera_3d_resource = SubResource("Resource_fl2l8")
 noise = SubResource("Resource_nnkd3")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
@@ -851,42 +866,26 @@ metadata/_custom_type_script = "uid://d1h2lbcy523a8"
 [node name="PlayButton" type="Button" parent="Main"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.124000005
-anchor_top = 0.321
+anchor_left = 0.125
+anchor_top = 0.38300002
 anchor_right = 0.40300003
-anchor_bottom = 0.44400004
-offset_left = 0.52127075
-offset_top = -0.008010864
-offset_right = -0.25604248
-offset_bottom = 0.28796387
+anchor_bottom = 0.50600004
+offset_top = -0.18400574
+offset_right = 0.37469482
+offset_bottom = 0.111968994
 theme_override_font_sizes/font_size = 32
 text = "Play"
-
-[node name="CreditButton" type="Button" parent="Main"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.124000005
-anchor_top = 0.492
-anchor_right = 0.402
-anchor_bottom = 0.61600006
-offset_left = 0.52127075
-offset_top = 0.16799927
-offset_right = 0.8959961
-offset_bottom = 0.8319702
-theme_override_font_sizes/font_size = 32
-text = "Credit"
 
 [node name="ExitButton" type="Button" parent="Main"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.124000005
-anchor_top = 0.666
-anchor_right = 0.402
-anchor_bottom = 0.78900003
-offset_left = 0.52127075
-offset_top = -0.23599243
-offset_right = 0.8959961
-offset_bottom = 0.7279663
+anchor_left = 0.125
+anchor_top = 0.55600005
+anchor_right = 0.40300003
+anchor_bottom = 0.68
+offset_top = -0.2880249
+offset_right = 0.37469482
+offset_bottom = 0.02798462
 theme_override_font_sizes/font_size = 32
 text = "Exit"
 
@@ -949,6 +948,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
 script = SubResource("GDScript_5omye")
+day = 1
 
 [node name="Label" type="Label" parent="Play/HBoxContainer/Button2"]
 layout_mode = 1
@@ -978,6 +978,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
 script = SubResource("GDScript_5omye")
+day = 2
 
 [node name="Label" type="Label" parent="Play/HBoxContainer/Button3"]
 layout_mode = 1
@@ -1040,6 +1041,8 @@ stream = ExtResource("13_afspf")
 [connection signal="pressed" from="Play/HBoxContainer/Button" to="Play/HBoxContainer/Button" method="_play_day"]
 [connection signal="mouse_entered" from="Play/HBoxContainer/Button2" to="Play/HBoxContainer/Button2" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Play/HBoxContainer/Button2" to="Play/HBoxContainer/Button2" method="_on_mouse_exited"]
+[connection signal="pressed" from="Play/HBoxContainer/Button2" to="Play/HBoxContainer/Button2" method="_play_day"]
 [connection signal="mouse_entered" from="Play/HBoxContainer/Button3" to="Play/HBoxContainer/Button3" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Play/HBoxContainer/Button3" to="Play/HBoxContainer/Button3" method="_on_mouse_exited"]
+[connection signal="pressed" from="Play/HBoxContainer/Button3" to="Play/HBoxContainer/Button3" method="_play_day"]
 [connection signal="pressed" from="Play/Button" to="." method="open_main_menu"]

@@ -1,7 +1,7 @@
 class_name MainLaptop extends TextureRect
 
 signal entity_404()
-
+@export var progression_list: Array[int] = []
 
 @export var media_limit: int = -1;
 

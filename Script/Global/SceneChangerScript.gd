@@ -46,14 +46,58 @@ func screen_fade_in():
 	pass
 
 func _shuffle_select_bad_ed_script() -> ScriptResource:
-	return null
+	var results: Array[ScriptResource] = []
 
-func done_day(is_task_done: bool):
+	var path: String = "";
+	match _in_game:
+		GameDay.DAY_1: path = _bad_ending_dialogue
+		GameDay.DAY_2: path = __bad_ending_dialogue
+		GameDay.DAY_2: path = ___bad_ending_dialogue
+
+	if _bad_ending_dialogue.is_empty():
+		push_error("Bad ending dialogue folder path is empty")
+		return null
+
+	var dir := DirAccess.open(_bad_ending_dialogue)
+	if dir == null:
+		push_error("Failed to open directory: %s" % _bad_ending_dialogue)
+		return null
+
+	dir.list_dir_begin()
+	var file_name := dir.get_next()
+	while file_name != "":
+		if not dir.current_is_dir():
+			# Optional: filter only resource files
+			if file_name.ends_with(".tres") or file_name.ends_with(".res"):
+				var full_path := _bad_ending_dialogue.path_join(file_name)
+				var res := load(full_path)
+
+				if res is ScriptResource:
+					results.append(res)
+
+		file_name = dir.get_next()
+	dir.list_dir_end()
+
+	if results.is_empty():
+		push_warning("No ScriptResource found in folder")
+		return null
+
+	results.shuffle()
+	return results[0]
+
+
+
+func done_day(progression_complete: bool):
 	assert(_in_game != GameDay.None, "Why you call play, no cue of setting up day")
 
-	# if is_task_done:
-	# 	post_scene_script =
+	if progression_complete:
+		post_scene_script = _good_ending
+	else:
+		post_scene_script = _shuffle_select_bad_ed_script()
 
+	if not post_scene_script: printerr("Day ", _in_game, " does not contain a defined path for script resrouce")
+	assert(post_scene_script, "Path Undefined")
+	_change_scene(outro_scene)
 
 
 func play_day():
@@ -70,7 +114,6 @@ func play_day():
 
 
 func start_day(day: GameDay):
-	print("Huh")
 	_in_game = day
 
 	match day:
@@ -82,7 +125,11 @@ func start_day(day: GameDay):
 
 
 func go_to_menu():
+	post_scene_script = null
+	pre_scene_script = null
 	_in_game = GameDay.None
+
+	_change_scene(menu)
 
 
 # func _ready():

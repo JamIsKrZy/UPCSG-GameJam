@@ -44,7 +44,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0ywia")
-line_time_limit = 5.0
+line_time_limit = 3.0
 label_node = NodePath("Dialogue")
 
 [node name="ColorRect" type="ColorRect" parent="."]

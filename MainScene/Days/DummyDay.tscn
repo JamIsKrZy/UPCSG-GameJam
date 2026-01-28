@@ -1,6 +1,6 @@
-[gd_scene load_steps=72 format=3 uid="uid://b1b1jbm27ukdx"]
+[gd_scene load_steps=73 format=3 uid="uid://b1b1jbm27ukdx"]
 
-[ext_resource type="Script" path="res://Script/BehaviourScript/Door-Entity01.gd" id="1_24671"]
+[ext_resource type="Script" uid="uid://cqst0cvtv3stx" path="res://Script/Entity/Door-Entity01.gd" id="1_l5meu"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qx8wa"]
 [ext_resource type="Script" uid="uid://bqj6ilxtw1wqg" path="res://Script/MouseToggle3D.gd" id="1_un1av"]
 [ext_resource type="Script" uid="uid://cb2nyxoek5i5k" path="res://Script/BehaviourScript/DoorBehaviour.gd" id="2_3qx2e"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bwkgpvr6ce8h4" path="res://Assets/eye.png" id="2_kppom"]
 [ext_resource type="PackedScene" uid="uid://csbibxl84cpb5" path="res://Prototype/OneOpenSlot.tscn" id="2_t3t22"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_un1av"]
+[ext_resource type="Script" uid="uid://qvjjtjy3wtmw" path="res://Script/Entity/Entiity02Path.gd" id="3_a5tng"]
 [ext_resource type="Script" uid="uid://d3siljx3ofq0" path="res://Script/BehaviourScript/WindowBehavior.gd" id="3_ao232"]
 [ext_resource type="PackedScene" uid="uid://7cyeq0hpfw24" path="res://Prototype/ListenBoard.tscn" id="3_cnpjd"]
 [ext_resource type="AudioStream" uid="uid://cxdr82h60s3jb" path="res://SoundTracks/Sfx/eerie-ominous-alarm-192225.mp3" id="3_kppom"]
@@ -30,7 +31,7 @@
 
 [sub_resource type="Curve3D" id="Curve3D_aaaiw"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.2137723, 0, -7.3168907, -0.17218208, 0, -1.7648704, 0.17218208, 0, 1.7648704, -3.8909297, 0, -1.9577109, 0, 0, 0, 0, 0, 0, -2.9224033, 0, 0.56045705),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.2137723, 0, -7.3168907, -0.17218208, 0, -1.7648704, 0.17218208, 0, 1.7648704, -3.8909297, 0, -0.7762424, 0, 0, 0, 0, 0, 0, -2.7886922, 0, 0.7760518),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
@@ -227,7 +228,7 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_h44r7"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.724819, 0, -8.232769, 1.9585762, 0, -1.6572564, -1.9585762, 0, 1.6572564, 7.5725384, 0, -1.8751067, 0, 0, 0, 0, 0, 0, 2.9236128, 0, -0.11494616),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.724819, 0, -8.232769, 1.9585762, 0, -1.6572564, -1.9585762, 0, 1.6572564, 7.5725384, 0, -1.8751067, 0, 0, 0, 0, 0, 0, 2.5203404, 0, 0.2526932),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
@@ -320,20 +321,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 curve = SubResource("Curve3D_aaaiw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Door-Entity01"]
-transform = Transform3D(-0.99910146, 0, -0.041878823, 0, 1, 0, 0.041878823, 0, -0.99910146, -4.2137723, 0, -7.3168907)
-script = ExtResource("1_24671")
+transform = Transform3D(-0.59813106, 0, -0.80136305, 0, 1, 0, 0.80136305, 0, -0.59813106, -3.314482, 0, 0.6341421)
+progress = 8.112154
+script = ExtResource("1_l5meu")
+y_range = 0.2
 speed = 1.5
-fade_speed = 0.345
-max_energy = 7.0
+fade_speed = 0.4
+max_energy = 1.0
 
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D"]
 transform = Transform3D(1.000009, 0, 0, 0, 1, 0, 0, 0, 1.000009, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.0
+light_energy = 0.9215718
 light_specular = 1.085
+shadow_enabled = true
+omni_range = 2.862
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10759075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19887318, 0)
 billboard = 1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tlt85")
@@ -346,10 +351,12 @@ curve = SubResource("Curve3D_l5meu")
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Door-Entity02"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.5213884, 0, 1.2908739)
 progress = 10.183796
+script = ExtResource("3_a5tng")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MovingObjects/Door-Entity02/PathFollow3D"]
+[node name="audio" type="AudioStreamPlayer3D" parent="MovingObjects/Door-Entity02/PathFollow3D"]
 stream = ExtResource("3_kppom")
 volume_db = -10.0
+pitch_scale = 0.7
 max_distance = 10.0
 panning_strength = 0.0
 bus = &"SFX"
@@ -361,29 +368,53 @@ curve = SubResource("Curve3D_kppom")
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Window-Entity02"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.47463137, 0, 1.2908739)
 progress = 9.84596
+script = ExtResource("3_a5tng")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MovingObjects/Window-Entity02/PathFollow3D"]
+[node name="audio" type="AudioStreamPlayer3D" parent="MovingObjects/Window-Entity02/PathFollow3D"]
 stream = ExtResource("3_kppom")
 volume_db = -10.0
+pitch_scale = 0.7
 max_distance = 10.0
 panning_strength = 0.0
 bus = &"SFX"
 
 [node name="Window-Entity01" type="Path3D" parent="MovingObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77867275, 0)
 curve = SubResource("Curve3D_h44r7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Window-Entity01"]
-transform = Transform3D(-0.9991325, 0, 0.041174516, 0, 0.99999976, 0, -0.041174516, 0, -0.9991325, 9.724819, 0, -8.232769)
+transform = Transform3D(-0.39095443, 0, 0.92038494, 0, 0.99999976, 0, -0.92038494, 0, -0.39095443, 5.42481, 0, -0.6006759)
+progress = 9.368845
+script = ExtResource("1_l5meu")
+y_range = 0.2
+speed = 1.0
+fade_speed = 0.3
+max_energy = 3.0
+
+[node name="Light" type="OmniLight3D" parent="MovingObjects/Window-Entity01/PathFollow3D"]
+transform = Transform3D(1.000009, 0, 0, 0, 1, 0, 0, 0, 1.000009, 0, 0, 0)
+light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
+light_energy = 2.0836382
+light_specular = 1.085
+shadow_enabled = true
+omni_range = 3.0
+
+[node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Window-Entity01/PathFollow3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16569692, 0)
+billboard = 1
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_tlt85")
+frame_progress = 0.46002063
 
 [node name="Environment" type="Node" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7009616, 0)
+transform = Transform3D(1.7406123, 0, 0, 0, 1, 0, 0, 0, 2.1257133, 0, -0.13499916, -2.3566241)
 mesh = SubResource("PlaneMesh_ih12l")
 
 [node name="Room" parent="Environment" instance=ExtResource("27_l5meu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27465343, 0, 0.13791037)
+visible = false
 
 [node name="Interactables" type="Node" parent="."]
 
@@ -393,13 +424,14 @@ collision_layer = 15
 script = ExtResource("1_un1av")
 call_objects = [NodePath("Controller")]
 
-[node name="EntityHandler" type="Node" parent="Interactables/Door" node_paths=PackedStringArray("_door_state", "entity_manager")]
+[node name="EntityHandler" type="Node" parent="Interactables/Door" node_paths=PackedStringArray("_door_state", "entity_01", "entity_02", "entity_manager")]
 script = ExtResource("2_arxn4")
-disable = true
-__entity_01 = 0.2
-__entity_02 = 0.09
+__entity_01 = 0.55
+__entity_02 = 0.6
 __none = 0.79
 _door_state = NodePath("../Controller")
+entity_01 = NodePath("../../../MovingObjects/Door-Entity01/PathFollow3D")
+entity_02 = NodePath("../../../MovingObjects/Door-Entity02/PathFollow3D")
 entity_manager = NodePath("../../../System/EntityManager")
 
 [node name="Controller" type="Node" parent="Interactables/Door" node_paths=PackedStringArray("model")]
@@ -420,13 +452,14 @@ script = ExtResource("1_un1av")
 hold_and_release = true
 call_objects = [NodePath("Controller")]
 
-[node name="EntityHandler" type="Node" parent="Interactables/Window" node_paths=PackedStringArray("_window_state", "entity_manager")]
+[node name="EntityHandler" type="Node" parent="Interactables/Window" node_paths=PackedStringArray("_window_state", "_entity_01", "_entity_02", "entity_manager")]
 script = ExtResource("5_bin58")
-disable = true
-__entity_01 = 0.2
-__entity_02 = 0.21
+__entity_01 = 0.51
+__entity_02 = 0.51
 __none = 0.75
 _window_state = NodePath("../Controller")
+_entity_01 = NodePath("../../../MovingObjects/Window-Entity01/PathFollow3D")
+_entity_02 = NodePath("../../../MovingObjects/Window-Entity02/PathFollow3D")
 entity_manager = NodePath("../../../System/EntityManager")
 
 [node name="Controller" type="Node" parent="Interactables/Window" node_paths=PackedStringArray("model")]
@@ -451,7 +484,6 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/TV" node_paths=PackedStringArray("_tv_state", "entity_manager")]
 script = ExtResource("7_6my3x")
-disable = true
 __entity_404 = 0.4
 _tv_state = NodePath("../Controller")
 entity_manager = NodePath("../../../System/EntityManager")
@@ -508,7 +540,7 @@ mouse_filter = 2
 [node name="Lights&Cams" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.99999964, -0.0008603358, 0, 0.0008603358, 0.99999964, 0, 0.5700433, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.99965173, -0.026390376, 0, 0.026390376, 0.99965173, 0, 0.5700433, 1.7777451)
 top_level = true
 fov = 80.0
 
@@ -576,13 +608,14 @@ hr_tick_per_ms = 0.7
 camera = NodePath("../../Lights&Cams/PhantomCamera3D")
 screen_fx = NodePath("../../Lights&Cams/VignetteScreen")
 
-[node name="TimeSystem" type="Node" parent="System"]
+[node name="TimeSystem" type="Node" parent="System" node_paths=PackedStringArray("laptop")]
 script = ExtResource("11_vfrrt")
 start_hour = 5
 start_minute = 30
-end_hour = 10
-end_minute = 30
+end_hour = 5
+end_minute = 40
 delta_time_ms = 1.0
+laptop = NodePath("../../MouseListener/LaptopContainer/MainLaptop")
 
 [node name="Debugerr" parent="System" node_paths=PackedStringArray("door", "window", "tv", "door_entity", "tv_entity", "window_entity", "player_state", "room_state", "time_state") instance=ExtResource("15_ao232")]
 door = NodePath("../../Interactables/Door/Controller")
