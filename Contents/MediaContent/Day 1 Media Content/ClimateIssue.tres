@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://b0kg3m5hial7p"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_dldlq"]
+
+[resource]
+script = ExtResource("1_dldlq")
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

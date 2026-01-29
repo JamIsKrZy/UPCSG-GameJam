@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtu22du42qe8r"]
+[gd_scene load_steps=12 format=3 uid="uid://dtu22du42qe8r"]
 
 [ext_resource type="Script" uid="uid://dgulpfav7j3h3" path="res://Script/RegisteredAccounts.gd" id="1_bk51i"]
 [ext_resource type="Texture2D" uid="uid://bb2cbctcgp5cj" path="res://Assets/Laptop/AccountIcons/EmptyAccount.png" id="2_rdqom"]
@@ -6,13 +6,23 @@
 [ext_resource type="Texture2D" uid="uid://bhh5vp0myesp7" path="res://Assets/Laptop/AccountIcons/Erica Wiever.jpg" id="4_bsoah"]
 [ext_resource type="Texture2D" uid="uid://dcrkupowpxbm5" path="res://Assets/Laptop/AccountIcons/TuberCulosis Boy.jpg" id="5_qucqn"]
 [ext_resource type="Texture2D" uid="uid://fc07kq6c3ual" path="res://Assets/Laptop/AccountIcons/KanyeWest.jpeg" id="6_edbbo"]
+[ext_resource type="Texture2D" uid="uid://djurfj7jatl7h" path="res://Assets/Laptop/AccountIcons/Brian Goeff.jpg" id="7_1cu13"]
+[ext_resource type="Texture2D" uid="uid://b4q3dgqnmnqtw" path="res://Assets/Laptop/AccountIcons/TheBigJ.jpg" id="8_odme4"]
+[ext_resource type="Texture2D" uid="uid://p6uo08kbwj2a" path="res://Assets/Laptop/AccountIcons/Fun&WeirdFacts_Man.jpg" id="9_i7mbl"]
+[ext_resource type="Texture2D" uid="uid://cqobjc7xwq4f3" path="res://Assets/Laptop/AccountIcons/James.jpg" id="10_i7mbl"]
+[ext_resource type="Texture2D" uid="uid://df0hu7fk5vyc8" path="res://Assets/Laptop/AccountIcons/Jebb_.jpg" id="11_acqqp"]
 
 [node name="RegisteredAccounts" type="Node"]
 script = ExtResource("1_bk51i")
 default_texture = ExtResource("2_rdqom")
 accounts = Dictionary[String, Texture2D]({
+"Brian Goeff": ExtResource("7_1cu13"),
 "Erica Wiever": ExtResource("4_bsoah"),
+"Fun&WeirdFacts_Man": ExtResource("9_i7mbl"),
+"James": ExtResource("10_i7mbl"),
+"Jebb": ExtResource("11_acqqp"),
 "Jey Reyes": ExtResource("3_bk51i"),
 "KanyeWestFan2001": ExtResource("6_edbbo"),
+"TheBigJ": ExtResource("8_odme4"),
 "Tuberculosis Boy": ExtResource("5_qucqn")
 })

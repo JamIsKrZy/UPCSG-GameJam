@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://cyjwfm1vmcdp7"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_n5joy"]
+
+[resource]
+script = ExtResource("1_n5joy")
+account = "CafeHunter"
+description = "I like this new cafe, very nice for studying"
+likes = 32
+a_friend_liked = true
+friend_liked = "James"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

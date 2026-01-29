@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://bxhq42kv072kc"]
+
+[ext_resource type="Texture2D" uid="uid://8tmt71x7m6nm" path="res://Assets/Laptop/MediaImages/doomsdayClock.jpg" id="1_fd7e8"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_iaom7"]
+
+[resource]
+script = ExtResource("1_iaom7")
+account = "Brian Goeff"
+description = "On January 27, 2026, the Doomsday Clock was moved to just 85 seconds before midnight, marking the closest it has ever been to symbolizing global catastrophe. The Bulletin of the Atomic Scientists’ Science and Security Board urged immediate action, calling for reductions in nuclear arsenals, the establishment of international rules governing the use of artificial intelligence, and stronger multilateral efforts to address global biological threats."
+images = Array[Texture2D]([ExtResource("1_fd7e8")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

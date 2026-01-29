@@ -8,5 +8,6 @@ account = "KanyeWestFan2001"
 description = "I miss the old kanye"
 likes = 24
 a_friend_liked = true
+friend_liked = "TheBigJ"
 done_by = "Mark Borja"
 metadata/_custom_type_script = "uid://bq8n05iyweuw0"

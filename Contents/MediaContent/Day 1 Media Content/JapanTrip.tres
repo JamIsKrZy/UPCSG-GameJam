@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://be6c3j571e3dh"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_d7i7b"]
+[ext_resource type="Texture2D" uid="uid://bur2cdkakvcws" path="res://Assets/Laptop/MediaImages/JapanPost1.jpg" id="1_y63jk"]
+[ext_resource type="Texture2D" uid="uid://cmtqjlavjokfs" path="res://Assets/Laptop/MediaImages/JapanPost2.jpg" id="2_he0wm"]
+
+[resource]
+script = ExtResource("1_d7i7b")
+account = "AnonymousSheep"
+description = "Lowkey missin my trip in japan"
+likes = 324
+a_friend_liked = true
+friend_liked = "Jebb"
+images = Array[Texture2D]([ExtResource("1_y63jk"), ExtResource("2_he0wm")])
+done_by = "Jebb"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

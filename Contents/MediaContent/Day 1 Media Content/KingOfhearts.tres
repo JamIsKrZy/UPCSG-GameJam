@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://b7kgum5o04ec"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_75psa"]
+[ext_resource type="Texture2D" uid="uid://yhrrirpibtrf" path="res://Assets/Laptop/MediaImages/KingOfHearts.jpg" id="1_jlmhu"]
+
+[resource]
+script = ExtResource("1_75psa")
+account = "WeirdFacts_Man"
+description = "Did you know? King of hearts card is the only king without a mustache. 	"
+likes = 87
+a_friend_liked = true
+friend_liked = "James"
+images = Array[Texture2D]([ExtResource("1_jlmhu")])
+shared = true
+done_by = "James"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

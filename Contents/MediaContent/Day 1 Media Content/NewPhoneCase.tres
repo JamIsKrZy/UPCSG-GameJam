@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://biaboa5uq8w08"]
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://biaboa5uq8w08"]
 
+[ext_resource type="Texture2D" uid="uid://bc41isgepwcwm" path="res://Assets/Laptop/MediaImages/NewPhoneCase.jpg" id="1_espio"]
 [ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_g8drn"]
 
 [resource]
 script = ExtResource("1_g8drn")
+description = "Hey Guys! Look how cool my new phone case is!"
+likes = 666
+images = Array[Texture2D]([ExtResource("1_espio")])
+hacked = true
 metadata/_custom_type_script = "uid://bq8n05iyweuw0"

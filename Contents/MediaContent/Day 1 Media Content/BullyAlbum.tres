@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://cqwruqnfavhec"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_0d81e"]
+[ext_resource type="Texture2D" uid="uid://cxu40bf8pwd8n" path="res://Assets/Laptop/MediaImages/BullyAlbum.jpg" id="1_dfhpm"]
+
+[resource]
+script = ExtResource("1_0d81e")
+account = "KanyeWestFan2001"
+description = "I can't wait for this album to drop!"
+likes = 54
+a_friend_liked = true
+friend_liked = "TheBigJ"
+images = Array[Texture2D]([ExtResource("1_dfhpm")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

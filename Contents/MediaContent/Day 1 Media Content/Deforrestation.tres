@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://bqv6gek1gknuc"]
+
+[ext_resource type="Texture2D" uid="uid://ck77nsjs26rm3" path="res://Assets/Laptop/MediaImages/DeforestationPost1.jpg" id="1_8i38b"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_ccl2b"]
+[ext_resource type="Texture2D" uid="uid://erwbur7ja8wm" path="res://Assets/Laptop/MediaImages/DeforestationPost2.jpg" id="2_mfbl3"]
+
+[resource]
+script = ExtResource("1_ccl2b")
+account = "Erica Wiever"
+description = "Environmental experts have issued renewed warnings over the rapid pace of deforestation, noting its growing impact on ecosystems, climate stability, and human communities worldwide. Scientists and environmental organizations are calling for urgent action, including stronger conservation policies, sustainable land-use practices, and greater international cooperation to slow forest loss and protect remaining natural habitats."
+likes = 1876
+a_friend_liked = true
+friend_liked = "James"
+images = Array[Texture2D]([ExtResource("1_8i38b"), ExtResource("2_mfbl3")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

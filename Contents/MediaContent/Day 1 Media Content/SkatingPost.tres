@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://dme2iefhtggit"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_3f8ol"]
+[ext_resource type="Texture2D" uid="uid://cy8agbphrxgn5" path="res://Assets/Laptop/MediaImages/SkaterPost1.jpg" id="1_e4g0i"]
+[ext_resource type="Texture2D" uid="uid://sofso1prj2y6" path="res://Assets/Laptop/MediaImages/SkaterPost2.jpg" id="2_f1yok"]
+
+[resource]
+script = ExtResource("1_3f8ol")
+account = "SkaterBoy99"
+description = "I will always be down to skate"
+likes = 12
+images = Array[Texture2D]([ExtResource("1_e4g0i"), ExtResource("2_f1yok")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

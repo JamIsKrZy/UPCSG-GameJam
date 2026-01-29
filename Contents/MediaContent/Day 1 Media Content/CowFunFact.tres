@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://dsm47muxov33"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_0hoqk"]
+[ext_resource type="Texture2D" uid="uid://w1n6tpgqui27" path="res://Assets/Laptop/MediaImages/CowFunFact1.jpg" id="1_6smfr"]
+
+[resource]
+script = ExtResource("1_0hoqk")
+account = "WeirdFacts_Man"
+description = "Cows have accents depending on where they’re born and they also have best friends and get depressed when separated. "
+likes = 888
+a_friend_liked = true
+friend_liked = "Mark"
+images = Array[Texture2D]([ExtResource("1_6smfr")])
+shared = true
+done_by = "Mark"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

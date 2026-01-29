@@ -5,6 +5,10 @@
 [resource]
 script = ExtResource("1_74yps")
 account = "KanyeWestFan2001"
-description = "Check This OUT!!!"
+description = "WHO'S DOWN TO PARTY TONIIIIIIIIIIIIIIGHT!!!!!"
 likes = 5
+a_friend_liked = true
+friend_liked = "James, Mark"
+commented = true
+done_by = "Mark"
 metadata/_custom_type_script = "uid://bq8n05iyweuw0"
