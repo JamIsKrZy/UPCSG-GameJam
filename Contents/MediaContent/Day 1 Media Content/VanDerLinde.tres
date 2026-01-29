@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://brqpp2xf85562"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_1itp7"]
+
+[resource]
+script = ExtResource("1_1itp7")
+account = "Tuberculosis Boy"
+description = "[Empty Post]The downfall of the Van der Linde gang in Red Dead Redemption 2 is a slow, painful collapse marked by betrayal, loss, and the crushing weight of reality closing in. What began as a tight-knit group bound by loyalty and survival unraveled as trust eroded, plans failed, and Dutch’s ideals gave way to paranoia and desperation. One by one, the gang’s members were killed, captured, or forced to flee, turning their dream of freedom into a tragic illusion. In the end, the gang didn’t just lose to the law—it was destroyed from within."
+likes = 562
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

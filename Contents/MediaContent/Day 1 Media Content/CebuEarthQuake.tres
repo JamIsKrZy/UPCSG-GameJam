@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://cmax6alk6o7bj"]
+
+[ext_resource type="Texture2D" uid="uid://dwrbwggutar25" path="res://Assets/Laptop/MediaImages/CebuEarthQuake1.jpg" id="1_ff85k"]
+[ext_resource type="Texture2D" uid="uid://bmtv5c2vpxhc3" path="res://Assets/Laptop/MediaImages/CebuEarthQuake2.jpg" id="2_ebucn"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="3_f8qfc"]
+
+[resource]
+script = ExtResource("3_f8qfc")
+account = "Erica Wiever"
+description = "On September 30, 2025, a powerful magnitude 6.9 earthquake struck near Bogo City in northern Cebu, leaving a trail of destruction across Regions VII and VIII. The quake affected an estimated 748,000 people, damaging homes, public infrastructure, and disrupting essential services."
+likes = 10983
+a_friend_liked = true
+images = Array[Texture2D]([ExtResource("1_ff85k"), ExtResource("2_ebucn")])
+shared = true
+done_by = "Mark Borja"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

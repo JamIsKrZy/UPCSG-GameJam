@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtu22du42qe8r"]
+[gd_scene load_steps=7 format=3 uid="uid://dtu22du42qe8r"]
 
 [ext_resource type="Script" uid="uid://dgulpfav7j3h3" path="res://Script/RegisteredAccounts.gd" id="1_bk51i"]
 [ext_resource type="Texture2D" uid="uid://bb2cbctcgp5cj" path="res://Assets/Laptop/AccountIcons/EmptyAccount.png" id="2_rdqom"]
 [ext_resource type="Texture2D" uid="uid://8lte8o5xapvn" path="res://Assets/Laptop/AccountIcons/Speed.png" id="3_bk51i"]
+[ext_resource type="Texture2D" uid="uid://bhh5vp0myesp7" path="res://Assets/Laptop/AccountIcons/Erica Wiever.jpg" id="4_bsoah"]
+[ext_resource type="Texture2D" uid="uid://dcrkupowpxbm5" path="res://Assets/Laptop/AccountIcons/TuberCulosis Boy.jpg" id="5_qucqn"]
+[ext_resource type="Texture2D" uid="uid://fc07kq6c3ual" path="res://Assets/Laptop/AccountIcons/KanyeWest.jpeg" id="6_edbbo"]
 
 [node name="RegisteredAccounts" type="Node"]
 script = ExtResource("1_bk51i")
 default_texture = ExtResource("2_rdqom")
 accounts = Dictionary[String, Texture2D]({
-"Jey Reyes": ExtResource("3_bk51i")
+"Erica Wiever": ExtResource("4_bsoah"),
+"Jey Reyes": ExtResource("3_bk51i"),
+"KanyeWestFan2001": ExtResource("6_edbbo"),
+"Tuberculosis Boy": ExtResource("5_qucqn")
 })

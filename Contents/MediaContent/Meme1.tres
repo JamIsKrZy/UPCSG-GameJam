@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_74yps")
+account = "KanyeWestFan2001"
 description = "Check This OUT!!!"
 likes = 5
 metadata/_custom_type_script = "uid://bq8n05iyweuw0"

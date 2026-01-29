@@ -254,7 +254,7 @@ shader_parameter/brightness = 0.9790000227525
 shader_parameter/saturation = 1.0
 shader_parameter/color_offset_multiplier = 0.02400000114
 shader_parameter/black_offset_multiplier = 0.05200000247
-shader_parameter/color_offset = 0.009000003687379993
+shader_parameter/color_offset = 0.00900000368737999
 
 [sub_resource type="LabelSettings" id="LabelSettings_rru2i"]
 font = ExtResource("13_edm23")
@@ -810,7 +810,7 @@ spot_angle = 31.679697
 spot_angle_attenuation = 9.513644
 
 [node name="Camera3D" type="Camera3D" parent="BackGround"]
-transform = Transform3D(0.9332407, -0.052868463, 0.3553404, -0.00014151963, 0.98905814, 0.1475263, -0.3592518, -0.13772783, 0.92302185, 1.0874733, 0.5913033, 2.0035517)
+transform = Transform3D(0.92980397, -0.047842853, 0.36493242, -0.0015534153, 0.9909966, 0.13387813, -0.36805195, -0.1250473, 0.9213582, 1.0874733, 0.5913033, 2.0035517)
 top_level = true
 current = true
 fov = 47.6
@@ -1069,6 +1069,10 @@ grow_vertical = 2
 custom_minimum_size = Vector2(1145, 645)
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="pressed" from="Main/PlayButton" to="." method="open_play_menu"]
 [connection signal="pressed" from="Main/ExitButton" to="." method="close_game"]
