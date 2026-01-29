@@ -15,6 +15,7 @@ class_name TimeElapsed extends Node
 
 @export_group("Dependent")
 @export var laptop: MainLaptop = null
+@export var clock_label: Label = null
 
 
 var time_interval: SceneTreeTimer = null
@@ -28,6 +29,7 @@ var owe_time: int;
 
 func _ready():
 	assert(laptop)
+	assert(clock_label)
 
 	hour = start_hour
 	minute = start_minute
@@ -43,6 +45,8 @@ func _tick_time():
 	if minute >= 60:
 		hour += 1;
 		minute = 0
+
+	clock_label.text = str(hour) + "\n" + str(minute)
 
 	if hour == end_hour && minute >= end_minute:
 		SceneChangeHandler.done_day(laptop.progression_list.is_empty())

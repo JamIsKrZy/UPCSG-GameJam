@@ -1,11 +1,11 @@
-[gd_scene load_steps=119 format=4 uid="uid://b1b1jbm27ukdx"]
+[gd_scene load_steps=101 format=4 uid="uid://b1b1jbm27ukdx"]
 
 [ext_resource type="Script" uid="uid://cqst0cvtv3stx" path="res://Script/Entity/Door-Entity01.gd" id="1_l5meu"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qx8wa"]
 [ext_resource type="Script" uid="uid://bqj6ilxtw1wqg" path="res://Script/MouseToggle3D.gd" id="1_un1av"]
 [ext_resource type="Script" uid="uid://cb2nyxoek5i5k" path="res://Script/BehaviourScript/DoorBehaviour.gd" id="2_3qx2e"]
 [ext_resource type="Script" uid="uid://knn4iw25lrv4" path="res://Script/Entity/DoorEntityHandler.gd" id="2_arxn4"]
-[ext_resource type="Texture2D" uid="uid://bwkgpvr6ce8h4" path="res://Assets/eye.png" id="2_kppom"]
+[ext_resource type="Texture2D" uid="uid://nd8ws1rwf0pp" path="res://Assets/Entity.png" id="2_gfimf"]
 [ext_resource type="PackedScene" uid="uid://csbibxl84cpb5" path="res://Prototype/OneOpenSlot.tscn" id="2_t3t22"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_un1av"]
 [ext_resource type="Script" uid="uid://qvjjtjy3wtmw" path="res://Script/Entity/Entiity02Path.gd" id="3_a5tng"]
@@ -61,180 +61,47 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5meu"]
-atlas = ExtResource("2_kppom")
-region = Rect2(0, 0, 64, 80)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiamn"]
+atlas = ExtResource("2_gfimf")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a5tng"]
-atlas = ExtResource("2_kppom")
-region = Rect2(64, 0, 64, 80)
+[sub_resource type="AtlasTexture" id="AtlasTexture_aysxh"]
+atlas = ExtResource("2_gfimf")
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6qhqt"]
-atlas = ExtResource("2_kppom")
-region = Rect2(128, 0, 64, 80)
+[sub_resource type="AtlasTexture" id="AtlasTexture_opi7i"]
+atlas = ExtResource("2_gfimf")
+region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jw5mf"]
-atlas = ExtResource("2_kppom")
-region = Rect2(192, 0, 64, 80)
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4dtg"]
+atlas = ExtResource("2_gfimf")
+region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iqmni"]
-atlas = ExtResource("2_kppom")
-region = Rect2(256, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwdt4"]
-atlas = ExtResource("2_kppom")
-region = Rect2(320, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lc7p8"]
-atlas = ExtResource("2_kppom")
-region = Rect2(384, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mnivo"]
-atlas = ExtResource("2_kppom")
-region = Rect2(448, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c0dk7"]
-atlas = ExtResource("2_kppom")
-region = Rect2(512, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6qkt8"]
-atlas = ExtResource("2_kppom")
-region = Rect2(576, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r1v7q"]
-atlas = ExtResource("2_kppom")
-region = Rect2(640, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yb0mt"]
-atlas = ExtResource("2_kppom")
-region = Rect2(704, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_774l7"]
-atlas = ExtResource("2_kppom")
-region = Rect2(768, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3n77d"]
-atlas = ExtResource("2_kppom")
-region = Rect2(832, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l476n"]
-atlas = ExtResource("2_kppom")
-region = Rect2(896, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yap8k"]
-atlas = ExtResource("2_kppom")
-region = Rect2(960, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jbknu"]
-atlas = ExtResource("2_kppom")
-region = Rect2(1024, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_41g2q"]
-atlas = ExtResource("2_kppom")
-region = Rect2(1088, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y0crx"]
-atlas = ExtResource("2_kppom")
-region = Rect2(1152, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c0av5"]
-atlas = ExtResource("2_kppom")
-region = Rect2(1216, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ks27g"]
-atlas = ExtResource("2_kppom")
-region = Rect2(1280, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1wohb"]
-atlas = ExtResource("2_kppom")
-region = Rect2(1344, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xcvkl"]
-atlas = ExtResource("2_kppom")
-region = Rect2(1408, 0, 64, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ekbx"]
-atlas = ExtResource("2_kppom")
-region = Rect2(1472, 0, 64, 80)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg0uj"]
+atlas = ExtResource("2_gfimf")
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tlt85"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l5meu")
+"texture": SubResource("AtlasTexture_qiamn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a5tng")
+"texture": SubResource("AtlasTexture_aysxh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6qhqt")
+"texture": SubResource("AtlasTexture_opi7i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jw5mf")
+"texture": SubResource("AtlasTexture_p4dtg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iqmni")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pwdt4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lc7p8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mnivo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c0dk7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6qkt8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r1v7q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yb0mt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_774l7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3n77d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l476n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yap8k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jbknu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_41g2q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y0crx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c0av5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ks27g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1wohb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xcvkl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0ekbx")
+"texture": SubResource("AtlasTexture_eg0uj")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="Curve3D" id="Curve3D_l5meu"]
@@ -386,6 +253,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x72uj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gfimf"]
+size = Vector2(0.4, 0.375)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qiamn"]
+viewport_path = NodePath("ViewPorts/SubViewport2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aysxh"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_qiamn")
+emission_enabled = true
+emission_energy_multiplier = 5.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p5u4l"]
 _surfaces = [{
@@ -547,17 +426,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_11eey")
 
-[sub_resource type="QuadMesh" id="QuadMesh_gfimf"]
-size = Vector2(0.4, 0.375)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_qiamn"]
-viewport_path = NodePath("ViewPorts/SubViewport2")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aysxh"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_qiamn")
-emission_enabled = true
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_s6imy"]
 size = Vector3(0.16552734, 1.7582855, 1)
 
@@ -668,6 +536,10 @@ _limits = [-0.7, 0.71, 0.0, 1.0]
 _data = [Vector2(0, -0.6615455), 0.0, 0.0, 0, 0, Vector2(0.25684932, -0.071038604), 2.0843046, 2.0843046, 0, 0, Vector2(0.46757674, 0.39088446), 1.1858647, 1.1858647, 0, 0, Vector2(0.8361774, 0.6078831), 0.0, 0.0, 0, 0, Vector2(1, 0.71), 0.0, 0.0, 0, 0]
 point_count = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_gfimf"]
+font_size = 200
+font_color = Color(0.1313313, 0.046222955, 0.005682509, 1)
+
 [node name="DummyDay" type="Node3D"]
 
 [node name="MovingObjects" type="Node" parent="."]
@@ -685,20 +557,22 @@ speed = 1.5
 fade_speed = 0.4
 max_energy = 1.0
 
-[node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D"]
-transform = Transform3D(1.000009, 0, 0, 0, 1, 0, 0, 0, 1.000009, 0, 0, 0)
+[node name="Entity" type="Node3D" parent="MovingObjects/Door-Entity01/PathFollow3D"]
+
+[node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
+transform = Transform3D(1, 0, -2.980148e-08, 0, 1, 0, 2.980148e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.61620474
+light_energy = 0.013353774
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 2.862
 
-[node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19273832, 0)
+[node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0.18001069, 0)
 billboard = 1
-texture_filter = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.46002063
+frame_progress = 0.9137595
 
 [node name="Door-Entity02" type="Path3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
@@ -739,34 +613,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77867275, 0)
 curve = SubResource("Curve3D_h44r7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Window-Entity01"]
-transform = Transform3D(-0.7151927, 0, 0.6988901, 0, 0.99999976, 0, -0.6988901, 0, -0.7151927, 2.520341, 0, 0.25269324)
-progress = 12.4024935
+transform = Transform3D(-0.71519226, 0, 0.6988897, 0, 0.99999976, 0, -0.6988897, 0, -0.71519226, 2.520341, 0, 0.25269324)
+progress = 10.422013
 script = ExtResource("1_l5meu")
-y_range = 0.2
 speed = 1.0
 fade_speed = 0.3
 
-[node name="Light" type="OmniLight3D" parent="MovingObjects/Window-Entity01/PathFollow3D"]
-transform = Transform3D(1.000009, 0, 0, 0, 1, 0, 0, 0, 1.000009, 0, 0, 0)
+[node name="Entity" type="Node3D" parent="MovingObjects/Window-Entity01/PathFollow3D"]
+
+[node name="Light" type="OmniLight3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
+transform = Transform3D(1, 0, -5.960309e-08, 0, 1, 0, 5.960309e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 4.9269543
+light_energy = 3.854025
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 5.9365788
 omni_attenuation = 2.942
 
-[node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Window-Entity01/PathFollow3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15247814, 0)
+[node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, -0.09752393, 0)
 billboard = 1
-texture_filter = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.46002063
+frame_progress = 0.22095498
 
 [node name="Node3D" type="Node3D" parent="MovingObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9225074, -0.33617005)
-
-[node name="TvStand" parent="MovingObjects" instance=ExtResource("5_0ekbx")]
-transform = Transform3D(-1, 0, -2.6226832e-07, 0, 1, 0, 2.6226832e-07, 0, -1, 0.40298674, 0, -3.883668)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.942868, 0.41281393)
 
 [node name="Environment" type="Node" parent="."]
 
@@ -813,9 +685,15 @@ mesh = SubResource("ArrayMesh_r46fv")
 skeleton = NodePath("")
 
 [node name="Object_14" type="MeshInstance3D" parent="Environment/Fan"]
-transform = Transform3D(0.5822649, -9.3635337e-17, 0.8129992, 1.6081228e-16, 1, -3.246011e-24, -0.8129992, 1.3074025e-16, 0.5822649, 1.7733142, 0.5239434, 2.2308207)
+transform = Transform3D(0.72149444, -1.1602516e-16, 0.6924203, 1.6081228e-16, 1, -1.1120447e-24, -0.6924203, 1.1134968e-16, 0.72149444, 1.6470346, 0.5239434, 2.2528992)
 mesh = SubResource("ArrayMesh_t4s5y")
 skeleton = NodePath("")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment/Fan/Object_14"]
+transform = Transform3D(-0.00012038648, 5.996464e-17, -1.5267243, 1.9362644e-20, 0.37288594, 2.4551602e-16, 0.2652549, -2.467552e-24, -0.000692904, -0.08382112, 0.09865254, 0.1039567)
+mesh = SubResource("QuadMesh_gfimf")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_aysxh")
 
 [node name="Object_28" type="MeshInstance3D" parent="Environment/Fan"]
 transform = Transform3D(0, 0, 1, 1.6081228e-16, 1, 0, -1, 1.6081228e-16, 0, 0.5482434, 1.1920929e-07, 0.5193003)
@@ -837,10 +715,8 @@ transform = Transform3D(0.7345115, 0, 0.67859626, 1.0912661e-16, 1, -1.1811847e-
 mesh = SubResource("ArrayMesh_k5xm2")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.21558192, 0, -0.88952136, 0, 0.37288594, 0, 0.1545465, 0, 1.2408222, 1.8090249, 0.62259597, 0.80660635)
-mesh = SubResource("QuadMesh_gfimf")
-surface_material_override/0 = SubResource("StandardMaterial3D_aysxh")
+[node name="TvStand" parent="Environment" instance=ExtResource("5_0ekbx")]
+transform = Transform3D(-1, 0, -2.6226832e-07, 0, 1, 0, 2.6226832e-07, 0, -1, 0.40298674, 0, -3.883668)
 
 [node name="Interactables" type="Node" parent="."]
 
@@ -1001,7 +877,7 @@ omni_range = 0.19968179
 omni_attenuation = 0.623
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.9990375, 0.043863304, 0, -0.043863304, 0.9990375, 0, 0.7718462, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.999812, 0.019385986, 0, -0.019385986, 0.999812, 0, 0.7718462, 1.7777451)
 top_level = true
 fov = 75.8
 
@@ -1098,7 +974,7 @@ sanity_danger = 10.0
 camera = NodePath("../../Lights&Cams/PhantomCamera3D")
 screen_fx = NodePath("../../Lights&Cams/VignetteScreen")
 
-[node name="TimeSystem" type="Node" parent="System" node_paths=PackedStringArray("laptop")]
+[node name="TimeSystem" type="Node" parent="System" node_paths=PackedStringArray("laptop", "clock_label")]
 script = ExtResource("11_vfrrt")
 start_hour = 5
 start_minute = 30
@@ -1106,6 +982,7 @@ end_hour = 7
 end_minute = 40
 delta_time_ms = 1.0
 laptop = NodePath("../../MouseListener/LaptopContainer/MainLaptop")
+clock_label = NodePath("../../ViewPorts/SubViewport2/Control/Label")
 
 [node name="Debugerr" parent="System" node_paths=PackedStringArray("door", "window", "tv", "door_entity", "tv_entity", "window_entity", "player_state", "room_state", "time_state") instance=ExtResource("15_ao232")]
 door = NodePath("../../Interactables/Door/Controller")
@@ -1147,7 +1024,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("52_1j4r8")
-volume_db = -20.809992
+volume_db = -25.81
 autoplay = true
 loop = true
 bus = &"VideoSfx"
@@ -1156,6 +1033,7 @@ bus = &"VideoSfx"
 size = Vector2i(512, 652)
 
 [node name="Control" type="Control" parent="ViewPorts/SubViewport2"]
+custom_minimum_size = Vector2(512, 652)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1165,12 +1043,22 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="ColorRect" type="ColorRect" parent="ViewPorts/SubViewport2/Control"]
+custom_minimum_size = Vector2(512, 652)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.75359774, 0.74718595, 0.71136916, 1)
+
 [node name="Label" type="Label" parent="ViewPorts/SubViewport2/Control"]
+z_index = 5
+custom_minimum_size = Vector2(512, 652)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "5
 32"
+label_settings = SubResource("LabelSettings_gfimf")
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -124,9 +124,23 @@ func _door_toggle(is_open: bool):
 		else:
 			entity_ref.door_shut()
 
+func _entity_01_attack():
+	entity_01.set_process(false)
+	var entity_node = entity_01.get_entity_node();
+	entity_node.top_level = true;
+	entity_node.global_transform = entity_node.global_transform
+
+
+
+
+func _entity_02_attack():
+	pass
+
+
 func _dummy_01_attack():
 	self.set_physics_process(false)
-	print("01 is attacks you lose")
+	self.set_process(false)
+
 	entity_ref = null
 	assert(false)
 
