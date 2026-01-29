@@ -1,0 +1,11 @@
+Model Information:
+* title:	Book Shelf
+* source:	https://sketchfab.com/3d-models/book-shelf-48355d20f0f14234afc2fa3f263b995c
+* author:	isnainul (https://sketchfab.com/isnainul)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Book Shelf" (https://sketchfab.com/3d-models/book-shelf-48355d20f0f14234afc2fa3f263b995c) by isnainul (https://sketchfab.com/isnainul) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

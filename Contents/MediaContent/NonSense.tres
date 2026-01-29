@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://d0wudi848j7ay"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_hut2n"]
+[ext_resource type="Texture2D" uid="uid://b22nr53yfk2on" path="res://Assets/Laptop/MediaImages/cinema.jpg" id="1_y3fbw"]
+
+[resource]
+script = ExtResource("1_hut2n")
+description = "What a Day!!!!
+
+THat was the most awsome thing happened!"
+likes = 5
+images = Array[Texture2D]([ExtResource("1_y3fbw")])
+shared = true
+done_by = "Friendy Boskos"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

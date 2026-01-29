@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://dytjl6k3ajc1"]
+
+[ext_resource type="Shader" uid="uid://gkhmryhi2dp7" path="res://Shader/CtrScreen.gdshader" id="1_a5tow"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5tow"]
+shader = ExtResource("1_a5tow")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4570000217075
+shader_parameter/scanlines_width = 0.402000019095
+shader_parameter/grille_opacity = 0.1670000079325
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.38000006229012
+shader_parameter/distort_intensity = 0.062000002945
+shader_parameter/noise_opacity = 0.410000019475
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.615
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.6670000316825
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.72
+shader_parameter/vignette_opacity = 0.4430000210425
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_f4lid"]
+file = "res://Video/SeanTimothy.ogv"
+
+[node name="ScreenTvView" type="SubViewport"]
+size = Vector2i(1028, 1028)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = 1
+material = SubResource("ShaderMaterial_a5tow")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.800001
+anchor_bottom = 16.2
+offset_right = -124.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+stream = SubResource("VideoStreamTheora_f4lid")
+autoplay = true

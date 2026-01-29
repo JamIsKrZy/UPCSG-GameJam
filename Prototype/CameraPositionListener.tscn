@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxylxn5urk41a"]
+
+[ext_resource type="Script" uid="uid://bds7sjw8qkb52" path="res://Script/CameraListenBoard.gd" id="1_ul6fo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul6fo"]
+size = Vector2(424.5, 464.25)
+
+[node name="CameraPositionListener" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+script = ExtResource("1_ul6fo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(215.75, 233)
+shape = SubResource("RectangleShape2D_ul6fo")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(939, 233)
+shape = SubResource("RectangleShape2D_ul6fo")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 429.0
+offset_bottom = 464.0
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="left_hovered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="hovered_out"]
+[connection signal="mouse_entered" from="StaticBody2D2" to="." method="right_hovered"]
+[connection signal="mouse_exited" from="StaticBody2D2" to="." method="hovered_out"]

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Baskets
+* source:	https://sketchfab.com/3d-models/baskets-cc613d8d1c4a418bb2a32103c1c71de5
+* author:	Jeison Moura (https://sketchfab.com/jeison.moura)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Baskets" (https://sketchfab.com/3d-models/baskets-cc613d8d1c4a418bb2a32103c1c71de5) by Jeison Moura (https://sketchfab.com/jeison.moura) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

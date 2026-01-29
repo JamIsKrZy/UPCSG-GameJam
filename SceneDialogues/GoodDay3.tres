@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ScriptResource" load_steps=3 format=3 uid="uid://bwl25lg3crm83"]
+
+[ext_resource type="Script" uid="uid://huxqpaeq4ys5" path="res://Script/Resource/LineResource.gd" id="1_5e7g0"]
+[ext_resource type="Script" uid="uid://dhpv8jclo7bcp" path="res://Script/Resource/ScriptResource.gd" id="2_dey38"]
+
+[resource]
+script = ExtResource("2_dey38")
+metadata/_custom_type_script = "uid://dhpv8jclo7bcp"

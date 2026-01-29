@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://rd2aam1eg2i0"]
+
+[ext_resource type="Texture2D" uid="uid://bimbm5u5cn6ks" path="res://Assets/Laptop/itpark.jpg" id="1_7dkbb"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_avar1"]
+[ext_resource type="Texture2D" uid="uid://r7iger5b0eqx" path="res://Assets/Laptop/taoist.jpg" id="2_c2tj5"]
+
+[resource]
+script = ExtResource("1_avar1")
+description = "ASA NAMAN KOOO!!!!!
+
+tabang"
+likes = 1
+images = Array[Texture2D]([ExtResource("1_7dkbb"), ExtResource("2_c2tj5")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

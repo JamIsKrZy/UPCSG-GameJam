@@ -1,0 +1,110 @@
+[gd_scene load_steps=4 format=3 uid="uid://brlr2kgtllwms"]
+
+[sub_resource type="GDScript" id="GDScript_jxiel"]
+script/source = "extends Control
+
+signal open_left_slot;
+signal close_left_slot;
+signal open_right_slot;
+signal close_right_slot;
+
+enum SLOT_STATE {
+	OPEN,
+	LOCKED,
+	LEFT_ACTIVE,
+	RIGHT_ACTIVE
+}
+
+@onready var left_slot_texture: TextureRect = $TextureRect
+@onready var right_slot_texture: TextureRect = $TextureRect2
+
+var state: SLOT_STATE = SLOT_STATE.OPEN
+
+func _ready() -> void:
+	open_left_slot.connect(_open_left)
+	close_left_slot.connect(_close_left)
+	open_right_slot.connect(_open_right)
+	close_right_slot.connect(_close_right)
+	
+func _open_left() -> void:
+	right_slot_texture.visible = false
+	state = SLOT_STATE.LEFT_ACTIVE
+	
+func _close_left() -> void:
+	right_slot_texture.visible = true
+	state = SLOT_STATE.OPEN
+	
+func _open_right() -> void:
+	left_slot_texture.visible = false
+	state = SLOT_STATE.RIGHT_ACTIVE
+	
+func _close_right() -> void:
+	left_slot_texture.visible = true
+	state = SLOT_STATE.OPEN
+	
+
+
+func lock_slot() ->void:
+	pass
+
+func toggle_left_slot() -> void:
+	if state == SLOT_STATE.RIGHT_ACTIVE || state == SLOT_STATE.LOCKED : return
+	
+	if state == SLOT_STATE.LEFT_ACTIVE:
+		close_left_slot.emit()
+	else:
+		# activate
+		open_left_slot.emit()
+		pass
+	
+	
+func toggle_right_slot() -> void:
+	if state == SLOT_STATE.LEFT_ACTIVE || state == SLOT_STATE.LOCKED : return
+	
+	if state == SLOT_STATE.RIGHT_ACTIVE:
+		close_right_slot.emit()
+	else:
+		open_right_slot.emit()
+"
+
+[sub_resource type="ImageTexture" id="ImageTexture_hvtqs"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a4xbh"]
+specular_texture = SubResource("ImageTexture_hvtqs")
+specular_color = Color(0.84768486, 0.44315758, 0.5036569, 1)
+
+[node name="OpenSlot" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.09900001
+offset_right = -1.0
+offset_bottom = -0.15200806
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = SubResource("GDScript_jxiel")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083000004
+anchor_top = 0.37500003
+anchor_right = 0.46600002
+anchor_bottom = 1.0
+offset_left = 1.3829956
+offset_right = 0.16796875
+texture = SubResource("CanvasTexture_a4xbh")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.535
+anchor_top = 0.37500003
+anchor_right = 0.91800004
+anchor_bottom = 1.0
+offset_left = 0.6789551
+offset_right = -0.53601074
+texture = SubResource("CanvasTexture_a4xbh")
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="toggle_left_slot"]
+[connection signal="mouse_entered" from="TextureRect2" to="." method="toggle_right_slot"]

@@ -1,0 +1,303 @@
+[gd_scene load_steps=35 format=3 uid="uid://cx3sx2pnfntli"]
+
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_6gcle"]
+[ext_resource type="Script" uid="uid://br6h5wphrg2b2" path="res://Script/BehaviourScript/HoldRectangle_prototype.gd" id="2_7m81g"]
+[ext_resource type="PackedScene" uid="uid://7cyeq0hpfw24" path="res://Prototype/ListenBoard.tscn" id="2_nh0rp"]
+[ext_resource type="Script" uid="uid://08dlgnm4jn6w" path="res://Script/BehaviourScript/ClickRectangle_prototype.gd" id="2_sgh8f"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_wvjl2"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_isfpf"]
+[ext_resource type="Script" uid="uid://bqj6ilxtw1wqg" path="res://Script/MouseToggle3D.gd" id="3_xgvge"]
+[ext_resource type="PackedScene" uid="uid://csbibxl84cpb5" path="res://Prototype/OneOpenSlot.tscn" id="5_sgh8f"]
+[ext_resource type="Shader" uid="uid://gkhmryhi2dp7" path="res://Shader/CtrScreen.gdshader" id="6_b4iuu"]
+[ext_resource type="Script" uid="uid://b0yjh4t0goaoa" path="res://Script/MainCameraBehaviour.gd" id="6_nh0rp"]
+[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="10_1g6wc"]
+[ext_resource type="Script" uid="uid://cpw1rcpnwcxk2" path="res://Script/Mechanics/RoomStats.gd" id="12_fj57l"]
+[ext_resource type="Script" uid="uid://cc0bgrwy122ai" path="res://Script/Mechanics/PlayerStats.gd" id="13_m3ukk"]
+[ext_resource type="Script" uid="uid://d7mbaterk8d5" path="res://Script/Mechanics/TimeElapsed.gd" id="14_0jx6i"]
+[ext_resource type="PackedScene" uid="uid://snqvdh8kv1v2" path="res://Prototype/Debugerr.tscn" id="14_n4hhr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xgvge"]
+size = Vector3(2.1534424, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tfcu"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.293
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgh8f"]
+next_pass = SubResource("StandardMaterial3D_1tfcu")
+cull_mode = 2
+albedo_color = Color(0.7031708, 0, 0.10299934, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_outline_thickness = 0.293
+
+[sub_resource type="QuadMesh" id="QuadMesh_6gcle"]
+material = SubResource("StandardMaterial3D_sgh8f")
+size = Vector2(2.175, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7m81g"]
+size = Vector3(2.2280273, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m81g"]
+next_pass = SubResource("StandardMaterial3D_1tfcu")
+cull_mode = 2
+albedo_color = Color(0.7031708, 0, 0.10299934, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_outline_thickness = 0.293
+
+[sub_resource type="QuadMesh" id="QuadMesh_wvjl2"]
+material = SubResource("StandardMaterial3D_7m81g")
+size = Vector2(2.175, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0jx6i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tw60"]
+next_pass = SubResource("StandardMaterial3D_1tfcu")
+cull_mode = 2
+albedo_color = Color(0.7031708, 0, 0.10299934, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_outline_thickness = 0.293
+
+[sub_resource type="QuadMesh" id="QuadMesh_wkf4m"]
+material = SubResource("StandardMaterial3D_1tw60")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_b4iuu"]
+viewport_path = NodePath("Environment/ScreenTvView")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g6wc"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_b4iuu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isfpf"]
+albedo_color = Color(0.16961887, 0.1698618, 0.16382727, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nh0rp"]
+material = SubResource("StandardMaterial3D_isfpf")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5tow"]
+shader = ExtResource("6_b4iuu")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4570000217075
+shader_parameter/scanlines_width = 0.402000019095
+shader_parameter/grille_opacity = 0.1670000079325
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.38000006229012
+shader_parameter/distort_intensity = 0.062000002945
+shader_parameter/noise_opacity = 0.410000019475
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.615
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.6670000316825
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.72
+shader_parameter/vignette_opacity = 0.4430000210425
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_f4lid"]
+file = "res://Video/SeanTimothy.ogv"
+
+[sub_resource type="Resource" id="Resource_nh0rp"]
+script = ExtResource("3_isfpf")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_fj57l"]
+script = ExtResource("10_1g6wc")
+amplitude = 1.5
+frequency = 0.1
+randomize_noise_seed = 1
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[sub_resource type="Environment" id="Environment_6gcle"]
+background_mode = 1
+background_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
+
+[node name="Room" type="Node3D"]
+
+[node name="Interactable" type="Node" parent="."]
+
+[node name="StaticBody3D2" type="Area3D" parent="Interactable" node_paths=PackedStringArray("call_objects")]
+transform = Transform3D(0.67794156, 0.18820393, 0.7106156, 0, 0.96667165, -0.25601944, -0.73511577, 0.17356619, 0.6553468, -4.049706, 1.3370228, -0.92810893)
+script = ExtResource("3_xgvge")
+call_objects = [NodePath("CollisionShape3D")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable/StaticBody3D2" node_paths=PackedStringArray("mesh", "room_system")]
+transform = Transform3D(1, 1.1920929e-07, 0, 0, 1.000001, -1.4901161e-08, 2.9802322e-08, -7.4505806e-08, 1, -0.014342546, -2.9802322e-08, -9.536743e-07)
+shape = SubResource("BoxShape3D_xgvge")
+script = ExtResource("2_sgh8f")
+mesh = NodePath("../Door")
+color = Color(0.9691369, 0.9691369, 0.9691368, 1)
+is_open = true
+room_item = 1
+room_system = NodePath("../../../Mechanics/RoomStats")
+
+[node name="Door" type="MeshInstance3D" parent="Interactable/StaticBody3D2"]
+transform = Transform3D(1, 1.4901161e-08, 0, 0, 1.0000001, -1.4901161e-08, 2.9802322e-08, -2.2351742e-08, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_6gcle")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="Area3D" parent="Interactable" node_paths=PackedStringArray("call_objects")]
+transform = Transform3D(0.5271338, -0.21756068, -0.82146037, 1.010212e-08, 0.96667165, -0.25601953, 0.8497824, 0.13495645, 0.50956523, 2.8002315, 1.265642, 0.1223402)
+script = ExtResource("3_xgvge")
+hold_and_release = true
+call_objects = [NodePath("CollisionShape3D")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable/StaticBody3D" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(0.99999976, 0, -8.940697e-08, -2.9802322e-08, 1.0000002, 7.450581e-09, -2.9802322e-08, -1.0058284e-06, 0.99999976, -0.031005502, -2.3841858e-07, 7.1525574e-07)
+shape = SubResource("BoxShape3D_7m81g")
+script = ExtResource("2_7m81g")
+mesh = NodePath("../Window")
+color = Color(0, 0.71010226, 0.070683144, 1)
+
+[node name="Window" type="MeshInstance3D" parent="Interactable/StaticBody3D"]
+transform = Transform3D(0.99999976, -7.450581e-09, -5.9604645e-08, -2.9802322e-08, 1.0000002, 2.2351742e-08, -2.9802322e-08, -4.4703484e-08, 0.99999994, 0, 0, 0)
+mesh = SubResource("QuadMesh_wvjl2")
+skeleton = NodePath("../..")
+
+[node name="ListenBoard" parent="Interactable" instance=ExtResource("2_nh0rp")]
+anchors_preset = -1
+anchor_bottom = 0.69100004
+offset_bottom = 0.23196411
+
+[node name="OneOpenSlot" parent="Interactable" instance=ExtResource("5_sgh8f")]
+anchor_left = -0.007
+anchor_top = 0.901
+anchor_bottom = 1.0
+offset_left = 8.064
+offset_top = 0.15197754
+offset_bottom = 0.0
+
+[node name="StaticBody3D3" type="Area3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 0.9905885, -0.13687405, 0, 0.13687405, 0.9905885, 0, 1.1806813, -1.0140009)
+script = ExtResource("3_xgvge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable/StaticBody3D3"]
+shape = SubResource("BoxShape3D_0jx6i")
+
+[node name="Tv" type="MeshInstance3D" parent="Interactable/StaticBody3D3"]
+mesh = SubResource("QuadMesh_wkf4m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1g6wc")
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
+mesh = SubResource("PlaneMesh_nh0rp")
+skeleton = NodePath("../..")
+
+[node name="ScreenTvView" type="SubViewport" parent="Environment"]
+size = Vector2i(1028, 1028)
+
+[node name="Control" type="Control" parent="Environment/ScreenTvView"]
+layout_mode = 3
+anchor_right = 0.88900006
+anchor_bottom = 1.58
+offset_right = 3.8719482
+offset_bottom = 4.159912
+
+[node name="ColorRect" type="ColorRect" parent="Environment/ScreenTvView/Control"]
+z_index = 1
+material = SubResource("ShaderMaterial_a5tow")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.121
+anchor_bottom = 0.63000005
+offset_right = -0.38806152
+offset_bottom = 0.35992432
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Environment/ScreenTvView/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_right = 1.113
+anchor_bottom = 0.63000005
+offset_left = -328.224
+offset_top = -32.0
+offset_right = 423.83594
+offset_bottom = 728.3599
+grow_horizontal = 2
+grow_vertical = 2
+stream = SubResource("VideoStreamTheora_f4lid")
+autoplay = true
+
+[node name="Camera" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Camera"]
+transform = Transform3D(0.9999818, -0.005748355, 0.0018313922, 0.0058497554, 0.9981048, -0.061258614, -0.0014757849, 0.061268214, 0.99812025, 0, 0.516207, 1.833525)
+fov = 70.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera/Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_6gcle")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="Camera"]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9980267, -0.06279052, 0, 0.06279052, 0.9980267, 0, 0.516207, 1.833525)
+script = ExtResource("2_wvjl2")
+priority = 10
+tween_resource = SubResource("Resource_nh0rp")
+noise = SubResource("Resource_fj57l")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Lighting" type="Node" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 0.26849946, 0.96327984, 0, -0.96327984, 0.26849946, 0, 3.2041223, 2.688716)
+spot_range = 6.678
+spot_attenuation = -1.26
+spot_angle = 55.05
+spot_angle_attenuation = 6.7271614
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6gcle")
+
+[node name="Mechanics" type="Node" parent="."]
+
+[node name="CameraBehaviour" type="Node" parent="Mechanics" node_paths=PackedStringArray("camera_ref", "slot_node_ref")]
+script = ExtResource("6_nh0rp")
+camera_ref = NodePath("../../Camera/PhantomCamera3D")
+camera_state = 2
+max_left_angle = 30.0
+max_right_angle = -31.34
+transition_speed = 50.0
+slot_node_ref = NodePath("../../Interactable/OneOpenSlot")
+left_angle_bounds = -15.0
+right_angle_bounds = 15.0
+
+[node name="RoomStats" type="Node" parent="Mechanics" node_paths=PackedStringArray("player_stat_node")]
+script = ExtResource("12_fj57l")
+player_stat_node = NodePath("../PlayerStat")
+fast_tick_ms = 0.217
+
+[node name="PlayerStat" type="Node" parent="Mechanics"]
+script = ExtResource("13_m3ukk")
+
+[node name="TimeSystem" type="Node" parent="Mechanics"]
+script = ExtResource("14_0jx6i")
+
+[node name="Debugerr" parent="." node_paths=PackedStringArray("player_state", "room_state", "time_state") instance=ExtResource("14_n4hhr")]
+player_state = NodePath("../Mechanics/PlayerStat")
+room_state = NodePath("../Mechanics/RoomStats")
+time_state = NodePath("../Mechanics/TimeSystem")
+
+[connection signal="left_screen_hovered" from="Interactable/ListenBoard" to="Mechanics/CameraBehaviour" method="left_screen_is_hovered"]
+[connection signal="right_screen_hovered" from="Interactable/ListenBoard" to="Mechanics/CameraBehaviour" method="right_screen_is_hovered"]
+[connection signal="screen_hovered_out" from="Interactable/ListenBoard" to="Mechanics/CameraBehaviour" method="idle_screen"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckk4s6gjgqv5j"]
+
+[ext_resource type="Shader" uid="uid://cqhfjlgtkqo2r" path="res://Shader/RadialChromatic.gdshader" id="1_ctdqo"]
+[ext_resource type="Script" uid="uid://d0tsfl6b6n35b" path="res://Script/PostProcessorController.gd" id="1_y2k3x"]
+[ext_resource type="Shader" uid="uid://dinvggs1cew4j" path="res://Shader/VignetteScreen.gdshader" id="2_l86xf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btu7a"]
+shader = ExtResource("1_ctdqo")
+shader_parameter/intensity = 1.1750000558125
+shader_parameter/falloff = 0.5
+shader_parameter/samples = 10
+shader_parameter/center = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2k3x"]
+shader = ExtResource("2_l86xf")
+shader_parameter/inner_radius = 0.1
+shader_parameter/outer_radius = 1.05
+shader_parameter/vignette_strength = 5.915
+shader_parameter/dither_strength = -1.405
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[node name="PostProcessor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+script = ExtResource("1_y2k3x")
+_intensity = 1.1750000558125
+_outer_radius = 1.05
+_vignette_strength = 5.915
+_dither_strength = -1.405
+
+[node name="RadialBlur" type="ColorRect" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_btu7a")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Vignette" type="ColorRect" parent="."]
+z_index = 20
+material = SubResource("ShaderMaterial_y2k3x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

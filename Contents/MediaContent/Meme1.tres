@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://j3hiab7si2ln"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_74yps"]
+
+[resource]
+script = ExtResource("1_74yps")
+description = "Check This OUT!!!"
+likes = 5
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

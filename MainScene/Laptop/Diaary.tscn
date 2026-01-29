@@ -1,0 +1,182 @@
+[gd_scene load_steps=9 format=3 uid="uid://cutswfke3my86"]
+
+[ext_resource type="Script" uid="uid://bxp7metfavdti" path="res://Script/LaptopLogic/Diaary.gd" id="1_n6a8q"]
+[ext_resource type="Texture2D" uid="uid://djekg6r2kuapi" path="res://Assets/Laptop/diary.png" id="2_n6a8q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc2tr"]
+size = Vector2(512, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m678x"]
+size = Vector2(920, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6a8q"]
+bg_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_n6a8q"]
+font_size = 24
+font_color = Color(0.20564842, 0.07037849, 0.060737483, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kby42"]
+bg_color = Color(0.9079417, 0.9079417, 0.90794164, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.47397572, 0.47397578, 0.47397548, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_kby42"]
+font_color = Color(0.06053035, 0.06053035, 0.060530342, 1)
+
+[node name="Diaary" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_n6a8q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(448, 48)
+shape = SubResource("RectangleShape2D_vc2tr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(460, 16)
+shape = SubResource("RectangleShape2D_m678x")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 920.0
+offset_bottom = 648.0
+mouse_filter = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.7708514, 0.7538048, 0.75382453, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.062000003
+offset_bottom = -0.1760025
+mouse_filter = 1
+color = Color(0.155556, 0.11082914, 0.09293596, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.012
+anchor_right = 0.043
+anchor_bottom = 0.049000002
+offset_left = 0.3599987
+offset_top = 0.22399998
+offset_right = 0.43999863
+offset_bottom = 0.24799919
+texture = ExtResource("2_n6a8q")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.012
+anchor_right = 0.739
+anchor_bottom = 0.049000002
+offset_left = 0.15999985
+offset_top = 0.22399998
+offset_right = -591.88
+offset_bottom = -0.7520008
+text = "Diaary - Day 1 asdjhasdkjh"
+
+[node name="TitleField" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.086
+anchor_right = 0.45200002
+anchor_bottom = 0.17300001
+offset_left = 0.3599987
+offset_top = 0.27199936
+offset_right = 0.15997314
+offset_bottom = -0.104003906
+theme_override_styles/panel = SubResource("StyleBoxFlat_n6a8q")
+
+[node name="Label" type="Label" parent="Control/TitleField"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.040000003
+anchor_top = 0.143
+anchor_right = 0.96000004
+anchor_bottom = 0.85700005
+offset_top = -0.008000374
+offset_bottom = 0.0079956055
+text = "Slang Daya 1"
+label_settings = SubResource("LabelSettings_n6a8q")
+vertical_alignment = 1
+
+[node name="TextField" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.19800001
+anchor_right = 0.98300004
+anchor_bottom = 0.87700003
+offset_left = 0.3599987
+offset_top = -0.3040161
+offset_right = -0.3600464
+offset_bottom = -0.2960205
+theme_override_styles/panel = SubResource("StyleBoxFlat_kby42")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TextField"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009000001
+anchor_top = 0.018000001
+anchor_right = 0.99100006
+anchor_bottom = 0.98200005
+offset_left = 0.00799942
+offset_top = 0.07999945
+offset_right = -0.008056641
+offset_bottom = -0.08001709
+horizontal_scroll_mode = 0
+
+[node name="Label" type="Label" parent="Control/TextField/ScrollContainer"]
+custom_minimum_size = Vector2(854, 0)
+layout_mode = 2
+text = "[Empty]"
+label_settings = SubResource("LabelSettings_kby42")
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84300005
+anchor_top = 0.901
+anchor_right = 0.952
+anchor_bottom = 0.96300006
+offset_left = 0.4399414
+offset_top = 0.15197754
+offset_right = 0.15997314
+offset_bottom = -1.0240479
+text = "Save"
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_mouse_entered_tab"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_mouse_exited_tab"]
+[connection signal="mouse_entered" from="Control/TextField" to="." method="_mouse_entered_text_field"]
+[connection signal="mouse_exited" from="Control/TextField" to="." method="_mouse_exited_text_field"]
+[connection signal="pressed" from="Control/Button" to="." method="_release_bonus_points"]

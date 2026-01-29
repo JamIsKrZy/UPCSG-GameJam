@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://df1u0naq4lbu7"]
+
+[ext_resource type="PackedScene" uid="uid://bb2isxgt7wb7e" path="res://Assets/3DAsset/low_poly_vintage_bedframe/scene.gltf" id="1_ngjrb"]
+
+[node name="Bed" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_ngjrb")]
+transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, -3.7502942, 2.3841858e-07, -1.5116237)

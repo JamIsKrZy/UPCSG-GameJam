@@ -1,0 +1,11 @@
+Model Information:
+* title:	Vintage Props [70's AssetPack]
+* source:	https://sketchfab.com/3d-models/vintage-props-70s-assetpack-44ee2e58cd7a49f290b26d602d2bc814
+* author:	Lou Chevreux (https://sketchfab.com/Redaime)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Vintage Props [70's AssetPack]" (https://sketchfab.com/3d-models/vintage-props-70s-assetpack-44ee2e58cd7a49f290b26d602d2bc814) by Lou Chevreux (https://sketchfab.com/Redaime) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
