@@ -42,4 +42,4 @@ func process(delta: float):
 
 	approach_progress = min(_approach_time, delta + approach_progress)
 	if approach_progress >= _approach_time and not _closed:
-		attack()
+		attack(delta)

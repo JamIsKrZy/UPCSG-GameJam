@@ -10,7 +10,7 @@ class_name TimeElapsed extends Node
 @export_range(0.0,1.0,0.01) var bonus_speed_up: float = 0.75
 
 @export_group("On time Chat")
-@export var messages: Array[MessageChat] = []
+@export var messages: Array[TimeBoundedResource] = []
 
 
 @export_group("Dependent")
@@ -39,6 +39,8 @@ func _new_time_interval():
 	var timer = get_tree().create_timer(delta_time_ms, true, true)
 	timer.timeout.connect(_tick_time)
 	time_interval = timer
+
+func get_on_time_message()
 
 func _tick_time():
 	minute += 1;

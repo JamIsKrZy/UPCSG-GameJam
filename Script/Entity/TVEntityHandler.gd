@@ -66,7 +66,7 @@ func _roll_spawn():
 			var charge_duration = randf_range(ra.x, ra.y)
 
 			entity_ref = ApproachingEntity.new(
-				EntityManager.Entity.ENTITY_01,
+				EntityManager.Entity.ENTITY_404,
 				entity_manager._404_leave_interval,
 				charge_duration,
 				_tv_state.on
@@ -79,10 +79,7 @@ func _roll_spawn():
 			print("[ TVEntityHandler ] No Spawned - Idle")
 			_create_new_interval_timer()
 
-func _entity_attacked():
-	# Dummy
-	assert(false, "You Lose")
-	pass
+
 
 func _tv_toggled_state(is_on: bool):
 	print("Toggled", is_on)
@@ -92,6 +89,12 @@ func _tv_toggled_state(is_on: bool):
 			entity_ref.door_open()
 		else:
 			entity_ref.door_shut()
+
+var lock_toggle: bool = false
+func _entity_attacked(_delta):
+	if not lock_toggle:
+		entity_manager._entity_404_attack()
+		lock_toggle = true
 
 func _entity_left():
 	print("[ TVEntityHandler ] Entity has left")
@@ -103,6 +106,14 @@ func _entity_left():
 	var timer = get_tree().create_timer(wait_duration, true, true)
 	timer.timeout.connect(_roll_spawn)
 	next_state_timer = timer
+
+	lock_toggle = false
+	entity_manager._entity_404_left()
+
+	var bus_index := AudioServer.get_bus_index("VideoSfx");
+	var effect: AudioEffectPitchShift = AudioServer.get_bus_effect(bus_index, 2)
+
+	effect.pitch_scale = 1.
 
 
 
@@ -126,8 +137,7 @@ func _physics_process(delta: float) -> void:
 
 		# update 3d model position
 		if !entity_ref: return
-		var t = entity_ref.type
-		if t == EntityManager.Entity.ENTITY_01:
-			pass
-		elif t == EntityManager.Entity.ENTITY_02:
-			pass
+		var bus_index := AudioServer.get_bus_index("VideoSfx");
+		var effect: AudioEffectPitchShift = AudioServer.get_bus_effect(bus_index, 2)
+
+		effect.pitch_scale = lerp(1., 0.5, entity_ref.attack_meter)

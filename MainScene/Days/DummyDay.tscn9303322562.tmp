@@ -564,17 +564,17 @@ fade_speed = 0.3
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -2.980148e-08, 0, 1, 0, 2.980148e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 4.1945214
+light_energy = 4.637438
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 2.862
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(2.1736495, 0, 0, 0, 2.1736495, 0, 0, 0, 2.1736495, 0, 0.18494256, 0)
+transform = Transform3D(2.1482542, 0, 0, 0, 2.1482542, 0, 0, 0, 2.1482542, 0, 0.17043102, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.45482555
+frame_progress = 0.14209794
 
 [node name="Door-Entity02" type="Path3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5179007, 0.65, -1.697206)
@@ -630,18 +630,18 @@ speed = 1.5
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -5.960309e-08, 0, 1, 0, 5.960309e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 4.763939
+light_energy = 1.4511163
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 5.9365788
 omni_attenuation = 2.942
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(2.1930494, 0, 0, 0, 2.1930494, 0, 0, 0, 2.1930494, 0, 0.19602823, 0)
+transform = Transform3D(1.5002893, 0, 0, 0, 1.5002893, 0, 0, 0, 1.5002893, 0, -0.19983469, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.32699418
+frame_progress = 0.014266513
 
 [node name="Node3D" type="Node3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.942868, 0.41281393)
@@ -883,7 +883,7 @@ omni_range = 0.19968179
 omni_attenuation = 0.623
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.99831235, 0.058072142, 0, -0.058072142, 0.99831235, 0, 0.7718462, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.99873906, 0.050202016, 0, -0.050202016, 0.99873906, 0, 0.7718462, 1.7777451)
 top_level = true
 fov = 75.8
 
@@ -1001,10 +1001,9 @@ player_state = NodePath("../PlayerManager")
 room_state = NodePath("../RoomSystem")
 time_state = NodePath("../TimeSystem")
 
-[node name="EntityManager" type="Node" parent="System" node_paths=PackedStringArray("player_system", "laptop_hover_slot", "_01_attack_position")]
+[node name="EntityManager" type="Node" parent="System" node_paths=PackedStringArray("player_system", "_01_attack_position")]
 script = ExtResource("17_nm3el")
 player_system = NodePath("../PlayerManager")
-laptop_hover_slot = NodePath("../../MouseListener/OneOpenSlot")
 _01_charge_interval = Vector2(10, 15)
 _01_attack_position = NodePath("../../MovingObjects/Node3D")
 _01_attack_tick_interval = 0.2
@@ -1033,7 +1032,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("52_1j4r8")
-volume_db = -10.8099985
+volume_db = -10.809999
 autoplay = true
 loop = true
 bus = &"VideoSfx"
