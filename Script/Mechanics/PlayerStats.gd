@@ -52,8 +52,10 @@ var _virtual_heart_rate = base_heart_rate
 var heart_rate: float:
 	set(val):
 		if val >= death_heart_rate:
-			assert(false, "death!!")
+			SceneChangeHandler.done_day(false)
 		heart_rate = val
+
+
 var _hr_tick_timer = hr_tick_per_ms
 var _hr_cooldown = heart_rate_cooldown
 

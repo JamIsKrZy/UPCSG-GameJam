@@ -1,7 +1,39 @@
-[gd_resource type="Resource" script_class="TimeBoundMessageThread" load_steps=2 format=3 uid="uid://bgl3c0i54oj2x"]
+[gd_resource type="Resource" script_class="TimeBoundMessageThread" load_steps=8 format=3 uid="uid://bgl3c0i54oj2x"]
 
 [ext_resource type="Script" uid="uid://doc7mxuk0gmuw" path="res://Script/Resource/Content/TimeBoundMessageThread.gd" id="1_2l0yu"]
+[ext_resource type="Script" uid="uid://ctwekymrdpxqw" path="res://Script/Resource/Content/MessageChat.gd" id="1_f6ee0"]
+[ext_resource type="Script" uid="uid://dy73hp4ke0fm5" path="res://Script/Resource/Content/MessageThreadContent.gd" id="2_ofrn3"]
+
+[sub_resource type="Resource" id="Resource_f6ee0"]
+script = ExtResource("1_f6ee0")
+who = 0
+is_image = false
+text = "Hello Friend,
+Are you interested for a product?"
+metadata/_custom_type_script = "uid://ctwekymrdpxqw"
+
+[sub_resource type="Resource" id="Resource_ofrn3"]
+script = ExtResource("1_f6ee0")
+who = 0
+is_image = false
+text = "Answer!!!!"
+metadata/_custom_type_script = "uid://ctwekymrdpxqw"
+
+[sub_resource type="Resource" id="Resource_le7x8"]
+script = ExtResource("1_f6ee0")
+required_manual_reply = true
+is_image = false
+text = "No Thanks"
+metadata/_custom_type_script = "uid://ctwekymrdpxqw"
+
+[sub_resource type="Resource" id="Resource_l3i36"]
+script = ExtResource("2_ofrn3")
+person = "Juli Mantao"
+messages = Array[ExtResource("1_f6ee0")]([SubResource("Resource_f6ee0"), SubResource("Resource_ofrn3"), SubResource("Resource_le7x8")])
+metadata/_custom_type_script = "uid://dy73hp4ke0fm5"
 
 [resource]
 script = ExtResource("1_2l0yu")
+content = SubResource("Resource_l3i36")
+minute = 32
 metadata/_custom_type_script = "uid://doc7mxuk0gmuw"

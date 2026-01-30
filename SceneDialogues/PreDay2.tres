@@ -1,8 +1,22 @@
-[gd_resource type="Resource" script_class="ScriptResource" load_steps=3 format=3 uid="uid://drqrh050hlhii"]
+[gd_resource type="Resource" script_class="ScriptResource" load_steps=5 format=3 uid="uid://drqrh050hlhii"]
 
 [ext_resource type="Script" uid="uid://huxqpaeq4ys5" path="res://Script/Resource/LineResource.gd" id="1_cii8e"]
 [ext_resource type="Script" uid="uid://dhpv8jclo7bcp" path="res://Script/Resource/ScriptResource.gd" id="2_dk427"]
 
+[sub_resource type="Resource" id="Resource_cii8e"]
+script = ExtResource("1_cii8e")
+line = "Sample Line 1"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_dk427"]
+script = ExtResource("1_cii8e")
+line = "Sample Line 2
+"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
 [resource]
 script = ExtResource("2_dk427")
+lines = Array[ExtResource("1_cii8e")]([SubResource("Resource_cii8e"), SubResource("Resource_dk427")])
 metadata/_custom_type_script = "uid://dhpv8jclo7bcp"

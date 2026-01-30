@@ -1,5 +1,7 @@
 class_name Messager extends CharacterBody2D
 
+const new_message_interval: float = 1.5
+
 var draggingDistance
 var dir
 var dragging
@@ -20,6 +22,7 @@ var mouse_in = false
 @export var chat_box_texture: TextureRect = null
 @export var chat_box_label: Label = null
 
+@onready var reply_button: Button = $Control/ChatBox/Reply
 @onready var account_slots: VBoxContainer = $Control/Panel/ScrollContainer/AccountSlot
 @onready var chat_box: VBoxContainer = $Control/ChatBox/ChatContainer/ScrollContainer/MarginContainer/BubbleContainer
 @onready var chat_box_scroll: ScrollContainer = $Control/ChatBox/ChatContainer/ScrollContainer
@@ -33,9 +36,15 @@ var person_id: Dictionary[String, int] = {};
 var active_thread: RegisteredThread = null
 
 
+var tree_node: Node = null
+
 func _ready():
 	assert(account_slots)
 	assert(chat_box)
+
+	reply_button.visible = false
+	reply_button.disabled = true
+	reply_button.pressed.connect(_reply_action_pressed)
 
 	_empty_chat_box()
 
@@ -44,18 +53,19 @@ func _ready():
 	else:
 		ready_threads = []
 
+func supply_tree_node(node: Node):
+	tree_node = node
 
-
-
+var id_counter = 0
 func _init_message_threads():
-	var id_counter = 0;
 	for thread in ready_threads:
 		if thread == null: continue
 
 		if _check_person_is_registered(thread):
 			# Some appending stufff to do
-			printerr("Work In Progress: Please Fix This Dev!!!")
-			assert(false, "Existing Message Thread: Dev havent handled the logic")
+
+			var reg_thread = _get_thread(thread);
+			reg_thread.merge(thread)
 
 			continue
 
@@ -69,6 +79,7 @@ func _init_message_threads():
 		)
 
 		account_slots.add_child(slot)
+		account_slots.move_child(slot,0)
 		_register_thread(id_counter, thread, slot)
 		id_counter += 1;
 
@@ -88,14 +99,64 @@ func ready_messages(threads: Array[MessageThreadContent]):
 
 
 
-func new_message(thread: MessageThreadContent):
+# Creates a new thread and node
+func _new_register_thread(thread: MessageThreadContent):
+	var slot: MassagerUserThread = MessengerScene.instantiate();
+	slot.setup(
+		id_counter,
+		thread.person,
+		thread.recent_message(),
+		RegAccounts.get_account_texture(thread.person),
+		self
+	)
 
+	account_slots.add_child(slot)
+	account_slots.move_child(slot,0)
+	_register_thread(id_counter, thread, slot)
+	id_counter += 1
+
+func _append_chat_clock(reg_thread: RegisteredThread):
+	var is_processed = reg_thread.process_one_message();
+	if not is_processed:
+		if reg_thread == self.active_thread and reg_thread.need_action_reply:
+			reply_button.disabled = false
+			reply_button.visible = true
+		return
+
+	if reg_thread == self.active_thread:
+		__open_thread(reg_thread.node_thread.id)
+		reg_thread.node_thread.visited()
+
+
+	self.account_slots.move_child(reg_thread.node_thread, 0);
+
+	var timer = tree_node.get_tree().create_timer(new_message_interval, true, true)
+	timer.timeout.connect(Callable(self, "_append_chat_clock").bind(reg_thread))
+
+
+
+func new_message(thread: MessageThreadContent):
 	# Insert it to the messages data structure
 	# If its being viewed in screen then insert new chat bubble
+	var registered_thread = _get_thread(thread);
+	if registered_thread == null:
+		print("[ Messager ] Not Registered - creating new thread")
+		_new_register_thread(thread)
+		return
 
-	pass
+
+	registered_thread.new_message(thread);
+	_append_chat_clock(registered_thread)
 
 
+func _reply_action_pressed():
+	if self.active_thread == null: return
+
+	reply_button.disabled = true
+	reply_button.visible = false
+
+	active_thread.reply()
+	_append_chat_clock(active_thread)
 
 
 
@@ -113,13 +174,20 @@ func _get_thread(thread: MessageThreadContent) -> RegisteredThread:
 
 # OPens the thread to the chat box
 func __open_thread(id: int):
-	print("[ MessagerHandler ] Opened ", registered_threads[id].thread.person)
-	pass
-	var thread_data = registered_threads.get(id, null)
+	print("[ MessagerHandler ] Opened/Refreshed for ", registered_threads[id].thread.person)
+
+	reply_button.disabled = true
+	reply_button.visible = false
+
+	var thread_data: RegisteredThread = registered_threads.get(id, null)
 	if thread_data == null:
 		printerr("[ MessagerHandler ] Open Thread: No id:", id, " is assigned!")
 		return
 	_swap_chat_box(thread_data)
+
+	if thread_data.need_action_reply:
+		reply_button.disabled = false
+		reply_button.visible = true
 
 	active_thread = thread_data
 
@@ -226,57 +294,95 @@ func _mouse_exited() -> void:
 
 class RegisteredThread:
 
-	const new_message_interval: float = 1.5
+
 
 	signal update_message()
 
 	var thread: MessageThreadContent
 	var node_thread: MassagerUserThread = null
-	var waiting_user: bool = false
+	var need_action_reply: bool = false
+
+	# waiting for user input to process the following messages
 	var queue_message: MessageThreadContent = null
 
-	#  this is message to be proces by time
-	var process_message: MessageThreadContent
+	var is_processing: bool = false
+
+	#  this is message to be proces by time, means will be displayed
+	var to_process_message: MessageThreadContent
 
 	func _init(thread: MessageThreadContent, node: MassagerUserThread):
 		self.thread = thread
 		self.node_thread = node
 
 		queue_message = thread.pop_waiting_messages()
+		if queue_message && not queue_message.is_empty():
+			self.need_action_reply = true
+
+		node_thread.new_recent_message(thread.recent_message())
+
+	# do not imatate real time chatting
+	func merge(thread: MessageThreadContent):
+		if self.thread.person != thread.person: return
+		self.thread.append_thread(thread)
+		self.node_thread.new_recent_message(self.thread.recent_message())
 
 
 	# return false if no more message to process
-	func _process_one_message() -> bool:
-		if process_message.size == 0:
-			assert(false, "TODO")
-			# check if the top message chat waiting for user input
+	func process_one_message() -> bool:
+		if to_process_message == null || to_process_message.messages.size() == 0:
+
+			if queue_message != null && queue_message.messages.size() != 0:
+				need_action_reply = true
+
+			to_process_message = null
 			return false
 
-		var message = process_message.pop_message();
+
+		var message: MessageChat = to_process_message.pop_message();
 		thread.append_chat(message)
+		node_thread.new_recent_message(message)
 		return true
 
-		 
 
-	# This overwrites any queued messages
-	# Changing to new topic
-	# this need to process
 
 
 	# this only sorted the data not process
-	func new_message(append):
-		waiting_user = false
+	func new_message(append: MessageThreadContent):
+		need_action_reply = false
 
-		var mess_q 
+
+		var need_reply: MessageThreadContent = append.pop_waiting_messages()
+		if need_reply.is_empty():
+			queue_message = null
+		else:
+			queue_message = need_reply
+			need_action_reply = true
+
+		# print(need_reply.messages.size())
+		# print(append.messages.size())
+
+		if to_process_message == null:
+			to_process_message = MessageThreadContent.new()
+			to_process_message.person = thread.person
+		to_process_message.append_thread(append)
+
 
 	func reply():
-		# process the queue
-		pass
+		if queue_message == null:
+			printerr("[ MessageSystem ] Calling reply to ")
+			return
 
-	# this function must be used for runtime purpose
-	# to emitate real chating
-	#
-	# will halt if message contains "you"
-	# and wait for user to procedd
-	func runtime_message():
-		pass
+		var process_message = queue_message
+		need_action_reply = false
+
+		var need_reply = process_message.reply_then_pop_waiting_messages()
+		if need_reply.is_empty():
+			queue_message = null
+		else:
+			queue_message = need_reply
+
+
+		if to_process_message == null:
+			to_process_message = MessageThreadContent.new()
+			to_process_message.person = thread.person
+		to_process_message.append_thread(process_message)

@@ -74,6 +74,8 @@ func _ready() -> void:
 		AudioSystem.play_stream_fade_in("BGM","PreGameMusic", 5.)
 	)
 
+	SceneChangeHandler.screen_fade_in()
+
 	assert(dialogue_resource);
 	assert(label_node);
 
