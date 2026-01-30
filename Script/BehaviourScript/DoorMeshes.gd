@@ -15,8 +15,10 @@ const open_angle: float = 102.;
 const close_angle: float = 0.;
 
 var ratio: float = 0.
+var sun_angle
 
 func _ready() -> void:
+	door.rotation.y = deg_to_rad(-180)
 	open_door()
 
 func open_door():

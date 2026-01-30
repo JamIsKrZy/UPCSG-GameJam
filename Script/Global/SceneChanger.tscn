@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxlgcr0duyuxu"]
+[gd_scene load_steps=14 format=3 uid="uid://bxlgcr0duyuxu"]
 
 [ext_resource type="Script" uid="uid://dwjt75ux6sprs" path="res://Script/Global/SceneChangerScript.gd" id="1_fi3m4"]
 [ext_resource type="PackedScene" uid="uid://b8eadwhvcoq70" path="res://MainScene/Menu.tscn" id="2_ua3gc"]
+[ext_resource type="PackedScene" uid="uid://d32dvb8lpsacp" path="res://MainScene/Days/Day1.tscn" id="3_fa33h"]
 [ext_resource type="PackedScene" uid="uid://diluc2hkdaj4e" path="res://MainScene/Cutscene/PreGame.tscn" id="3_or4ti"]
-[ext_resource type="PackedScene" uid="uid://b1b1jbm27ukdx" path="res://MainScene/Days/DummyDay.tscn" id="3_w4lyv"]
+[ext_resource type="PackedScene" uid="uid://coic68mudh6bi" path="res://MainScene/Days/Day2.tscn" id="4_ivhc5"]
+[ext_resource type="PackedScene" uid="uid://bdkqsfpb88jde" path="res://MainScene/Days/Day3.tscn" id="5_knbuq"]
 [ext_resource type="Resource" uid="uid://diw2oycqdfted" path="res://SceneDialogues/PreDay1.tres" id="5_l8ijy"]
 [ext_resource type="PackedScene" uid="uid://bg3tgrrc4kq6e" path="res://MainScene/Cutscene/BlackScreenTemplate.tscn" id="5_waaor"]
 [ext_resource type="Resource" uid="uid://drqrh050hlhii" path="res://SceneDialogues/PreDay2.tres" id="6_ar26l"]
@@ -15,9 +17,9 @@
 [node name="SceneChanger" type="Node"]
 script = ExtResource("1_fi3m4")
 menu = ExtResource("2_ua3gc")
-day_1 = ExtResource("3_w4lyv")
-day_2 = ExtResource("3_w4lyv")
-day_3 = ExtResource("3_w4lyv")
+day_1 = ExtResource("3_fa33h")
+day_2 = ExtResource("4_ivhc5")
+day_3 = ExtResource("5_knbuq")
 intro_scene = ExtResource("3_or4ti")
 outro_scene = ExtResource("5_waaor")
 _pre_dialogue_ = ExtResource("5_l8ijy")
@@ -31,10 +33,11 @@ ___bad_ending_dialogue = "res://SceneDialogues/Day3Bad"
 ___good_ending = ExtResource("11_ivhc5")
 
 [node name="BlackTransition" type="ColorRect" parent="."]
-visible = false
+z_index = 100
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)

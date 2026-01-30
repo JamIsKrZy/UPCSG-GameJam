@@ -2,6 +2,7 @@ class_name SceneChanger extends Node
 
 enum GameDay{ DAY_1, DAY_2, DAY_3, None }
 
+@export var fade_duration: float = 3.
 
 @export_category("Game Scenes")
 @export var menu: PackedScene = null
@@ -28,6 +29,8 @@ enum GameDay{ DAY_1, DAY_2, DAY_3, None }
 @export_dir var ___bad_ending_dialogue: String = ""
 @export var ___good_ending: ScriptResource = null
 
+@onready var black_screen: ColorRect = $BlackTransition
+
 var _in_game: GameDay = GameDay.None
 var pre_scene_script: ScriptResource = null
 var post_scene_script: ScriptResource = null
@@ -35,15 +38,23 @@ var post_scene_script: ScriptResource = null
 func _change_scene(scene: PackedScene):
 	screen_black_out()
 	AudioSystem._clean_streams()
+
+	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_packed(scene)
 
 
 
 func screen_black_out():
-	pass
+	black_screen.color.a = 1.
 
 func screen_fade_in():
-	pass
+	var tween := create_tween()
+	tween.tween_property(
+		black_screen,
+		"color:a",
+		0.0,
+		fade_duration
+	)
 
 func _shuffle_select_bad_ed_script() -> ScriptResource:
 	var results: Array[ScriptResource] = []

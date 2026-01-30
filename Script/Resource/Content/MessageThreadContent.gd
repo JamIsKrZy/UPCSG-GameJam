@@ -29,6 +29,36 @@ func pop_waiting_messages() -> MessageThreadContent:
 	obj.messages = waiting_msg
 	return obj
 
+# return null if
+func reply_then_pop_waiting_messages() -> MessageThreadContent:
+	if not messages[0].is_you(): return null;
+
+	var waiting_msg: Array[MessageChat] = []
+	var process_msg = messages
+	messages = []
+
+	var go_to_queue: bool = false
+	messages.push_back(process_msg.pop_front())
+	for message in process_msg:
+		if go_to_queue:
+			waiting_msg.push_back(message)
+			continue
+
+		if message.is_you() and message.required_manual_reply:
+			go_to_queue = true
+			waiting_msg.push_back(message)
+			continue
+
+		messages.push_back(message)
+
+	var obj = MessageThreadContent.new()
+	obj.overwrite_queue = false
+	obj.person = self.person
+	obj.messages = waiting_msg
+	return obj
+
+func is_empty():
+	return messages.is_empty()
 
 func append_thread(thread: MessageThreadContent):
 	if self.person != thread.person: return

@@ -14,11 +14,17 @@ signal entity_404()
 @export var messager: Messager = null
 @export var diaary: Diaary = null
 @export var sociamedya: SociaMedya = null
+@export var tree_node: Node = null
+@export var disable_assertion: bool = false
+
 
 func _ready() -> void:
 	assert(messager)
+	if not disable_assertion: assert(tree_node)
 	assert(diaary)
 	assert(sociamedya)
+
+	messager.supply_tree_node(tree_node)
 
 	messager.ready_messages(message_content)
 
@@ -29,5 +35,5 @@ func _ready() -> void:
 	sociamedya.refresh_page()
 
 
-func on_time_message(message: MessageThreadContent):
-	pass
+func new_message(message: MessageThreadContent):
+	messager.new_message(message)

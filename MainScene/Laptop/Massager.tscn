@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ceep3n5deg8sa" path="res://Assets/Laptop/message.png" id="1_cvjbv"]
 [ext_resource type="Script" uid="uid://cxn12y03namn4" path="res://Script/LaptopLogic/Messager.gd" id="1_vl0gn"]
-[ext_resource type="Script" uid="uid://dy73hp4ke0fm5" path="res://Script/Resource/Content/MessageThreadContent.gd" id="2_58so3"]
 [ext_resource type="Shader" uid="uid://xu3r0ydttvq8" path="res://Shader/ProfileCircle.gdshader" id="2_huwtf"]
-[ext_resource type="Resource" uid="uid://blvegwy7407hi" path="res://Contents/MessageThread/Jacob.tres" id="3_hsx54"]
 [ext_resource type="Texture2D" uid="uid://3farb36jp6k1" path="res://Assets/Laptop/latest-2006512497.svg" id="3_s1tbu"]
 [ext_resource type="Texture2D" uid="uid://ddoevswfw57hw" path="res://Assets/Laptop/like.png" id="4_s1tbu"]
 [ext_resource type="PackedScene" uid="uid://beqno1bsaiaf0" path="res://MainScene/Laptop/MessageChatBubble.tscn" id="7_hsx54"]
@@ -21,6 +19,8 @@ bg_color = Color(0.11858138, 0.11858139, 0.11858132, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8tjup"]
 shader = ExtResource("2_huwtf")
 
+[sub_resource type="LabelSettings" id="LabelSettings_vl0gn"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1tbu"]
 bg_color = Color(0.25490198, 0.25490198, 0.25490198, 1)
 corner_radius_top_left = 10
@@ -33,13 +33,12 @@ bg_color = Color(0.1728327, 0.17283267, 0.17283267, 1)
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58so3"]
+bg_color = Color(0.99607843, 0.9843137, 0.98039216, 0.5568628)
+
 [node name="Messager" type="CharacterBody2D" node_paths=PackedStringArray("chat_box_texture", "chat_box_label")]
 collision_layer = 2
 script = ExtResource("1_vl0gn")
-use_screen_boundaries = null
-boundary_margin = null
-use_collision_check = null
-ready_threads = Array[ExtResource("2_58so3")]([ExtResource("3_hsx54")])
 chat_box_texture = NodePath("Control/ChatBox/TextureRect2")
 chat_box_label = NodePath("Control/ChatBox/Label")
 
@@ -177,6 +176,7 @@ offset_top = 0.2319994
 offset_right = -333.25604
 offset_bottom = -0.7120018
 text = "MARK BORJA"
+label_settings = SubResource("LabelSettings_vl0gn")
 
 [node name="Panel" type="Panel" parent="Control/ChatBox"]
 layout_mode = 1
@@ -283,6 +283,22 @@ offset_right = 0.00793457
 offset_bottom = 0.17596436
 texture = ExtResource("4_s1tbu")
 expand_mode = 1
+
+[node name="Reply" type="Button" parent="Control/ChatBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.377
+anchor_top = 0.93500006
+anchor_right = 0.71000004
+anchor_bottom = 0.98300004
+offset_left = -0.104003906
+offset_top = -0.040039063
+offset_right = 0.07998657
+offset_bottom = -0.072021484
+theme_override_colors/font_color = Color(0.07683603, 0.076835744, 0.0768358, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_58so3")
+text = "Reply"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_mouse_exited"]

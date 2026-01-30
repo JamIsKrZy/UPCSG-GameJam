@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://b8eadwhvcoq70"]
+[gd_scene load_steps=112 format=3 uid="uid://b8eadwhvcoq70"]
 
 [ext_resource type="Script" uid="uid://d1h2lbcy523a8" path="res://Script/AudioLoader.gd" id="1_ppq50"]
 [ext_resource type="Script" uid="uid://dhqk6iylygcbc" path="res://Script/Resource/AudioResource.gd" id="2_v3ug8"]
@@ -22,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://dsn4i53lmikon" path="res://Assets/leaf-fall.png" id="18_usidh"]
 [ext_resource type="Texture2D" uid="uid://bwkgpvr6ce8h4" path="res://Assets/eye.png" id="19_usidh"]
 [ext_resource type="PackedScene" uid="uid://wnblk824usty" path="res://MainScene/Laptop/MainLaptop.tscn" id="22_omhko"]
+[ext_resource type="Script" uid="uid://dy73hp4ke0fm5" path="res://Script/Resource/Content/MessageThreadContent.gd" id="23_xdxyy"]
+[ext_resource type="Resource" uid="uid://blvegwy7407hi" path="res://Contents/MessageThread/Jacob.tres" id="24_jvxlw"]
+[ext_resource type="Resource" uid="uid://c1t0dphviwyhr" path="res://Contents/MessageThread/Juli Mantao.tres" id="25_rjp10"]
 
 [sub_resource type="GDScript" id="GDScript_akf26"]
 script/source = "extends Node3D
@@ -55,6 +58,7 @@ func _set_saturation_fx_normal():
 
 
 func _ready() -> void:
+	SceneChangeHandler.screen_fade_in()
 	
 	_set_saturation_fx_normal()
 	AudioSystem.play_stream_fade_in(\"BGM\", \"menu\", 3.)
@@ -254,7 +258,7 @@ shader_parameter/brightness = 0.9790000227525
 shader_parameter/saturation = 1.0
 shader_parameter/color_offset_multiplier = 0.02400000114
 shader_parameter/black_offset_multiplier = 0.05200000247
-shader_parameter/color_offset = 0.009000003687379993
+shader_parameter/color_offset = 0.00900000368737999
 
 [sub_resource type="LabelSettings" id="LabelSettings_rru2i"]
 font = ExtResource("13_edm23")
@@ -810,7 +814,7 @@ spot_angle = 31.679697
 spot_angle_attenuation = 9.513644
 
 [node name="Camera3D" type="Camera3D" parent="BackGround"]
-transform = Transform3D(0.9332407, -0.052868463, 0.3553404, -0.00014151963, 0.98905814, 0.1475263, -0.3592518, -0.13772783, 0.92302185, 1.0874733, 0.5913033, 2.0035517)
+transform = Transform3D(0.93573046, -0.056145623, 0.34821862, 0.0009039062, 0.9876279, 0.1568129, -0.35271478, -0.14641984, 0.9242043, 1.0874733, 0.5913033, 2.0035517)
 top_level = true
 current = true
 fov = 47.6
@@ -1069,6 +1073,14 @@ grow_vertical = 2
 custom_minimum_size = Vector2(1145, 645)
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+message_content = Array[ExtResource("23_xdxyy")]([ExtResource("24_jvxlw"), ExtResource("25_rjp10")])
+disable_assertion = true
 
 [connection signal="pressed" from="Main/PlayButton" to="." method="open_play_menu"]
 [connection signal="pressed" from="Main/ExitButton" to="." method="close_game"]

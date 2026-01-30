@@ -9,3 +9,6 @@ class_name TimeBoundResource extends Resource
 
 func is_on_time(hour: int, minute: int) -> bool:
 	return self.hour == hour && minute >= self.minute
+
+func beyond_time(hour: int, minute: int) -> bool:
+	return self.hour <= hour && self.minute < minute
