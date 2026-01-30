@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=4 uid="uid://coic68mudh6bi"]
+[gd_scene load_steps=106 format=4 uid="uid://coic68mudh6bi"]
 
 [ext_resource type="Script" uid="uid://cqst0cvtv3stx" path="res://Script/Entity/Door-Entity01.gd" id="1_25wxb"]
 [ext_resource type="Script" uid="uid://w7cmxdl62j1d" path="res://Script/Entity/EntitySprites/Entity1Sprite.gd" id="2_dmcpf"]
@@ -38,9 +38,6 @@
 [ext_resource type="Script" uid="uid://cw4k61k0eu6do" path="res://Script/LaptopSlot.gd" id="36_0iomn"]
 [ext_resource type="PackedScene" uid="uid://7cyeq0hpfw24" path="res://Prototype/ListenBoard.tscn" id="37_1anrl"]
 [ext_resource type="PackedScene" uid="uid://wnblk824usty" path="res://MainScene/Laptop/MainLaptop.tscn" id="38_qutur"]
-[ext_resource type="Script" uid="uid://dy73hp4ke0fm5" path="res://Script/Resource/Content/MessageThreadContent.gd" id="39_hwkr5"]
-[ext_resource type="Resource" uid="uid://c1t0dphviwyhr" path="res://Contents/MessageThread/Juli Mantao.tres" id="40_vbx5u"]
-[ext_resource type="Resource" uid="uid://blvegwy7407hi" path="res://Contents/MessageThread/Jacob.tres" id="41_qhx3a"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="42_4chpf"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="43_tkfh2"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="44_88rsx"]
@@ -59,6 +56,13 @@
 [ext_resource type="Script" uid="uid://n1bp3uja5r2" path="res://Script/Mechanics/EnitityManager.gd" id="57_7fxlt"]
 [ext_resource type="PackedScene" uid="uid://dlau8ypks1tdu" path="res://Assets/3DAsset/elias_chest_white_and_pine/Chest.tscn" id="58_my118"]
 [ext_resource type="VideoStream" uid="uid://hdtkrv8nqpn0" path="res://Assets/Video/VideoAd.ogv" id="59_c6vkq"]
+
+[sub_resource type="GDScript" id="GDScript_25wxb"]
+script/source = "extends Node3D
+
+func _ready() -> void:
+	SceneChangeHandler.screen_fade_in()
+"
 
 [sub_resource type="Curve3D" id="Curve3D_aaaiw"]
 _data = {
@@ -540,6 +544,10 @@ background_mode = 2
 background_energy_multiplier = 0.2
 sky = SubResource("Sky_t3t22")
 glow_enabled = true
+glow_intensity = 3.21
+glow_strength = 1.35
+glow_bloom = 0.39
+glow_hdr_scale = 1.98
 
 [sub_resource type="Curve" id="Curve_aaaiw"]
 _limits = [-0.7, 0.71, 0.0, 1.0]
@@ -551,6 +559,7 @@ font_size = 200
 font_color = Color(0.1313313, 0.046222955, 0.005682509, 1)
 
 [node name="DummyDay" type="Node3D"]
+script = SubResource("GDScript_25wxb")
 
 [node name="MovingObjects" type="Node" parent="."]
 
@@ -559,7 +568,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 curve = SubResource("Curve3D_aaaiw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Door-Entity01"]
-transform = Transform3D(-0.99937946, 0, -0.034394268, 0, 1, 0, 0.034394268, 0, -0.99937946, -4.1971936, 0, -6.819669)
+transform = Transform3D(-0.99937814, 0, -0.034394223, 0, 1, 0, 0.034394223, 0, -0.99937814, -4.1971936, 0, -6.819669)
 progress = 0.49952653
 script = ExtResource("1_25wxb")
 
@@ -573,17 +582,17 @@ fade_speed = 0.3
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -2.980148e-08, 0, 1, 0, 2.980148e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.2676864
+light_energy = 0.036523454
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 2.862
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(2.1309018, 0, 0, 0, 2.1309018, 0, 0, 0, 2.1309018, 0, 0.16051534, 0)
+transform = Transform3D(1.62758, 0, 0, 0, 1.62758, 0, 0, 0, 1.62758, 0, -0.1270971, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.04328418
+frame_progress = 0.5097798
 
 [node name="Door-Entity02" type="Path3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5179007, 0.65, -1.697206)
@@ -639,18 +648,18 @@ speed = 1.5
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -5.960309e-08, 0, 1, 0, 5.960309e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 1.1715453
+light_energy = 0.01074072
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 5.9365788
 omni_attenuation = 2.942
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(1.5052482, 0, 0, 0, 1.5052482, 0, 0, 0, 1.5052482, 0, -0.197001, 0)
+transform = Transform3D(2.150586, 0, 0, 0, 2.150586, 0, 0, 0, 2.150586, 0, 0.17176338, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.91545737
+frame_progress = 0.38195133
 
 [node name="Node3D" type="Node3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.942868, 0.41281393)
@@ -743,9 +752,11 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/Door" node_paths=PackedStringArray("_door_state", "entity_01", "entity_02", "entity_manager")]
 script = ExtResource("27_0r81j")
-__entity_01 = 0.43
-__entity_02 = 0.32
-__none = 0.79
+spawn_cooldown = Vector2(10, 15)
+interval = Vector2(15, 20)
+__entity_01 = 0.15000000000000002
+__entity_02 = 0.25
+__none = 0.8
 _door_state = NodePath("../Controller")
 entity_01 = NodePath("../../../MovingObjects/Door-Entity01/PathFollow3D")
 entity_02 = NodePath("../../../MovingObjects/Door-Entity02/PathFollow3D")
@@ -770,10 +781,11 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/Window" node_paths=PackedStringArray("_window_state", "_entity_01", "_entity_02", "entity_manager")]
 script = ExtResource("30_sqeus")
-disable = true
-__entity_01 = 0.45
-__entity_02 = 0.31
-__none = 0.76
+spawn_cooldown = Vector2(12, 15)
+interval = Vector2(15, 22)
+__entity_01 = 0.29000000000000004
+__entity_02 = 0.23
+__none = 0.66
 _window_state = NodePath("../Controller")
 _entity_01 = NodePath("../../../MovingObjects/Window-Entity01/PathFollow3D")
 _entity_02 = NodePath("../../../MovingObjects/Window-Entity02/PathFollow3D")
@@ -801,8 +813,8 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/TV" node_paths=PackedStringArray("_tv_state", "entity_manager")]
 script = ExtResource("33_attee")
-disable = true
-__entity_404 = 0.35000000000000003
+interval = Vector2(22, 25)
+reactivate_interval = Vector2(20, 25)
 __none = 0.71
 _tv_state = NodePath("../Controller")
 entity_manager = NodePath("../../../System/EntityManager")
@@ -856,13 +868,12 @@ offset_right = 191.61597
 offset_bottom = 112.0
 scale = Vector2(0.83, 0.83)
 mouse_filter = 2
-message_content = Array[ExtResource("39_hwkr5")]([ExtResource("40_vbx5u"), ExtResource("41_qhx3a")])
 tree_node = NodePath("../../../System/TimeSystem")
 
 [node name="Lights&Cams" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.9979509, 0.06398386, 0, -0.06398386, 0.9979509, 0, 0.7718462, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.9982711, 0.05877719, 0, -0.05877719, 0.9982711, 0, 0.7718462, 1.7777451)
 top_level = true
 current = true
 fov = 75.8
@@ -904,6 +915,7 @@ shadow_enabled = true
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights&Cams"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7222748, 1.873814, -0.5679279)
 light_energy = 0.147
+shadow_enabled = true
 omni_range = 7.985
 omni_attenuation = 3.77
 
@@ -912,7 +924,7 @@ transform = Transform3D(-0.445, 0, 8.984251e-08, 0, 0.595, 0, -6.719313e-08, 0, 
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights&Cams"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98963916, 4.566121)
-light_energy = 0.35
+light_energy = 0.1
 light_specular = 0.0
 spot_range = 18.151585
 
@@ -969,12 +981,13 @@ end_minute = 40
 delta_time_ms = 1.0
 messages = Array[ExtResource("54_oujj0")]([ExtResource("55_a1trq")])
 sun = NodePath("../../Lights&Cams/DirectionalLight3D")
-_from = -13.0
+_from = 15.0
 _to = 72.0
 laptop = NodePath("../../MouseListener/LaptopContainer/MainLaptop")
 clock_label = NodePath("../../ViewPorts/SubViewport2/Control/Label")
 
 [node name="Debugerr" parent="System" node_paths=PackedStringArray("door", "window", "tv", "door_entity", "tv_entity", "window_entity", "player_state", "room_state", "time_state") instance=ExtResource("56_2ikp6")]
+visible = false
 door = NodePath("../../Interactables/Door/Controller")
 window = NodePath("../../Interactables/Window/Controller")
 tv = NodePath("../../Interactables/TV/Controller")

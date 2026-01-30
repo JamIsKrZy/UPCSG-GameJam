@@ -1,6 +1,5 @@
 class_name Diaary extends CharacterBody2D
 
-signal done_typing();
 
 @export var type_per_ms: float = 0.1
 @export_range(0.001, 0.5, 0.001) var time_bonus_per_letter: float = 0.075
@@ -12,6 +11,7 @@ var bonus_accumulator: float = 0.
 var letter_timer: float
 var _is_typing: bool = false
 var _ready_type = false
+
 
 func _increment_letter_show():
 	bonus_accumulator += time_bonus_per_letter

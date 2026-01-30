@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryContent" load_steps=2 format=3 uid="uid://8esd05ddkbsu"]
+
+[ext_resource type="Script" uid="uid://8xn623se2apo" path="res://Script/Resource/Content/DiaryContent.gd" id="1_xcchg"]
+
+[resource]
+script = ExtResource("1_xcchg")
+content = "Log #31
+
+What a "
+metadata/_custom_type_script = "uid://8xn623se2apo"

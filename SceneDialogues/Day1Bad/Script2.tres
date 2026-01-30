@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ScriptResource" load_steps=9 format=3 uid="uid://bl5qhsk36iuli"]
+
+[ext_resource type="Script" uid="uid://huxqpaeq4ys5" path="res://Script/Resource/LineResource.gd" id="1_8hmmb"]
+[ext_resource type="Script" uid="uid://dhpv8jclo7bcp" path="res://Script/Resource/ScriptResource.gd" id="2_8nra3"]
+
+[sub_resource type="Resource" id="Resource_ik1br"]
+script = ExtResource("1_8hmmb")
+use_prev_color = true
+line = "Iasd"
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_4f52d"]
+script = ExtResource("1_8hmmb")
+line = "asd"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_ijxf0"]
+script = ExtResource("1_8hmmb")
+line = "asd"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_mowec"]
+script = ExtResource("1_8hmmb")
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_51mlr"]
+script = ExtResource("1_8hmmb")
+line = "zxc"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_ehbki"]
+script = ExtResource("1_8hmmb")
+line = "fds"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[resource]
+script = ExtResource("2_8nra3")
+lines = Array[ExtResource("1_8hmmb")]([SubResource("Resource_ik1br"), SubResource("Resource_4f52d"), SubResource("Resource_ijxf0"), SubResource("Resource_mowec"), SubResource("Resource_51mlr"), SubResource("Resource_ehbki")])
+metadata/_custom_type_script = "uid://dhpv8jclo7bcp"

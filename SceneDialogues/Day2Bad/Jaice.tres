@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="ScriptResource" load_steps=9 format=3 uid="uid://n2tx6a0s54e4"]
+
+[ext_resource type="Script" uid="uid://huxqpaeq4ys5" path="res://Script/Resource/LineResource.gd" id="1_xt2bi"]
+[ext_resource type="Script" uid="uid://dhpv8jclo7bcp" path="res://Script/Resource/ScriptResource.gd" id="2_he3b0"]
+
+[sub_resource type="Resource" id="Resource_xt2bi"]
+script = ExtResource("1_xt2bi")
+line = "I remember a time with jaice when we were a kid"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_he3b0"]
+script = ExtResource("1_xt2bi")
+line = "He used to being these awsome toys "
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_wdoox"]
+script = ExtResource("1_xt2bi")
+line = "My world was filled with imagination and exploration"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_cpb2k"]
+script = ExtResource("1_xt2bi")
+line = "Of course he gets to use the best toy guns we were having a gun fight"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_63dwe"]
+script = ExtResource("1_xt2bi")
+line = ".        ..                       ..."
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_wru0u"]
+script = ExtResource("1_xt2bi")
+line = "where could he possible be now"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[resource]
+script = ExtResource("2_he3b0")
+lines = Array[ExtResource("1_xt2bi")]([SubResource("Resource_xt2bi"), SubResource("Resource_he3b0"), SubResource("Resource_wdoox"), SubResource("Resource_cpb2k"), SubResource("Resource_63dwe"), SubResource("Resource_wru0u")])
+metadata/_custom_type_script = "uid://dhpv8jclo7bcp"

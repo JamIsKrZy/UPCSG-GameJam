@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://d32dvb8lpsacp"]
+[gd_scene load_steps=107 format=4 uid="uid://d32dvb8lpsacp"]
 
 [ext_resource type="Script" uid="uid://cqst0cvtv3stx" path="res://Script/Entity/Door-Entity01.gd" id="1_pbl47"]
 [ext_resource type="Script" uid="uid://w7cmxdl62j1d" path="res://Script/Entity/EntitySprites/Entity1Sprite.gd" id="2_x5xiv"]
@@ -38,9 +38,7 @@
 [ext_resource type="Script" uid="uid://cw4k61k0eu6do" path="res://Script/LaptopSlot.gd" id="36_4coev"]
 [ext_resource type="PackedScene" uid="uid://7cyeq0hpfw24" path="res://Prototype/ListenBoard.tscn" id="37_1a8k8"]
 [ext_resource type="PackedScene" uid="uid://wnblk824usty" path="res://MainScene/Laptop/MainLaptop.tscn" id="38_xt7bk"]
-[ext_resource type="Script" uid="uid://dy73hp4ke0fm5" path="res://Script/Resource/Content/MessageThreadContent.gd" id="39_c7mrk"]
-[ext_resource type="Resource" uid="uid://c1t0dphviwyhr" path="res://Contents/MessageThread/Juli Mantao.tres" id="40_bp3v0"]
-[ext_resource type="Resource" uid="uid://blvegwy7407hi" path="res://Contents/MessageThread/Jacob.tres" id="41_1ptag"]
+[ext_resource type="Resource" uid="uid://8esd05ddkbsu" path="res://Contents/Diary/Day1.tres" id="39_fqbuh"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="42_pjssd"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="43_bp5bq"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="44_ayu6e"]
@@ -547,6 +545,9 @@ background_mode = 2
 background_energy_multiplier = 0.2
 sky = SubResource("Sky_t3t22")
 glow_enabled = true
+glow_intensity = 2.48
+glow_strength = 1.14
+glow_bloom = 0.45
 
 [sub_resource type="Curve" id="Curve_aaaiw"]
 _limits = [-0.7, 0.71, 0.0, 1.0]
@@ -567,7 +568,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 curve = SubResource("Curve3D_aaaiw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Door-Entity01"]
-transform = Transform3D(-0.9993793, 0, -0.03439426, 0, 1, 0, 0.03439426, 0, -0.9993793, -4.1971936, 0, -6.819669)
+transform = Transform3D(-0.999378, 0, -0.034394216, 0, 1, 0, 0.034394216, 0, -0.999378, -4.1971936, 0, -6.819669)
 progress = 0.49952653
 script = ExtResource("1_pbl47")
 
@@ -581,17 +582,17 @@ fade_speed = 0.3
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -2.980148e-08, 0, 1, 0, 2.980148e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.12319503
+light_energy = 0.11159039
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 2.862
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(2.0541008, 0, 0, 0, 2.0541008, 0, 0, 0, 2.0541008, 0, 0.116629004, 0)
+transform = Transform3D(2.1446142, 0, 0, 0, 2.1446142, 0, 0, 0, 2.1446142, 0, 0.16835102, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.04162356
+frame_progress = 0.16463536
 
 [node name="Door-Entity02" type="Path3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5179007, 0.65, -1.697206)
@@ -634,8 +635,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9515615, 0)
 curve = SubResource("Curve3D_h44r7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Window-Entity01"]
-transform = Transform3D(-0.9709455, 0, 0.2391884, 0, 0.99999976, 0, -0.2391884, 0, -0.9709455, 7.433296, 0, -5.7869864)
-progress = 2.4721017
+transform = Transform3D(-0.9999656, 0, 0.0036747865, 0, 0.99999976, 0, -0.0036747865, 0, -0.9999656, 7.759077, 0, -8.232769)
 script = ExtResource("1_pbl47")
 
 [node name="Entity" type="Node3D" parent="MovingObjects/Window-Entity01/PathFollow3D" node_paths=PackedStringArray("parent")]
@@ -647,18 +647,18 @@ speed = 1.5
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -5.960309e-08, 0, 1, 0, 5.960309e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.27604473
+light_energy = 0.0
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 5.9365788
 omni_attenuation = 2.942
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(2.0581484, 0, 0, 0, 2.0581484, 0, 0, 0, 2.0581484, 0, 0.11894189, 0)
+transform = Transform3D(1.5008574, 0, 0, 0, 1.5008574, 0, 0, 0, 1.5008574, 0, -0.1995101, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.91379595
+frame_progress = 0.036804166
 
 [node name="Node3D" type="Node3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.942868, 0.41281393)
@@ -751,7 +751,9 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/Door" node_paths=PackedStringArray("_door_state", "entity_01", "entity_02", "entity_manager")]
 script = ExtResource("27_n57yo")
-__entity_01 = 0.43
+spawn_cooldown = Vector2(10, 15)
+interval = Vector2(25, 30)
+__entity_01 = 0.09
 __entity_02 = 0.32
 __none = 0.79
 _door_state = NodePath("../Controller")
@@ -778,10 +780,11 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/Window" node_paths=PackedStringArray("_window_state", "_entity_01", "_entity_02", "entity_manager")]
 script = ExtResource("30_11fbe")
-disable = true
-__entity_01 = 0.45
-__entity_02 = 0.31
-__none = 0.76
+spawn_cooldown = Vector2(25, 27)
+interval = Vector2(15, 25)
+__entity_01 = 0.16
+__entity_02 = 0.17
+__none = 0.9
 _window_state = NodePath("../Controller")
 _entity_01 = NodePath("../../../MovingObjects/Window-Entity01/PathFollow3D")
 _entity_02 = NodePath("../../../MovingObjects/Window-Entity02/PathFollow3D")
@@ -809,9 +812,10 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/TV" node_paths=PackedStringArray("_tv_state", "entity_manager")]
 script = ExtResource("33_fe6ln")
-disable = true
-__entity_404 = 0.35000000000000003
-__none = 0.71
+interval = Vector2(20, 25)
+reactivate_interval = Vector2(40, 45)
+__entity_404 = 0.15000000000000002
+__none = 0.85
 _tv_state = NodePath("../Controller")
 entity_manager = NodePath("../../../System/EntityManager")
 
@@ -864,14 +868,16 @@ offset_right = 191.61597
 offset_bottom = 112.0
 scale = Vector2(0.83, 0.83)
 mouse_filter = 2
-message_content = Array[ExtResource("39_c7mrk")]([ExtResource("40_bp3v0"), ExtResource("41_1ptag")])
+type_per_ms = 0.1
+diary_content = ExtResource("39_fqbuh")
 tree_node = NodePath("../../../System/TimeSystem")
 
 [node name="Lights&Cams" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.99923635, 0.03907235, 0, -0.03907235, 0.99923635, 0, 0.7718462, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.99827754, 0.058666993, 0, -0.058666993, 0.99827754, 0, 0.7718462, 1.7777451)
 top_level = true
+current = true
 fov = 75.8
 
 [node name="PhantomCameraHost" type="Node" parent="Lights&Cams/Camera3D"]
@@ -919,7 +925,7 @@ transform = Transform3D(-0.445, 0, 8.984251e-08, 0, 0.595, 0, -6.719313e-08, 0, 
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights&Cams"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98963916, 4.566121)
-light_energy = 0.3
+light_energy = 0.1
 light_specular = 0.0
 spot_range = 18.151585
 
@@ -976,11 +982,13 @@ end_minute = 40
 delta_time_ms = 1.0
 messages = Array[ExtResource("54_nr60m")]([ExtResource("55_fro0h")])
 sun = NodePath("../../Lights&Cams/DirectionalLight3D")
+_from = -6.0
 _to = 72.0
 laptop = NodePath("../../MouseListener/LaptopContainer/MainLaptop")
 clock_label = NodePath("../../ViewPorts/SubViewport2/Control/Label")
 
 [node name="Debugerr" parent="System" node_paths=PackedStringArray("door", "window", "tv", "door_entity", "tv_entity", "window_entity", "player_state", "room_state", "time_state") instance=ExtResource("56_1fon2")]
+visible = false
 door = NodePath("../../Interactables/Door/Controller")
 window = NodePath("../../Interactables/Window/Controller")
 tv = NodePath("../../Interactables/TV/Controller")

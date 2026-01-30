@@ -814,7 +814,7 @@ spot_angle = 31.679697
 spot_angle_attenuation = 9.513644
 
 [node name="Camera3D" type="Camera3D" parent="BackGround"]
-transform = Transform3D(0.93573046, -0.056145623, 0.34821862, 0.0009039062, 0.9876279, 0.1568129, -0.35271478, -0.14641984, 0.9242043, 1.0874733, 0.5913033, 2.0035517)
+transform = Transform3D(0.9299696, -0.049812853, 0.36424607, -0.0014861492, 0.9902606, 0.13921846, -0.3676334, -0.13001026, 0.92083824, 1.0874733, 0.5913033, 2.0035517)
 top_level = true
 current = true
 fov = 47.6
@@ -859,6 +859,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Main" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

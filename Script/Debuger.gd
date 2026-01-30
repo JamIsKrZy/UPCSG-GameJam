@@ -63,7 +63,12 @@ func _ready() -> void:
 	assert(player_state)
 	assert(room_state)
 	assert(time_state)
-
+	
+	if OS.is_debug_build():
+		self.visible = true
+	else:
+		self.visible = false
+	
 	if disable_items:
 		$RoomStates.hide()
 

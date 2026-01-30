@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScriptResource" load_steps=4 format=3 uid="uid://cur0g53dyufun"]
+[gd_resource type="Resource" script_class="ScriptResource" load_steps=12 format=3 uid="uid://cur0g53dyufun"]
 
 [ext_resource type="Script" uid="uid://huxqpaeq4ys5" path="res://Script/Resource/LineResource.gd" id="1_4f52d"]
 [ext_resource type="Script" uid="uid://dhpv8jclo7bcp" path="res://Script/Resource/ScriptResource.gd" id="1_qvb2i"]
@@ -6,9 +6,58 @@
 [sub_resource type="Resource" id="Resource_ik1br"]
 script = ExtResource("1_4f52d")
 use_prev_color = true
+line = "A rabbit"
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_4f52d"]
+script = ExtResource("1_4f52d")
+line = "lost in the woods"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_ijxf0"]
+script = ExtResource("1_4f52d")
+line = "saw a road"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_mowec"]
+script = ExtResource("1_4f52d")
+line = "followed the road"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_51mlr"]
+script = ExtResource("1_4f52d")
+line = "a giant metal log rolling towards"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_ehbki"]
+script = ExtResource("1_4f52d")
+line = "left and right, there awaits the eyes of its enemies"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_mxanh"]
+script = ExtResource("1_4f52d")
+line = "where would the rabbit go?"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_3nvf8"]
+script = ExtResource("1_4f52d")
+line = "              .              "
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_2ifej"]
+script = ExtResource("1_4f52d")
+line = "                .                  "
+set_color = false
 metadata/_custom_type_script = "uid://huxqpaeq4ys5"
 
 [resource]
 script = ExtResource("1_qvb2i")
-lines = Array[ExtResource("1_4f52d")]([SubResource("Resource_ik1br")])
+lines = Array[ExtResource("1_4f52d")]([SubResource("Resource_ik1br"), SubResource("Resource_4f52d"), SubResource("Resource_ijxf0"), SubResource("Resource_mowec"), SubResource("Resource_51mlr"), SubResource("Resource_ehbki"), SubResource("Resource_mxanh"), SubResource("Resource_3nvf8"), SubResource("Resource_2ifej")])
 metadata/_custom_type_script = "uid://dhpv8jclo7bcp"

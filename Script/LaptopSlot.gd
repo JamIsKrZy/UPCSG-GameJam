@@ -10,14 +10,21 @@ signal locked_slot;
 signal interact_slot(is_active: bool);
 
 var state: SlotState = SlotState.IDLE
+var hide: bool = false
+
 
 func unlock_slot():
 	state = SlotState.IDLE
 	texture_node.visible = true
 
+func unhide_slot():
+	hide = false
+	texture_node.visible = true
 
-func hide_and_lock():
-	state = SlotState.LOCKED
+
+
+func hide_slot():
+	hide = true
 	texture_node.hide()
 
 func is_active() -> bool:
@@ -28,7 +35,7 @@ func lock_slot():
 	state = SlotState.LOCKED
 
 func _on_mouse_entered() -> void:
-	if state == SlotState.LOCKED: return
+	if state == SlotState.LOCKED || hide : return
 
 	state = SlotState.ACTIVE if state == SlotState.IDLE else SlotState.IDLE
 	var is_active = state == SlotState.ACTIVE

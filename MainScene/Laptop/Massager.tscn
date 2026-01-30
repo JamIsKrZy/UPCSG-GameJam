@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbbxmjykumyi6"]
+[gd_scene load_steps=17 format=3 uid="uid://dbbxmjykumyi6"]
 
 [ext_resource type="Texture2D" uid="uid://ceep3n5deg8sa" path="res://Assets/Laptop/message.png" id="1_cvjbv"]
 [ext_resource type="Script" uid="uid://cxn12y03namn4" path="res://Script/LaptopLogic/Messager.gd" id="1_vl0gn"]
 [ext_resource type="Shader" uid="uid://xu3r0ydttvq8" path="res://Shader/ProfileCircle.gdshader" id="2_huwtf"]
 [ext_resource type="Texture2D" uid="uid://3farb36jp6k1" path="res://Assets/Laptop/latest-2006512497.svg" id="3_s1tbu"]
 [ext_resource type="Texture2D" uid="uid://ddoevswfw57hw" path="res://Assets/Laptop/like.png" id="4_s1tbu"]
+[ext_resource type="Texture2D" uid="uid://jorvxfpfh2ih" path="res://Assets/Laptop/add.png" id="7_h34ou"]
 [ext_resource type="PackedScene" uid="uid://beqno1bsaiaf0" path="res://MainScene/Laptop/MessageChatBubble.tscn" id="7_hsx54"]
+[ext_resource type="Texture2D" uid="uid://bwkx8h82su4l4" path="res://Assets/Laptop/new.png" id="8_p8dmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc2tr"]
 size = Vector2(608, 96)
@@ -282,6 +284,34 @@ offset_top = -0.2880249
 offset_right = 0.00793457
 offset_bottom = 0.17596436
 texture = ExtResource("4_s1tbu")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control/ChatBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.93200004
+anchor_right = 0.072000004
+anchor_bottom = 0.98600006
+offset_left = 0.27199984
+offset_top = -0.2880249
+offset_right = 0.2559967
+offset_bottom = 0.17596436
+texture = ExtResource("7_h34ou")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Control/ChatBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087000005
+anchor_top = 0.93200004
+anchor_right = 0.15900001
+anchor_bottom = 0.98600006
+offset_left = -0.024002075
+offset_top = -0.2880249
+offset_right = 0.23199463
+offset_bottom = 8.175964
+texture = ExtResource("8_p8dmh")
 expand_mode = 1
 
 [node name="Reply" type="Button" parent="Control/ChatBox"]
