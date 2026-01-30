@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://3cq7kc0mrgwv"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_ebdlf"]
+
+[resource]
+script = ExtResource("1_ebdlf")
+account = "TheBigJ"
+description = "I think I'm Balding"
+likes = 12
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

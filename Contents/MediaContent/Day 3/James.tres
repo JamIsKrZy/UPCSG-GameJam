@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://b4ssbhk0r4xwn"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_bbxuw"]
+
+[resource]
+script = ExtResource("1_bbxuw")
+account = "James"
+description = "My friend, you're so strong for the winning the battles you've been fighting. I could not put myself in your position right now"
+likes = 23
+a_friend_liked = true
+friend_liked = "Jebb"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

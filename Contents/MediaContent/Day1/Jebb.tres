@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://ba1h5c3c27drg"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_cri3a"]
+
+[resource]
+script = ExtResource("1_cri3a")
+account = "Jebb"
+description = "Looking for camping areas me and my family could stay this weekend, just DM me if you know some!"
+likes = 24
+a_friend_liked = true
+friend_liked = "James"
+commented = true
+done_by = "Jebb"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

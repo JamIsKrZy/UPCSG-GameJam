@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://dcyq2rranohrg"]
+
+[ext_resource type="Texture2D" uid="uid://b3aj7ngymkofi" path="res://Assets/Laptop/MediaImages/ClimateIssue1.jpg" id="1_bhiy1"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_ynt7h"]
+[ext_resource type="Texture2D" uid="uid://du7mjfb6aqi7m" path="res://Assets/Laptop/MediaImages/ClimateIssue2.jpg" id="2_cjw7y"]
+
+[resource]
+script = ExtResource("1_ynt7h")
+account = "Erica Wiever"
+description = "Scientists and courts around the world are raising the alarm as the climate crisis deepens. In the Caribbean, a Dutch court ruled that the Netherlands must create a stronger climate plan to protect the island of Bonaire from rising seas and extreme weather, a decision hailed as a breakthrough for climate justice. Meanwhile, severe heatwaves in Australia are smashing temperature records and scorching cities, and new research shows that human-driven climate change made recent deadly floods in southern Africa far worse. These events underscore that global warming continues to intensify, with far-reaching impacts on people and ecosystems everywhere."
+likes = 8765
+images = Array[Texture2D]([ExtResource("1_bhiy1"), ExtResource("2_cjw7y")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

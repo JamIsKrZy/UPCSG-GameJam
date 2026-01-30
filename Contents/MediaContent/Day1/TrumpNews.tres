@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://b11dvptic6jxb"]
+
+[ext_resource type="Texture2D" uid="uid://dejq7nxsug0yc" path="res://Assets/Laptop/MediaImages/Trump.jpg" id="1_ndtpr"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_nps1d"]
+
+[resource]
+script = ExtResource("1_nps1d")
+account = "Brian Goeff"
+description = "Tensions flared this month after U.S. President Donald Trump renewed his push for American influence over Greenland, a semiautonomous territory of Denmark. Trump’s remarks sparked international concern as European leaders and Greenlandic officials stressed that Greenland’s sovereignty must be respected, even as talks began between the U.S., Denmark, and Greenland to address Arctic security and cooperation."
+images = Array[Texture2D]([ExtResource("1_ndtpr")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

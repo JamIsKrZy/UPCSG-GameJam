@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://cjaq10oneop6q"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_jrhvh"]
+[ext_resource type="Texture2D" uid="uid://y2lpoj6bco5c" path="res://Assets/Laptop/MediaImages/IshouldGoOnAHike.jpg" id="1_yymio"]
+[ext_resource type="Texture2D" uid="uid://hp03gc5c787u" path="res://Assets/Laptop/MediaImages/IshouldGoOnAHike2.jpg" id="2_xtlhw"]
+
+[resource]
+script = ExtResource("1_jrhvh")
+account = "IShouldGoOnAHike"
+description = "I should Go on a hike"
+likes = 77
+images = Array[Texture2D]([ExtResource("1_yymio"), ExtResource("2_xtlhw")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

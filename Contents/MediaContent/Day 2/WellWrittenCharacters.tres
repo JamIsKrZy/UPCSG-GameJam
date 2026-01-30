@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://ccj6ycrdrjjn7"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_7trxi"]
+[ext_resource type="Texture2D" uid="uid://d1dh5sq8h8lb2" path="res://Assets/Laptop/MediaImages/ArthurMorganMacapagalJuniorjpeg.jpeg" id="1_o6dch"]
+[ext_resource type="Texture2D" uid="uid://54c68cuq0v1r" path="res://Assets/Laptop/MediaImages/RainsFall.jpg" id="2_jqloa"]
+
+[resource]
+script = ExtResource("1_7trxi")
+account = "Tuberculosis Boy"
+description = "Still thinking about how well written some video game characters are."
+likes = 45
+images = Array[Texture2D]([ExtResource("1_o6dch"), ExtResource("2_jqloa")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

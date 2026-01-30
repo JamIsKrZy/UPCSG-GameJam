@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://cu2mwp66okrp6"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_drvay"]
+[ext_resource type="Texture2D" uid="uid://csl3fulju3p7t" path="res://Assets/Laptop/MediaImages/Flooding.jpg" id="1_h0dw5"]
+
+[resource]
+script = ExtResource("1_drvay")
+account = "Erica Wiever"
+description = "Experts are calling for clearer guidelines on the development and use of artificial intelligence, citing concerns over safety, accountability, and long-term impact."
+likes = 10892
+a_friend_liked = true
+friend_liked = "James"
+images = Array[Texture2D]([ExtResource("1_h0dw5")])
+shared = true
+done_by = "James"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

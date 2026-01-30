@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://bfxsrf1cwxriv"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_hgggd"]
+[ext_resource type="Texture2D" uid="uid://bl6n2uf6tf6k7" path="res://Assets/Laptop/MediaImages/Josea.jpg" id="1_nr3fo"]
+
+[resource]
+script = ExtResource("1_hgggd")
+account = "Tuberculosis Boy"
+description = "Hosea Matthews was the quiet backbone of the Van der Linde gang, known for his wisdom, patience, and careful planning. While others relied on force or bravado, Hosea believed in reason and doing things with as little bloodshed as possible. His death marked the point when everything truly began to fall apart, showing that the gang did not just lose a member, but its moral compass as well."
+likes = 9
+images = Array[Texture2D]([ExtResource("1_nr3fo")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"
