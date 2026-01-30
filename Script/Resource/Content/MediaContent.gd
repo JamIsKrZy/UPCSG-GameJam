@@ -1,6 +1,8 @@
 @tool
 class_name MediaContent extends Resource
 
+
+@export var priority: bool = false
 @export var account: String = "Anonymous 404"
 @export_multiline var description: String = "[Empty Post]"
 @export var likes: int = 0

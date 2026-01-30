@@ -36,6 +36,9 @@ corner_radius_bottom_left = 5
 [node name="Messager" type="CharacterBody2D" node_paths=PackedStringArray("chat_box_texture", "chat_box_label")]
 collision_layer = 2
 script = ExtResource("1_vl0gn")
+use_screen_boundaries = null
+boundary_margin = null
+use_collision_check = null
 ready_threads = Array[ExtResource("2_58so3")]([ExtResource("3_hsx54")])
 chat_box_texture = NodePath("Control/ChatBox/TextureRect2")
 chat_box_label = NodePath("Control/ChatBox/Label")

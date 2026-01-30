@@ -39,3 +39,6 @@ func append_chat(chat: MessageChat):
 
 func recent_message() -> MessageChat:
 	return messages.get(messages.size() - 1)
+
+func pop_message() -> MessageChat:
+	return messages.pop_front()

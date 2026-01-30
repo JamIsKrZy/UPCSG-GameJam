@@ -9,9 +9,9 @@ class_name TimeElapsed extends Node
 @export var delta_time_ms: float = 5.
 @export_range(0.0,1.0,0.01) var bonus_speed_up: float = 0.75
 
-@export_group("On time Chat")
-@export var messages: Array[TimeBoundedResource] = []
-
+@export_group("On time Event")
+@export var messages: Array[TimeBoundMessageThread] = []
+@export var medias: Array[TimeBoundMessageThread] = []
 
 @export_group("Dependent")
 @export var laptop: MainLaptop = null
@@ -40,13 +40,31 @@ func _new_time_interval():
 	timer.timeout.connect(_tick_time)
 	time_interval = timer
 
-func get_on_time_message()
+
+
+func _process_message_time_events():
+	for i in range(messages.size() - 1, -1, -1):
+		var message_event = messages[i]
+		if message_event.is_on_time(hour, minute):
+			messages.remove_at(i)
+
+
+func _process_media_time_events():
+	for i in range(medias.size() - 1, -1, -1):
+		var media_event = medias[i]
+		if media_event.is_on_time(hour, minute):
+			medias.remove_at(i)
+
+
 
 func _tick_time():
 	minute += 1;
 	if minute >= 60:
 		hour += 1;
 		minute = 0
+
+	_process_message_time_events()
+	_process_media_time_events()
 
 	clock_label.text = str(hour) + "\n" + str(minute)
 

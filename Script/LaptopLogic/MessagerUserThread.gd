@@ -31,8 +31,14 @@ func setup(id: int, name: String, recent_msg: MessageChat, img: Texture2D, handl
 func get_texture() -> Texture2D:
 	return img_texture.texture
 
+
+func _highlight_univisted_message():
+	assert(false, "TODO")
+	pass
+
 func update_recent_msg(msg: String):
 	recent_label.text = msg
+	_highlight_univisted_message()
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and in_thread_gui:

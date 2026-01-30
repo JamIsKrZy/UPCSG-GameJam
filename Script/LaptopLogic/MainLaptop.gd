@@ -27,3 +27,7 @@ func _ready() -> void:
 	sociamedya.set_content_limit(media_limit);
 	sociamedya.ready_contents(media_contents)
 	sociamedya.refresh_page()
+
+
+func on_time_message(message: MessageThreadContent):
+	pass
