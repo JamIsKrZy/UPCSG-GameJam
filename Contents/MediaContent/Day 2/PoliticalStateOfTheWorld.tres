@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://dfmxwf32586fe"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_aht75"]
+
+[resource]
+script = ExtResource("1_aht75")
+account = "James"
+description = "Can we talk about the political state of the world right now?"
+likes = 10
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

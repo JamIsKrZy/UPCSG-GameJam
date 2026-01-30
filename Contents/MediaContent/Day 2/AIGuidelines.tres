@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://d32r5p3d5q5jb"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_dx63p"]
+[ext_resource type="Texture2D" uid="uid://c1dbddc235kck" path="res://Assets/Laptop/MediaImages/AIGuidelines2.jpg" id="1_q14lr"]
+[ext_resource type="Texture2D" uid="uid://bb8ujww8cw6va" path="res://Assets/Laptop/MediaImages/AIGuidelines1.jpg" id="2_yo25y"]
+
+[resource]
+script = ExtResource("1_dx63p")
+account = "Brian Goeff"
+description = "Experts are calling for clearer guidelines on the development and use of artificial intelligence, citing concerns over safety, accountability, and long-term impact."
+likes = 2784
+a_friend_liked = true
+friend_liked = "Jebb"
+images = Array[Texture2D]([ExtResource("1_q14lr"), ExtResource("2_yo25y")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

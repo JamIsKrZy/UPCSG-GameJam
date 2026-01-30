@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://cir61yhi0fart"]
+
+[ext_resource type="Texture2D" uid="uid://daw1qllips1yf" path="res://Assets/Laptop/MediaImages/HouseHoldStuff.jpg" id="1_7g0pq"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_xgckv"]
+[ext_resource type="Texture2D" uid="uid://cg6bwn1j4womi" path="res://Assets/Laptop/MediaImages/Transportation.jpg" id="2_c1wbb"]
+
+[resource]
+script = ExtResource("1_xgckv")
+account = "Erica Wiever"
+description = "Many households are continuing to feel the strain of rising prices, as the cost of basic goods and transportation remains high, putting pressure on daily expenses."
+likes = 83557
+images = Array[Texture2D]([ExtResource("1_7g0pq"), ExtResource("2_c1wbb")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

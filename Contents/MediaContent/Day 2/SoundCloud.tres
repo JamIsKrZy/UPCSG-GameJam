@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://d2d4vl2itavwx"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_5istw"]
+[ext_resource type="Texture2D" uid="uid://opapwrp5xiu0" path="res://Assets/Laptop/MediaImages/SoundCloud.png" id="1_awkiq"]
+[ext_resource type="Texture2D" uid="uid://blh4hjh7y54l4" path="res://Assets/Laptop/MediaImages/SoundcloudxKanye.jpg" id="2_vp6le"]
+
+[resource]
+script = ExtResource("1_5istw")
+account = "KanyeWestFan2001"
+description = "Soundcloud is a gold mine for unrealesed kanye/ye songs"
+likes = 501
+a_friend_liked = true
+friend_liked = "TheBigJ"
+images = Array[Texture2D]([ExtResource("1_awkiq"), ExtResource("2_vp6le")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://bklm3gh4jmimf"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_pm4co"]
+
+[resource]
+script = ExtResource("1_pm4co")
+account = "KanyeWestFan2001"
+description = "I miss the old Kanye"
+likes = 24
+a_friend_liked = true
+friend_liked = "TheBigJ"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

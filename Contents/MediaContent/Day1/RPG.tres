@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://b430y7b6fh7mw"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_37vau"]
+[ext_resource type="Texture2D" uid="uid://o72ihdj2jb7i" path="res://Assets/Laptop/MediaImages/RPG.jpg" id="1_wnh0t"]
+
+[resource]
+script = ExtResource("1_37vau")
+account = "Brian Goeff"
+description = "In the Bangsamoro Autonomous Region in Muslim Mindanao, authorities are investigating a brazen attack in which a rocket-propelled grenade was fired at the armored vehicle of Shariff Aguak Mayor Akmad Ampatuan in broad daylight, but the mayor walked away unharmed while two of his escorts were slightly injured and three suspects were killed in a follow-up police-military operation."
+likes = 56789
+a_friend_liked = true
+friend_liked = "Jebb"
+images = Array[Texture2D]([ExtResource("1_wnh0t")])
+shared = true
+done_by = "Jebb"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

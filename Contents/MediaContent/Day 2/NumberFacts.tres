@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://bi7yf0g3hui40"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_235e6"]
+
+[resource]
+script = ExtResource("1_235e6")
+account = "WeirdFacts_Man"
+description = "If you multiply 111,111,111 by itself it results to 12345678987654321, numbers am I right?"
+likes = 185
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

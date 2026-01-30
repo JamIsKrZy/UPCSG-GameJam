@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://bt8ssueupqecp"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_ds4ac"]
+[ext_resource type="Texture2D" uid="uid://c6l8adpbdbmwm" path="res://Assets/Laptop/MediaImages/StudyZone.jpg" id="1_qb4xi"]
+
+[resource]
+script = ExtResource("1_ds4ac")
+account = "StrangerFromTheNet"
+description = "Why does time move faster when you have deadlines."
+likes = 92
+images = Array[Texture2D]([ExtResource("1_qb4xi")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

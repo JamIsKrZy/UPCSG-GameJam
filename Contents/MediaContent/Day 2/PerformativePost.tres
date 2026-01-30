@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://brt338jx0ghl5"]
+
+[ext_resource type="Texture2D" uid="uid://cchuh5kbc0lyd" path="res://Assets/Laptop/MediaImages/Performative.jpg" id="1_0je7p"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_18lt6"]
+
+[resource]
+script = ExtResource("1_18lt6")
+account = "YourAveragePerformativeMan"
+description = "I cannot live without my matcha and my books"
+likes = 356
+images = Array[Texture2D]([ExtResource("1_0je7p")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

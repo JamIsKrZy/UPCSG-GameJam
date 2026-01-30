@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://xpiis0mengwr"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_v4ob5"]
+
+[resource]
+script = ExtResource("1_v4ob5")
+account = "Jebb"
+description = "Hey guys just wanted ya'll to know that I found a camping spot, now I need some suggestions on where I can get camping equipments"
+likes = 12
+a_friend_liked = true
+friend_liked = "TheBigJ"
+shared = true
+done_by = "TheBigJ"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

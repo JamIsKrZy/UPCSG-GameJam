@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://biigus28lslsi"]
+
+[ext_resource type="Texture2D" uid="uid://bwr8dpyjr1mbw" path="res://Assets/Laptop/MediaImages/HikeTrail.jpg" id="1_nfeib"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_vncbi"]
+
+[resource]
+script = ExtResource("1_vncbi")
+account = "IShouldGoOnAHike"
+description = "Finally went on a hike, it was worth it"
+likes = 753
+images = Array[Texture2D]([ExtResource("1_nfeib")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

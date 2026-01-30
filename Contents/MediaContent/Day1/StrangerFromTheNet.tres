@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://cd84is0q6xrtk"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_wfemx"]
+
+[resource]
+script = ExtResource("1_wfemx")
+account = "StrangerFromTheNet"
+description = "Hey Stranger, If you're reading this I hope you're doing well and I pray that any battle you're going throught right now, you will prevail"
+likes = 1
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

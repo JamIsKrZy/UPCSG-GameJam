@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://cf8bu0eovhp30"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_p2uk3"]
+[ext_resource type="Texture2D" uid="uid://cwnkt5fkismdu" path="res://Assets/Laptop/MediaImages/Rain.jpg" id="1_s1d2s"]
+
+[resource]
+script = ExtResource("1_p2uk3")
+account = "RandomTalks"
+description = "Not the best day, but we move."
+likes = 23
+images = Array[Texture2D]([ExtResource("1_s1d2s")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

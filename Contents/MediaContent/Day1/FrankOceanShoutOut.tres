@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://biba6ujiavvke"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_aesfr"]
+[ext_resource type="Texture2D" uid="uid://w8pb68ynvq7a" path="res://Assets/Laptop/MediaImages/Blond.jpg" id="1_cmw3b"]
+[ext_resource type="Texture2D" uid="uid://ca4j6r67l0nvv" path="res://Assets/Laptop/MediaImages/Channel Orange.png" id="2_q5kcu"]
+
+[resource]
+script = ExtResource("1_aesfr")
+account = "KanyeWestFan2001"
+description = "Shout out to Frank Ocean for having these banger albums"
+likes = 37
+a_friend_liked = true
+friend_liked = "TheBigJ"
+images = Array[Texture2D]([ExtResource("1_cmw3b"), ExtResource("2_q5kcu")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

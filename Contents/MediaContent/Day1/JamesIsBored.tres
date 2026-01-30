@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://b8lhealnhjypk"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_2bkhi"]
+
+[resource]
+script = ExtResource("1_2bkhi")
+account = "James"
+description = "Mad bored in this house rn. Can yall suggest a hangout spot?"
+likes = 7
+friend_liked = ""
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

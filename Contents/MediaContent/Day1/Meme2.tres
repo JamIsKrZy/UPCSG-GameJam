@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://v5y0hpenjorg"]
+
+[ext_resource type="Texture2D" uid="uid://b5r3ulwp1f0k2" path="res://Assets/Laptop/MediaImages/avatar.jpg" id="1_fhdq5"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="2_h2w70"]
+
+[resource]
+script = ExtResource("2_h2w70")
+account = "Jey Reyes"
+description = "Bird Flu? Yeah I guess they do that"
+likes = 5
+a_friend_liked = true
+friend_liked = "James"
+images = Array[Texture2D]([ExtResource("1_fhdq5")])
+commented = true
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

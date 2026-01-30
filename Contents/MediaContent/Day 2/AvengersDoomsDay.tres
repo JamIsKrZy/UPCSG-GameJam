@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://chx142o8etf6v"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_7i54v"]
+[ext_resource type="Texture2D" uid="uid://bpnkxkc4ynrm0" path="res://Assets/Laptop/MediaImages/AvengersDoomsday.jpg" id="1_ge5nq"]
+
+[resource]
+script = ExtResource("1_7i54v")
+account = "Brian Goeff"
+description = "Discussion around Avengers: Doomsday continues to grow online, as fans speculate about returning characters, new threats, and how the film will escalate the scale of the Avengers storyline."
+likes = 9485
+a_friend_liked = true
+friend_liked = "TheBigJ"
+images = Array[Texture2D]([ExtResource("1_ge5nq")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

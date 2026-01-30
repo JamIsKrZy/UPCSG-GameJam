@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=2 format=3 uid="uid://bv0lfxfrlvhhc"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_h4137"]
+
+[resource]
+script = ExtResource("1_h4137")
+account = "Jey Reyes"
+description = "I just heard from a friend of mine they are currently fighting for their life. I wish them the best."
+likes = 12
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

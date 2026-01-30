@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=3 format=3 uid="uid://c23aaredpkw2f"]
+
+[ext_resource type="Texture2D" uid="uid://uo3ou468ndcr" path="res://Assets/Laptop/MediaImages/Boy.png" id="1_1y8ys"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_al8q6"]
+
+[resource]
+script = ExtResource("1_al8q6")
+account = "TheBigJ"
+description = "Should I shave the beard or keep it?"
+likes = 67
+a_friend_liked = true
+friend_liked = "James"
+images = Array[Texture2D]([ExtResource("1_1y8ys")])
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"

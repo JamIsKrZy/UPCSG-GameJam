@@ -569,17 +569,17 @@ fade_speed = 0.3
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -2.980148e-08, 0, 1, 0, 2.980148e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 1.3373561
+light_energy = 4.1084023
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 2.862
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(2.1076338, 0, 0, 0, 2.1076338, 0, 0, 0, 2.1076338, 0, 0.14721929, 0)
+transform = Transform3D(1.8133007, 0, 0, 0, 1.8133007, 0, 0, 0, 1.8133007, 0, -0.02097099, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.41703722
+frame_progress = 0.05074712
 
 [node name="Door-Entity02" type="Path3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5179007, 0.65, -1.697206)
@@ -635,18 +635,18 @@ speed = 1.5
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -5.960309e-08, 0, 1, 0, 5.960309e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.011535447
+light_energy = 4.9262094
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 5.9365788
 omni_attenuation = 2.942
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(1.5188702, 0, 0, 0, 1.5188702, 0, 0, 0, 1.5188702, 0, -0.18921699, 0)
+transform = Transform3D(1.5043361, 0, 0, 0, 1.5043361, 0, 0, 0, 1.5043361, 0, -0.19752224, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.2892057
+frame_progress = 0.9229153
 
 [node name="Node3D" type="Node3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.942868, 0.41281393)
@@ -854,12 +854,12 @@ offset_bottom = 112.0
 scale = Vector2(0.83, 0.83)
 mouse_filter = 2
 message_content = Array[ExtResource("39_opi7i")]([ExtResource("40_p4dtg"), ExtResource("41_r1jyl")])
-tree_node = NodePath("../../../System/TimeSystem")
+tree_node = NodePath("../../..")
 
 [node name="Lights&Cams" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.9983578, 0.05728618, 0, -0.05728618, 0.9983578, 0, 0.7718462, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.9992007, 0.039974328, 0, -0.039974328, 0.9992007, 0, 0.7718462, 1.7777451)
 top_level = true
 fov = 75.8
 

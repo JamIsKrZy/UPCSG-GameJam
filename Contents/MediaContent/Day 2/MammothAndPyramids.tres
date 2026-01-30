@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MediaContent" load_steps=4 format=3 uid="uid://b4ovep1jt1kyn"]
+
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="1_4m2vt"]
+[ext_resource type="Texture2D" uid="uid://biy1xaegscwn" path="res://Assets/Laptop/MediaImages/WoolyMammoth.jpg" id="1_ppty3"]
+[ext_resource type="Texture2D" uid="uid://do0xm0wmeiohy" path="res://Assets/Laptop/MediaImages/Pyramids.jpg" id="2_qbe7a"]
+
+[resource]
+script = ExtResource("1_4m2vt")
+account = "WeirdFacts_Man"
+description = "Did you know? The woolly mammoth was around when the pyramids were being built."
+likes = 25672
+a_friend_liked = true
+friend_liked = "Jebb"
+images = Array[Texture2D]([ExtResource("1_ppty3"), ExtResource("2_qbe7a")])
+shared = true
+done_by = "Jebb"
+metadata/_custom_type_script = "uid://bq8n05iyweuw0"
