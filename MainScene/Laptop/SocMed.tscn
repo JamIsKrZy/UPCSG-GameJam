@@ -1,22 +1,17 @@
-[gd_scene load_steps=33 format=3 uid="uid://bkxf238exoqs1"]
+[gd_scene load_steps=28 format=3 uid="uid://bkxf238exoqs1"]
 
 [ext_resource type="Script" uid="uid://dh0fokax25gmt" path="res://Script/LaptopLogic/SociaMedya.gd" id="1_sti4l"]
-[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="2_0kq8k"]
 [ext_resource type="Texture2D" uid="uid://8lte8o5xapvn" path="res://Assets/Laptop/AccountIcons/Speed.png" id="2_2ljg8"]
 [ext_resource type="Texture2D" uid="uid://d4ljtnnt3nqmk" path="res://Assets/Laptop/like_post.png" id="3_0ln7t"]
-[ext_resource type="Resource" uid="uid://d0wudi848j7ay" path="res://Contents/MediaContent/NonSense.tres" id="3_bm52x"]
-[ext_resource type="Resource" uid="uid://j3hiab7si2ln" path="res://Contents/MediaContent/Meme1.tres" id="4_bm52x"]
 [ext_resource type="Texture2D" uid="uid://cwcnym52l1bi4" path="res://Assets/Laptop/chat-box.png" id="4_q4qpn"]
 [ext_resource type="Texture2D" uid="uid://diortvtbdgvu" path="res://Assets/Laptop/share.png" id="5_0ln7t"]
-[ext_resource type="Resource" uid="uid://v5y0hpenjorg" path="res://Contents/MediaContent/Meme2.tres" id="5_pvx5g"]
-[ext_resource type="Resource" uid="uid://rd2aam1eg2i0" path="res://Contents/MediaContent/Reid.tres" id="6_4hnh7"]
 [ext_resource type="PackedScene" uid="uid://bftvopfwkaqmg" path="res://MainScene/Laptop/SocMedPost.tscn" id="6_hh2x1"]
 [ext_resource type="Texture2D" uid="uid://bmd0iiym78bp5" path="res://Assets/Laptop/social-media.png" id="6_q4qpn"]
 [ext_resource type="Script" uid="uid://q60v46ku88ct" path="res://Script/LaptopLogic/SocMedPost.gd" id="6_sti4l"]
 [ext_resource type="Texture2D" uid="uid://bimbm5u5cn6ks" path="res://Assets/Laptop/itpark.jpg" id="7_fcmk2"]
 [ext_resource type="Texture2D" uid="uid://r7iger5b0eqx" path="res://Assets/Laptop/taoist.jpg" id="8_0kq8k"]
-[ext_resource type="Texture2D" uid="uid://3farb36jp6k1" path="res://Assets/Laptop/latest-2006512497.svg" id="8_hh2x1"]
 [ext_resource type="Texture2D" uid="uid://djekg6r2kuapi" path="res://Assets/Laptop/diary.png" id="9_dlfxj"]
+[ext_resource type="Texture2D" uid="uid://0kabtcydej5" path="res://Assets/Laptop/AccountIcons/quokka.jpg" id="11_sti4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc2tr"]
 size = Vector2(512, 96)
@@ -83,7 +78,6 @@ font_color = Color(0.011087579, 0.011087578, 0.01108758, 1)
 [node name="SociaMedya" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_sti4l")
-test_post = Array[ExtResource("2_0kq8k")]([ExtResource("3_bm52x"), ExtResource("4_bm52x"), ExtResource("5_pvx5g"), ExtResource("6_4hnh7")])
 use_screen_boundaries = false
 boundary_margin = 3
 
@@ -506,7 +500,7 @@ offset_left = 0.3599987
 offset_top = -0.15200806
 offset_right = -0.12000275
 offset_bottom = 0.31999207
-texture = ExtResource("8_hh2x1")
+texture = ExtResource("11_sti4l")
 expand_mode = 1
 stretch_mode = 6
 

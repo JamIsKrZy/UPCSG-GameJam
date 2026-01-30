@@ -7,19 +7,19 @@ class_name LaptopSlot extends Control
 enum SlotState {LOCKED, IDLE, ACTIVE}
 
 signal locked_slot;
-signal interact_slot(is_active: bool); 
+signal interact_slot(is_active: bool);
 
 var state: SlotState = SlotState.IDLE
 
-func unhide_and_unlock():
+func unlock_slot():
 	state = SlotState.IDLE
 	texture_node.visible = true
-	
-	
+
+
 func hide_and_lock():
 	state = SlotState.LOCKED
 	texture_node.hide()
-	
+
 func is_active() -> bool:
 	return state == SlotState.ACTIVE
 
@@ -29,9 +29,7 @@ func lock_slot():
 
 func _on_mouse_entered() -> void:
 	if state == SlotState.LOCKED: return
-	
+
 	state = SlotState.ACTIVE if state == SlotState.IDLE else SlotState.IDLE
 	var is_active = state == SlotState.ACTIVE
 	interact_slot.emit(is_active)
-		
-	

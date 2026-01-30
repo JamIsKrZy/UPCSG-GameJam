@@ -13,6 +13,9 @@ class_name WindowEntityHandler extends Node
 @export_range(0.01,1.0,0.01) var __entity_02: float = 0.5
 @export_range(0.01,1.0,0.01) var __none: float = 0.5
 
+@export_group("Entity 02")
+@export var _tick_interval: float = 0.5
+
 @export_group("Entity Display Movement")
 @export var _01_target_position: Vector3
 
@@ -92,7 +95,7 @@ func _roll_spawn():
 				not _window_state.closed
 			)
 			entity_ref.entity_left.connect(_entity_left)
-			entity_ref.entity_attack.connect(_dummy_01_attack)
+			entity_ref.entity_attack.connect(_entity_01_attack)
 			self.set_physics_process(true)
 		EntityManager.Entity.ENTITY_02:
 			print("[ WindowEntityHandler ] Entity02 Spawned")
@@ -109,7 +112,7 @@ func _roll_spawn():
 				not _window_state.closed
 			)
 			entity_ref.entity_left.connect(_entity_left)
-			entity_ref.entity_attack.connect(_dummy_01_attack)
+			entity_ref.entity_attack.connect(_entity_02_attack)
 			self.set_physics_process(true)
 
 		_:
@@ -124,6 +127,22 @@ func _windows_closed(is_close: bool):
 			entity_ref.door_shut()
 		else:
 			entity_ref.door_open()
+
+
+var entity_01_attacked = false
+func _entity_01_attack():
+	if not entity_01_attacked:
+		entity_manager.entity_01_attack(_entity_01)
+		entity_01_attacked = true
+
+
+var time_interval: float
+func _entity_02_attack(delta: float):
+	time_interval -= delta
+	if time_interval <= 0.0:
+		entity_manager.entity_02_attack()
+		time_interval = _tick_interval
+
 
 func _dummy_01_attack():
 	self.set_physics_process(false)

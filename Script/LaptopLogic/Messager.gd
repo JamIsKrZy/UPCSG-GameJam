@@ -95,10 +95,21 @@ func new_message(thread: MessageThreadContent):
 
 	pass
 
+
+
+
+
 func _get_thread(thread: MessageThreadContent) -> RegisteredThread:
 	var id: int = person_id.get(thread.person,-1);
 	if id == -1: return null;
 	return registered_threads.get(id, null)
+
+
+
+
+
+
+
 
 # OPens the thread to the chat box
 func __open_thread(id: int):
@@ -111,6 +122,12 @@ func __open_thread(id: int):
 	_swap_chat_box(thread_data)
 
 	active_thread = thread_data
+
+
+
+
+
+
 
 func _empty_chat_box():
 	chat_box_texture.hide()
@@ -206,13 +223,20 @@ func _mouse_exited() -> void:
 	mouse_in = false
 
 
+
 class RegisteredThread:
+
+	const new_message_interval: float = 1.5
+
+	signal update_message()
 
 	var thread: MessageThreadContent
 	var node_thread: MassagerUserThread = null
 	var waiting_user: bool = false
 	var queue_message: MessageThreadContent = null
 
+	#  this is message to be proces by time
+	var process_message: MessageThreadContent
 
 	func _init(thread: MessageThreadContent, node: MassagerUserThread):
 		self.thread = thread
@@ -220,12 +244,30 @@ class RegisteredThread:
 
 		queue_message = thread.pop_waiting_messages()
 
+
+	# return false if no more message to process
+	func _process_one_message() -> bool:
+		if process_message.size == 0:
+			assert(false, "TODO")
+			# check if the top message chat waiting for user input
+			return false
+
+		var message = process_message.pop_message();
+		thread.append_chat(message)
+		return true
+
+		 
+
 	# This overwrites any queued messages
 	# Changing to new topic
 	# this need to process
-	func new_message():
+
+
+	# this only sorted the data not process
+	func new_message(append):
 		waiting_user = false
-		pass
+
+		var mess_q 
 
 	func reply():
 		# process the queue

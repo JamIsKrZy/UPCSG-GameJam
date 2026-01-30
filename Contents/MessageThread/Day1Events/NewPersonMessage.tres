@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TimeBoundMessageThread" load_steps=2 format=3 uid="uid://bgl3c0i54oj2x"]
+
+[ext_resource type="Script" uid="uid://doc7mxuk0gmuw" path="res://Script/Resource/Content/TimeBoundMessageThread.gd" id="1_2l0yu"]
+
+[resource]
+script = ExtResource("1_2l0yu")
+metadata/_custom_type_script = "uid://doc7mxuk0gmuw"
