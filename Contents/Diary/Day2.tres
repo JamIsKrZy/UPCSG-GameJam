@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DiaryContent" load_steps=2 format=3 uid="uid://blois4d1gjf0h"]
+
+[ext_resource type="Script" uid="uid://8xn623se2apo" path="res://Script/Resource/Content/DiaryContent.gd" id="1_7be73"]
+
+[resource]
+script = ExtResource("1_7be73")
+content = "Log #78
+
+
+The reason i started this diary is because i know for sure im not feeling so well that i might actually. 
+
+
+I at least want to leave a presence and hopefully be picked up by anyone that i exist or something. Or am I that delusional
+
+
+[End of Log]"
+metadata/_custom_type_script = "uid://8xn623se2apo"

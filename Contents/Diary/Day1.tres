@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="DiaryContent" load_steps=2 format=3 uid="uid://8esd05ddkbsu"]
+
+[ext_resource type="Script" uid="uid://8xn623se2apo" path="res://Script/Resource/Content/DiaryContent.gd" id="1_xcchg"]
+
+[resource]
+script = ExtResource("1_xcchg")
+content = "Log #31
+
+Days have been too fuzzy, i dont exactly remember what  i was doing but woke up in my bedroom. I even thought I was late to my class but it's the weekend. Im wondering where my things are, my notebook, textbook but my phone was still in it. What really happened in the past few days. Did I get hit by a ball or something in my head? 
+
+Waiitttt!!!         ^1             .\\            ^c^x              \\
+I just missed a game with my pals. I missed the chance to rank up with them. They are cracked though, especially Riley who always carries whenever who plays with him. ahhhh what a wasteee
+
+Ohhh I'll just write down my missed log entry in this log. 
+I found this awesome accessory I found in an antique shop. Full of weird and interesting things but it got us all laughing. .Then riley accidentally broke something, i dont know what it was but riley ran outside as i heard a shattering of glasses. I ran after I heard it and thought of never going back to that store again. Ill find another amusing store as that one hahaha
+
+
+Kinda feeling a bit dizzy and heavy right now. just laying in bed :P. 
+
+Im kinda worried about what made me into this state. Or did I just sleep throughout the day XD. I better ask my parents what happened. They are not at home today but I expect dad will be home later. 
+
+I also did not write this in the logs. 
+Mom told me that her and dad will have different working hours. Dad will work in the day shift, then mom in the night shift. It would be very hard to live without mom at night. either me or dad will cook dinner and breakfast. I gotta admin 
+WE SUCK AT COOKING!!!
+I could tell by the eyes that we are not pleased on our cooking skills. Thats why i would go for simple cooking like eggs and noodles.
+
+[End of Entry]
+"
+metadata/_custom_type_script = "uid://8xn623se2apo"

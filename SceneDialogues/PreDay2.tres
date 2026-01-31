@@ -1,22 +1,94 @@
-[gd_resource type="Resource" script_class="ScriptResource" load_steps=5 format=3 uid="uid://drqrh050hlhii"]
+[gd_resource type="Resource" script_class="ScriptResource" load_steps=17 format=3 uid="uid://drqrh050hlhii"]
 
 [ext_resource type="Script" uid="uid://huxqpaeq4ys5" path="res://Script/Resource/LineResource.gd" id="1_cii8e"]
 [ext_resource type="Script" uid="uid://dhpv8jclo7bcp" path="res://Script/Resource/ScriptResource.gd" id="2_dk427"]
 
 [sub_resource type="Resource" id="Resource_cii8e"]
 script = ExtResource("1_cii8e")
-line = "Sample Line 1"
+line = "Welp..   "
 set_color = false
 metadata/_custom_type_script = "uid://huxqpaeq4ys5"
 
 [sub_resource type="Resource" id="Resource_dk427"]
 script = ExtResource("1_cii8e")
-line = "Sample Line 2
+line = "Things have turned how i less expect
 "
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_phyoo"]
+script = ExtResource("1_cii8e")
+line = "I dont know"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_rsoie"]
+script = ExtResource("1_cii8e")
+line = "I can only feel is"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_042hc"]
+script = ExtResource("1_cii8e")
+line = "My chest"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_x4qwy"]
+script = ExtResource("1_cii8e")
+line = "heavier than before"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_8l3oy"]
+script = ExtResource("1_cii8e")
+line = "It's not painful but there’s weight"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_aw2xh"]
+script = ExtResource("1_cii8e")
+line = "I…."
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_yp5to"]
+script = ExtResource("1_cii8e")
+line = "I cant"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_wvo1j"]
+script = ExtResource("1_cii8e")
+line = "I cant"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_5lu3g"]
+script = ExtResource("1_cii8e")
+line = "cant"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_ev4p3"]
+script = ExtResource("1_cii8e")
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_shr73"]
+script = ExtResource("1_cii8e")
+line = "Hoping it will pass
+"
+set_color = false
+metadata/_custom_type_script = "uid://huxqpaeq4ys5"
+
+[sub_resource type="Resource" id="Resource_cwwk7"]
+script = ExtResource("1_cii8e")
+line = "… just as the usual day …"
 set_color = false
 metadata/_custom_type_script = "uid://huxqpaeq4ys5"
 
 [resource]
 script = ExtResource("2_dk427")
-lines = Array[ExtResource("1_cii8e")]([SubResource("Resource_cii8e"), SubResource("Resource_dk427")])
+lines = Array[ExtResource("1_cii8e")]([SubResource("Resource_cii8e"), SubResource("Resource_dk427"), SubResource("Resource_phyoo"), SubResource("Resource_rsoie"), SubResource("Resource_042hc"), SubResource("Resource_x4qwy"), SubResource("Resource_8l3oy"), SubResource("Resource_aw2xh"), SubResource("Resource_yp5to"), SubResource("Resource_wvo1j"), SubResource("Resource_5lu3g"), SubResource("Resource_ev4p3"), SubResource("Resource_shr73"), SubResource("Resource_cwwk7")])
 metadata/_custom_type_script = "uid://dhpv8jclo7bcp"

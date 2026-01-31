@@ -130,7 +130,7 @@ func _windows_closed(is_close: bool):
 
 
 var entity_01_attacked = false
-func _entity_01_attack():
+func _entity_01_attack(_delta):
 	if not entity_01_attacked:
 		entity_manager.entity_01_attack(_entity_01)
 		entity_01_attacked = true

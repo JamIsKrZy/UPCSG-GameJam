@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=4 uid="uid://bdkqsfpb88jde"]
+[gd_scene load_steps=109 format=4 uid="uid://bdkqsfpb88jde"]
 
 [ext_resource type="Script" uid="uid://cqst0cvtv3stx" path="res://Script/Entity/Door-Entity01.gd" id="1_c6dua"]
 [ext_resource type="Script" uid="uid://w7cmxdl62j1d" path="res://Script/Entity/EntitySprites/Entity1Sprite.gd" id="2_voapc"]
@@ -59,6 +59,14 @@
 [ext_resource type="Script" uid="uid://n1bp3uja5r2" path="res://Script/Mechanics/EnitityManager.gd" id="57_lrxqn"]
 [ext_resource type="PackedScene" uid="uid://dlau8ypks1tdu" path="res://Assets/3DAsset/elias_chest_white_and_pine/Chest.tscn" id="58_ccmw2"]
 [ext_resource type="VideoStream" uid="uid://hdtkrv8nqpn0" path="res://Assets/Video/VideoAd.ogv" id="59_qouto"]
+
+[sub_resource type="GDScript" id="GDScript_c6dua"]
+script/source = "extends Node3D
+
+
+func _ready() -> void:
+	SceneChangeHandler.screen_fade_in()
+"
 
 [sub_resource type="Curve3D" id="Curve3D_aaaiw"]
 _data = {
@@ -551,6 +559,7 @@ font_size = 200
 font_color = Color(0.1313313, 0.046222955, 0.005682509, 1)
 
 [node name="DummyDay" type="Node3D"]
+script = SubResource("GDScript_c6dua")
 
 [node name="MovingObjects" type="Node" parent="."]
 
@@ -559,7 +568,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 curve = SubResource("Curve3D_aaaiw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Door-Entity01"]
-transform = Transform3D(-0.99937963, 0, -0.03439427, 0, 1, 0, 0.03439427, 0, -0.99937963, -4.1971936, 0, -6.819669)
+transform = Transform3D(-0.99937934, 0, -0.034394264, 0, 1, 0, 0.034394264, 0, -0.99937934, -4.1971936, 0, -6.819669)
 progress = 0.49952653
 script = ExtResource("1_c6dua")
 
@@ -573,17 +582,17 @@ fade_speed = 0.3
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -2.980148e-08, 0, 1, 0, 2.980148e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.15543772
+light_energy = 0.28798226
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 2.862
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(2.022137, 0, 0, 0, 2.022137, 0, 0, 0, 2.022137, 0, 0.098363906, 0)
+transform = Transform3D(2.0139873, 0, 0, 0, 2.0139873, 0, 0, 0, 2.0139873, 0, 0.09370701, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.39892238
+frame_progress = 0.87394434
 
 [node name="Door-Entity02" type="Path3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5179007, 0.65, -1.697206)
@@ -639,18 +648,18 @@ speed = 1.5
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -5.960309e-08, 0, 1, 0, 5.960309e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.019711398
+light_energy = 1.0903479
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 5.9365788
 omni_attenuation = 2.942
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(2.0939655, 0, 0, 0, 2.0939655, 0, 0, 0, 2.0939655, 0, 0.13940892, 0)
+transform = Transform3D(2.110473, 0, 0, 0, 2.110473, 0, 0, 0, 2.110473, 0, 0.14884163, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.27109542
+frame_progress = 0.7461226
 
 [node name="Node3D" type="Node3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.942868, 0.41281393)
@@ -743,8 +752,10 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/Door" node_paths=PackedStringArray("_door_state", "entity_01", "entity_02", "entity_manager")]
 script = ExtResource("27_uyfoo")
-__entity_01 = 0.43
-__entity_02 = 0.32
+spawn_cooldown = Vector2(7, 13)
+interval = Vector2(7, 10)
+__entity_01 = 0.52
+__entity_02 = 0.45
 __none = 0.79
 _door_state = NodePath("../Controller")
 entity_01 = NodePath("../../../MovingObjects/Door-Entity01/PathFollow3D")
@@ -770,9 +781,9 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/Window" node_paths=PackedStringArray("_window_state", "_entity_01", "_entity_02", "entity_manager")]
 script = ExtResource("30_una2o")
-disable = true
-__entity_01 = 0.45
-__entity_02 = 0.31
+spawn_cooldown = Vector2(7, 10)
+__entity_01 = 0.62
+__entity_02 = 0.52
 __none = 0.76
 _window_state = NodePath("../Controller")
 _entity_01 = NodePath("../../../MovingObjects/Window-Entity01/PathFollow3D")
@@ -801,8 +812,9 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/TV" node_paths=PackedStringArray("_tv_state", "entity_manager")]
 script = ExtResource("33_3ps5p")
-disable = true
-__entity_404 = 0.35000000000000003
+interval = Vector2(7, 14)
+reactivate_interval = Vector2(10, 14)
+__entity_404 = 0.5700000000000001
 __none = 0.71
 _tv_state = NodePath("../Controller")
 entity_manager = NodePath("../../../System/EntityManager")
@@ -862,7 +874,7 @@ tree_node = NodePath("../../../System/TimeSystem")
 [node name="Lights&Cams" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.9992841, 0.037830338, 0, -0.037830338, 0.9992841, 0, 0.7718462, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.997456, 0.07128412, 0, -0.07128412, 0.997456, 0, 0.7718462, 1.7777451)
 top_level = true
 fov = 75.8
 
@@ -974,6 +986,7 @@ laptop = NodePath("../../MouseListener/LaptopContainer/MainLaptop")
 clock_label = NodePath("../../ViewPorts/SubViewport2/Control/Label")
 
 [node name="Debugerr" parent="System" node_paths=PackedStringArray("door", "window", "tv", "door_entity", "tv_entity", "window_entity", "player_state", "room_state", "time_state") instance=ExtResource("56_cn82s")]
+visible = false
 door = NodePath("../../Interactables/Door/Controller")
 window = NodePath("../../Interactables/Window/Controller")
 tv = NodePath("../../Interactables/TV/Controller")

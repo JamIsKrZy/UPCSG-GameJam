@@ -35,5 +35,5 @@ metadata/_custom_type_script = "uid://dy73hp4ke0fm5"
 [resource]
 script = ExtResource("1_2l0yu")
 content = SubResource("Resource_l3i36")
-minute = 32
+minute = 50
 metadata/_custom_type_script = "uid://doc7mxuk0gmuw"

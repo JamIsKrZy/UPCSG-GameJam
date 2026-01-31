@@ -1,8 +1,7 @@
 class_name MainLaptop extends TextureRect
 
 signal entity_404()
-@export var progression_list: Array[int] = []
-
+@export var type_ms: float = 0.1
 @export var media_limit: int = -1;
 
 @export_category("Contents")
@@ -23,7 +22,8 @@ func _ready() -> void:
 	if not disable_assertion: assert(tree_node)
 	assert(diaary)
 	assert(sociamedya)
-
+	
+	diaary.type_per_ms = type_ms
 	messager.supply_tree_node(tree_node)
 
 	messager.ready_messages(message_content)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://d32dvb8lpsacp"]
+[gd_scene load_steps=141 format=4 uid="uid://d32dvb8lpsacp"]
 
 [ext_resource type="Script" uid="uid://cqst0cvtv3stx" path="res://Script/Entity/Door-Entity01.gd" id="1_pbl47"]
 [ext_resource type="Script" uid="uid://w7cmxdl62j1d" path="res://Script/Entity/EntitySprites/Entity1Sprite.gd" id="2_x5xiv"]
@@ -39,26 +39,58 @@
 [ext_resource type="PackedScene" uid="uid://7cyeq0hpfw24" path="res://Prototype/ListenBoard.tscn" id="37_1a8k8"]
 [ext_resource type="PackedScene" uid="uid://wnblk824usty" path="res://MainScene/Laptop/MainLaptop.tscn" id="38_xt7bk"]
 [ext_resource type="Script" uid="uid://dy73hp4ke0fm5" path="res://Script/Resource/Content/MessageThreadContent.gd" id="39_c7mrk"]
+[ext_resource type="Script" uid="uid://bq8n05iyweuw0" path="res://Script/Resource/Content/MediaContent.gd" id="39_u3oif"]
 [ext_resource type="Resource" uid="uid://c1t0dphviwyhr" path="res://Contents/MessageThread/Juli Mantao.tres" id="40_bp3v0"]
+[ext_resource type="Resource" uid="uid://3cq7kc0mrgwv" path="res://Contents/MediaContent/Day1/Balding.tres" id="40_fe6ln"]
 [ext_resource type="Resource" uid="uid://blvegwy7407hi" path="res://Contents/MessageThread/Jacob.tres" id="41_1ptag"]
+[ext_resource type="Resource" uid="uid://c23aaredpkw2f" path="res://Contents/MediaContent/Day1/BeardGrowth.tres" id="41_vr0so"]
+[ext_resource type="Resource" uid="uid://ckxorj7bk0ap1" path="res://Contents/MediaContent/Day1/BullyAlbum.tres" id="42_4lm5p"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="42_pjssd"]
+[ext_resource type="Resource" uid="uid://b0w80k5kraa8x" path="res://Contents/MediaContent/Day1/CebuEarthQuake.tres" id="43_4coev"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="43_bp5bq"]
+[ext_resource type="Resource" uid="uid://dcyq2rranohrg" path="res://Contents/MediaContent/Day1/ClimateIssues.tres" id="44_1a8k8"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="44_ayu6e"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="45_njxa4"]
+[ext_resource type="Resource" uid="uid://d05u2i1xh4unf" path="res://Contents/MediaContent/Day1/CowFunFact.tres" id="45_xt7bk"]
+[ext_resource type="Resource" uid="uid://br2jfbvl488xf" path="res://Contents/MediaContent/Day1/DangVenus.tres" id="46_c7mrk"]
 [ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="46_jnmwy"]
 [ext_resource type="Shader" uid="uid://ctn0lur6l7dxj" path="res://Shader/Sky.gdshader" id="47_0lc4f"]
+[ext_resource type="Resource" uid="uid://s526xld43fg5" path="res://Contents/MediaContent/Day1/Deforestation.tres" id="47_bp3v0"]
+[ext_resource type="Resource" uid="uid://c0631wkwyfsi" path="res://Contents/MediaContent/Day1/DoomsDayClock.tres" id="48_1ptag"]
 [ext_resource type="PackedScene" uid="uid://ckk4s6gjgqv5j" path="res://MainScene/SubScene/PostProcessor.tscn" id="48_kn2ua"]
 [ext_resource type="PackedScene" uid="uid://cgvdxe0pib63y" path="res://Assets/3DAsset/vintage_sofa/scene.gltf" id="49_hrvc5"]
+[ext_resource type="Resource" uid="uid://biba6ujiavvke" path="res://Contents/MediaContent/Day1/FrankOceanShoutOut.tres" id="49_pjssd"]
+[ext_resource type="Resource" uid="uid://dqbwdetml06d0" path="res://Contents/MediaContent/Day1/GoatMan.tres" id="50_bp5bq"]
 [ext_resource type="Script" uid="uid://b0yjh4t0goaoa" path="res://Script/MainCameraBehaviour.gd" id="50_d76j8"]
+[ext_resource type="Resource" uid="uid://bfxsrf1cwxriv" path="res://Contents/MediaContent/Day1/HoseaMathews.tres" id="51_ayu6e"]
 [ext_resource type="Script" uid="uid://cpw1rcpnwcxk2" path="res://Script/Mechanics/RoomStats.gd" id="51_r3nhr"]
 [ext_resource type="Script" uid="uid://cc0bgrwy122ai" path="res://Script/Mechanics/PlayerStats.gd" id="52_632kt"]
+[ext_resource type="Resource" uid="uid://bklm3gh4jmimf" path="res://Contents/MediaContent/Day1/IMissTheOldKanye.tres" id="52_njxa4"]
 [ext_resource type="Script" uid="uid://d7mbaterk8d5" path="res://Script/Mechanics/TimeElapsed.gd" id="53_j8yah"]
+[ext_resource type="Resource" uid="uid://cjaq10oneop6q" path="res://Contents/MediaContent/Day1/IShouldGoOnAHike.tres" id="53_jnmwy"]
+[ext_resource type="Resource" uid="uid://b8lhealnhjypk" path="res://Contents/MediaContent/Day1/JamesIsBored.tres" id="54_0lc4f"]
 [ext_resource type="Script" uid="uid://doc7mxuk0gmuw" path="res://Script/Resource/Content/TimeBoundMessageThread.gd" id="54_nr60m"]
 [ext_resource type="Resource" uid="uid://bgl3c0i54oj2x" path="res://Contents/MessageThread/Day1Events/NewPersonMessage.tres" id="55_fro0h"]
+[ext_resource type="Resource" uid="uid://c7fk2ty7duwud" path="res://Contents/MediaContent/Day1/JapanTrip.tres" id="55_kn2ua"]
 [ext_resource type="PackedScene" uid="uid://snqvdh8kv1v2" path="res://Prototype/Debugerr.tscn" id="56_1fon2"]
+[ext_resource type="Resource" uid="uid://ba1h5c3c27drg" path="res://Contents/MediaContent/Day1/Jebb.tres" id="56_hrvc5"]
+[ext_resource type="Resource" uid="uid://k42l1ul2o55b" path="res://Contents/MediaContent/Day1/KingOfHearts.tres" id="57_d76j8"]
 [ext_resource type="Script" uid="uid://n1bp3uja5r2" path="res://Script/Mechanics/EnitityManager.gd" id="57_vtd1v"]
 [ext_resource type="PackedScene" uid="uid://dlau8ypks1tdu" path="res://Assets/3DAsset/elias_chest_white_and_pine/Chest.tscn" id="58_81u46"]
+[ext_resource type="Resource" uid="uid://j3hiab7si2ln" path="res://Contents/MediaContent/Day1/Meme1.tres" id="58_r3nhr"]
+[ext_resource type="Resource" uid="uid://v5y0hpenjorg" path="res://Contents/MediaContent/Day1/Meme2.tres" id="59_632kt"]
 [ext_resource type="VideoStream" uid="uid://hdtkrv8nqpn0" path="res://Assets/Video/VideoAd.ogv" id="59_upiuc"]
+[ext_resource type="Resource" uid="uid://b4s8ppxoor6ms" path="res://Contents/MediaContent/Day1/NewCafeSpot.tres" id="60_j8yah"]
+[ext_resource type="Resource" uid="uid://cr4dpadeeiuai" path="res://Contents/MediaContent/Day1/NewPhoneCase.tres" id="61_nr60m"]
+[ext_resource type="Resource" uid="uid://d0wudi848j7ay" path="res://Contents/MediaContent/Day1/NonSense.tres" id="62_fro0h"]
+[ext_resource type="Resource" uid="uid://cf8bu0eovhp30" path="res://Contents/MediaContent/Day1/Rain.tres" id="63_1fon2"]
+[ext_resource type="Resource" uid="uid://rd2aam1eg2i0" path="res://Contents/MediaContent/Day1/Reid.tres" id="64_vtd1v"]
+[ext_resource type="Resource" uid="uid://b430y7b6fh7mw" path="res://Contents/MediaContent/Day1/RPG.tres" id="65_81u46"]
+[ext_resource type="Resource" uid="uid://dfh6fl7s2tnds" path="res://Contents/MediaContent/Day1/Skater.tres" id="66_upiuc"]
+[ext_resource type="Resource" uid="uid://cd84is0q6xrtk" path="res://Contents/MediaContent/Day1/StrangerFromTheNet.tres" id="67_88we0"]
+[ext_resource type="Resource" uid="uid://b11dvptic6jxb" path="res://Contents/MediaContent/Day1/TrumpNews.tres" id="68_43p7r"]
+[ext_resource type="Resource" uid="uid://dwwset4si6bw6" path="res://Contents/MediaContent/Day1/VanDerLinde.tres" id="69_wmbia"]
+[ext_resource type="Resource" uid="uid://8esd05ddkbsu" path="res://Contents/Diary/Day1.tres" id="73_fe6ln"]
 
 [sub_resource type="GDScript" id="GDScript_pbl47"]
 script/source = "extends Node3D
@@ -567,7 +599,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 curve = SubResource("Curve3D_aaaiw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MovingObjects/Door-Entity01"]
-transform = Transform3D(-0.9993793, 0, -0.03439426, 0, 1, 0, 0.03439426, 0, -0.9993793, -4.1971936, 0, -6.819669)
+transform = Transform3D(-0.999379, 0, -0.03439425, 0, 1, 0, 0.03439425, 0, -0.999379, -4.1971936, 0, -6.819669)
 progress = 0.49952653
 script = ExtResource("1_pbl47")
 
@@ -581,17 +613,17 @@ fade_speed = 0.3
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -2.980148e-08, 0, 1, 0, 2.980148e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.12319503
+light_energy = 0.15957473
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 2.862
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Door-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(2.0541008, 0, 0, 0, 2.0541008, 0, 0, 0, 2.0541008, 0, 0.116629004, 0)
+transform = Transform3D(1.6038105, 0, 0, 0, 1.6038105, 0, 0, 0, 1.6038105, 0, -0.14067969, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.04162356
+frame_progress = 0.869147
 
 [node name="Door-Entity02" type="Path3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5179007, 0.65, -1.697206)
@@ -647,18 +679,18 @@ speed = 1.5
 [node name="Light" type="OmniLight3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
 transform = Transform3D(1, 0, -5.960309e-08, 0, 1, 0, 5.960309e-08, 0, 1, 0, 0, 0)
 light_color = Color(0.89886194, 0.221602, 0.3018036, 1)
-light_energy = 0.27604473
+light_energy = 0.21738209
 light_specular = 1.085
 shadow_enabled = true
 omni_range = 5.9365788
 omni_attenuation = 2.942
 
 [node name="Sprite" type="AnimatedSprite3D" parent="MovingObjects/Window-Entity01/PathFollow3D/Entity"]
-transform = Transform3D(2.0581484, 0, 0, 0, 2.0581484, 0, 0, 0, 2.0581484, 0, 0.11894189, 0)
+transform = Transform3D(1.527703, 0, 0, 0, 1.527703, 0, 0, 0, 1.527703, 0, -0.18416971, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tlt85")
-frame_progress = 0.91379595
+frame_progress = 0.74131656
 
 [node name="Node3D" type="Node3D" parent="MovingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.942868, 0.41281393)
@@ -778,9 +810,8 @@ call_objects = [NodePath("Controller")]
 
 [node name="EntityHandler" type="Node" parent="Interactables/Window" node_paths=PackedStringArray("_window_state", "_entity_01", "_entity_02", "entity_manager")]
 script = ExtResource("30_11fbe")
-disable = true
-__entity_01 = 0.45
-__entity_02 = 0.31
+__entity_01 = 0.21000000000000002
+__entity_02 = 0.18000000000000002
 __none = 0.76
 _window_state = NodePath("../Controller")
 _entity_01 = NodePath("../../../MovingObjects/Window-Entity01/PathFollow3D")
@@ -810,7 +841,7 @@ call_objects = [NodePath("Controller")]
 [node name="EntityHandler" type="Node" parent="Interactables/TV" node_paths=PackedStringArray("_tv_state", "entity_manager")]
 script = ExtResource("33_fe6ln")
 disable = true
-__entity_404 = 0.35000000000000003
+__entity_404 = 0.22
 __none = 0.71
 _tv_state = NodePath("../Controller")
 entity_manager = NodePath("../../../System/EntityManager")
@@ -864,13 +895,15 @@ offset_right = 191.61597
 offset_bottom = 112.0
 scale = Vector2(0.83, 0.83)
 mouse_filter = 2
+media_contents = Array[ExtResource("39_u3oif")]([ExtResource("40_fe6ln"), ExtResource("41_vr0so"), ExtResource("42_4lm5p"), ExtResource("43_4coev"), ExtResource("44_1a8k8"), ExtResource("45_xt7bk"), ExtResource("46_c7mrk"), ExtResource("47_bp3v0"), ExtResource("48_1ptag"), ExtResource("49_pjssd"), ExtResource("50_bp5bq"), ExtResource("51_ayu6e"), ExtResource("52_njxa4"), ExtResource("53_jnmwy"), ExtResource("54_0lc4f"), ExtResource("55_kn2ua"), ExtResource("56_hrvc5"), ExtResource("57_d76j8"), ExtResource("58_r3nhr"), ExtResource("59_632kt"), ExtResource("60_j8yah"), ExtResource("61_nr60m"), ExtResource("62_fro0h"), ExtResource("63_1fon2"), ExtResource("64_vtd1v"), ExtResource("65_81u46"), ExtResource("66_upiuc"), ExtResource("67_88we0"), ExtResource("68_43p7r"), ExtResource("69_wmbia")])
 message_content = Array[ExtResource("39_c7mrk")]([ExtResource("40_bp3v0"), ExtResource("41_1ptag")])
+diary_content = ExtResource("73_fe6ln")
 tree_node = NodePath("../../../System/TimeSystem")
 
 [node name="Lights&Cams" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Lights&Cams"]
-transform = Transform3D(1, 0, 0, 0, 0.99923635, 0.03907235, 0, -0.03907235, 0.99923635, 0, 0.7718462, 1.7777451)
+transform = Transform3D(1, 0, 0, 0, 0.998423, 0.056137268, 0, -0.056137268, 0.998423, 0, 0.7718462, 1.7777451)
 top_level = true
 fov = 75.8
 
@@ -972,15 +1005,17 @@ script = ExtResource("53_j8yah")
 start_hour = 5
 start_minute = 30
 end_hour = 10
-end_minute = 40
+end_minute = 30
 delta_time_ms = 1.0
 messages = Array[ExtResource("54_nr60m")]([ExtResource("55_fro0h")])
 sun = NodePath("../../Lights&Cams/DirectionalLight3D")
+_from = -4.0
 _to = 72.0
 laptop = NodePath("../../MouseListener/LaptopContainer/MainLaptop")
 clock_label = NodePath("../../ViewPorts/SubViewport2/Control/Label")
 
 [node name="Debugerr" parent="System" node_paths=PackedStringArray("door", "window", "tv", "door_entity", "tv_entity", "window_entity", "player_state", "room_state", "time_state") instance=ExtResource("56_1fon2")]
+visible = false
 door = NodePath("../../Interactables/Door/Controller")
 window = NodePath("../../Interactables/Window/Controller")
 tv = NodePath("../../Interactables/TV/Controller")
